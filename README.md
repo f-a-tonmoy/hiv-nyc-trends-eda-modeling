@@ -2,7 +2,6 @@
 
 📊 Analysis of HIV and AIDS diagnosis trends in New York City using NYC Open Data, with a focus on temporal patterns, geographic disparities, and demographic differences. The project applies exploratory data analysis, statistical testing, and machine learning models to better understand persistent public health inequities.
 
----
 
 ## 📌 Overview
 
@@ -16,7 +15,6 @@ This project aims to:
 
 The analysis is intended to support data-driven public health insights rather than clinical prediction.
 
----
 
 ## 🗂️ Data Source
 
@@ -33,7 +31,6 @@ The analysis is intended to support data-driven public health insights rather th
   - AIDS diagnoses
   - Concurrent HIV/AIDS diagnoses (late-stage detection)
 
----
 
 ## 🧹 Data Preparation
 
@@ -46,7 +43,6 @@ Key preprocessing steps included:
 
 The final dataset is analysis-ready and suitable for statistical modeling and machine learning.
 
----
 
 ## 📊 Exploratory Data Analysis (EDA)
 
@@ -67,7 +63,6 @@ EDA was conducted across three primary dimensions.
 - Black and Latino/Hispanic populations experience the highest burden  
 - Disparities persist across nearly all boroughs and years  
 
----
 
 ## 📐 Statistical Analysis
 
@@ -82,7 +77,6 @@ The following hypothesis tests were performed:
 - **Two-sample t-test (Welch)**  
   Assessed whether Queens had a higher proportion of concurrent HIV/AIDS diagnoses compared to higher-burden boroughs.
 
----
 
 ## 🤖 Modeling
 
@@ -106,7 +100,6 @@ The following hypothesis tests were performed:
 
 Predicting AIDS diagnosis rates proved more challenging, with lower R² values across all models.
 
----
 
 ## 🔍 Key Findings
 
@@ -116,7 +109,6 @@ Predicting AIDS diagnosis rates proved more challenging, with lower R² values a
 - Neighborhood-level variation explains more than borough-level averages  
 - Tree-based models outperform linear models for this dataset’s structure  
 
----
 
 ## ⚠️ Limitations
 
@@ -125,7 +117,6 @@ Predicting AIDS diagnosis rates proved more challenging, with lower R² values a
 - Surveillance data reflects reporting practices rather than random sampling  
 - Models underperform for rare, high-rate neighborhoods  
 
----
 
 ## 🚀 Future Work
 
@@ -135,7 +126,6 @@ Predicting AIDS diagnosis rates proved more challenging, with lower R² values a
 - Extend analysis with additional post-pandemic years  
 - Improve modeling of rare high-burden observations  
 
----
 
 ## 🛠️ Tools and Technologies
 
@@ -143,13 +133,11 @@ Predicting AIDS diagnosis rates proved more challenging, with lower R² values a
 - **Libraries:** tidyverse, ggplot2, rpart, randomForest, caret  
 - **Methods:** EDA, hypothesis testing, regression, decision trees, random forests, cross-validation
 
----
 
 ## 📄 Report
 
 A full written report with figures and detailed methodology is included in this repository.
 
----
 
 ## 👥 Authors
 
