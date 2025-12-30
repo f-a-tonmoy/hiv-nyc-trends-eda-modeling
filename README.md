@@ -1,4 +1,4 @@
-# HIV Trends in New York City (2016 - 2021)
+# HIV Trends in New York City (2016-2021)
 
 📊 Analysis of HIV and AIDS diagnosis trends in New York City using NYC Open Data, with a focus on temporal patterns, geographic disparities, and demographic differences. The project applies exploratory data analysis, statistical testing, and machine learning models to better understand persistent public health inequities.
 
@@ -144,3 +144,42 @@ A full written report with figures and detailed methodology is included in this 
 - Fahim Ahamed  
 - Anthony Sinopoli  
 - Fatima Nasyr
+
+## ▶️ How to Run
+
+### Prerequisites
+- R (version 4.0 or later)
+- RStudio (recommended)
+
+### Clone the Repository
+```bash
+git clone https://github.com/f-a-tonmoy/hiv-nyc-trends-eda-modeling.git
+cd hiv-nyc-trends-eda-modeling
+```
+
+### Install Required Packages
+
+Install the required R packages if they are not already installed:
+
+```r
+install.packages(c(
+  'tidyverse',
+  'ggplot2',
+  'caret',
+  'rpart',
+  'randomForest'
+))
+```
+
+### Run the Project
+
+1. **Open the project in RStudio**
+   - Open the R Markdown file(s)
+
+2. **Execute the analysis**
+   - Run the scripts sequentially, or  
+   - Knit the primary R Markdown file to reproduce the full analysis, figures, and tables
+
+3. **View results**
+   - Plots and tables will appear in the RStudio Viewer  
+   - Model outputs, statistical test results, and visualizations are included in the rendered report
