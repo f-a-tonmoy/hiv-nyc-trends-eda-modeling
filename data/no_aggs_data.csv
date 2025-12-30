@@ -1,0 +1,1393 @@
+YEAR,Borough,Neighborhood,SEX,RACE/ETHNICITY,TOTAL NUMBER OF HIV DIAGNOSES,"HIV DIAGNOSES PER 100,000 POPULATION",TOTAL NUMBER OF CONCURRENT HIV/AIDS DIAGNOSES,PROPORTION OF CONCURRENT HIV/AIDS DIAGNOSES AMONG ALL HIV DIAGNOSES,TOTAL NUMBER OF AIDS DIAGNOSES,"AIDS DIAGNOSES PER 100,000 POPULATION"
+2021,Bronx,Crotona - Tremont,Male,Asian/Pacific Islander,1,54.5,1,100,1,54.5
+2021,Bronx,Crotona - Tremont,Female,Black,11,44.9,2,18.2,15,61.2
+2021,Bronx,Crotona - Tremont,Male,Black,18,80.7,2,11.1,21,94.2
+2021,Bronx,Crotona - Tremont,Female,Latino/Hispanic,10,16.1,3,30,5,8
+2021,Bronx,Crotona - Tremont,Male,Latino/Hispanic,32,61.4,3,9.4,25,48
+2021,Bronx,Crotona - Tremont,Female,White,1,60.5,0,0,2,120.9
+2021,Bronx,Crotona - Tremont,Male,White,2,111.1,1,50,4,222.1
+2021,Bronx,Fordham - Bronx Park,Male,Asian/Pacific Islander,1,25,1,100,2,49.9
+2021,Bronx,Fordham - Bronx Park,Female,Black,7,28,2,28.6,12,47.9
+2021,Bronx,Fordham - Bronx Park,Male,Black,17,75.7,3,17.6,21,93.5
+2021,Bronx,Fordham - Bronx Park,Female,Latino/Hispanic,6,8,1,16.7,4,5.3
+2021,Bronx,Fordham - Bronx Park,Male,Latino/Hispanic,38,57.6,9,23.7,27,41
+2021,Bronx,Fordham - Bronx Park,Female,White,1,12.7,0,0,0,0
+2021,Bronx,High Bridge - Morrisania,Female,Black,9,29.6,0,0,6,19.7
+2021,Bronx,High Bridge - Morrisania,Male,Black,11,41.2,4,36.4,15,56.2
+2021,Bronx,High Bridge - Morrisania,Female,Latino/Hispanic,7,12,2,28.6,6,10.3
+2021,Bronx,High Bridge - Morrisania,Male,Latino/Hispanic,37,74.6,10,27,16,32.3
+2021,Bronx,High Bridge - Morrisania,Male,White,1,45.3,0,0,1,45.3
+2021,Bronx,Hunts Point - Mott Haven,Female,Black,3,18.4,1,33.3,7,42.9
+2021,Bronx,Hunts Point - Mott Haven,Male,Black,15,102.6,0,0,8,54.7
+2021,Bronx,Hunts Point - Mott Haven,Female,Latino/Hispanic,2,4.9,0,0,3,7.4
+2021,Bronx,Hunts Point - Mott Haven,Male,Latino/Hispanic,19,52.4,2,10.5,13,35.9
+2021,Bronx,Hunts Point - Mott Haven,Female,White,1,93.6,0,0,1,93.6
+2021,Bronx,Hunts Point - Mott Haven,Male,White,4,347.5,0,0,2,173.8
+2021,Bronx,Kingsbridge - Riverdale,Male,Black,2,48.2,1,50,2,48.2
+2021,Bronx,Kingsbridge - Riverdale,Female,Latino/Hispanic,2,10,0,0,1,5
+2021,Bronx,Kingsbridge - Riverdale,Male,Latino/Hispanic,8,51,0,0,0,0
+2021,Bronx,Northeast Bronx,Male,Asian/Pacific Islander,1,25.6,0,0,0,0
+2021,Bronx,Northeast Bronx,Female,Black,14,24.3,6,42.9,8,13.9
+2021,Bronx,Northeast Bronx,Male,Black,25,54.8,2,8,15,32.9
+2021,Bronx,Northeast Bronx,Female,Latino/Hispanic,3,11.9,0,0,3,11.9
+2021,Bronx,Northeast Bronx,Male,Latino/Hispanic,8,38.7,1,12.5,4,19.4
+2021,Bronx,Northeast Bronx,Male,Other/Unknown,1,80.6,0,0,0,0
+2021,Bronx,Northeast Bronx,Male,White,1,13.9,0,0,0,0
+2021,Bronx,Pelham - Throgs Neck,Male,Asian/Pacific Islander,2,18.1,1,50,1,9.1
+2021,Bronx,Pelham - Throgs Neck,Female,Black,8,29.4,1,12.5,4,14.7
+2021,Bronx,Pelham - Throgs Neck,Male,Black,14,61.1,6,42.9,16,69.8
+2021,Bronx,Pelham - Throgs Neck,Female,Latino/Hispanic,2,2.8,1,50,5,7
+2021,Bronx,Pelham - Throgs Neck,Male,Latino/Hispanic,20,32.3,2,10,9,14.6
+2021,Bronx,Pelham - Throgs Neck,Male,White,4,19.8,1,25,1,5
+2021,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Asian/Pacific Islander,3,61.4,0,0,1,20.5
+2021,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Black,9,9.3,2,22.2,13,13.5
+2021,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Black,73,98.4,20,27.4,40,53.9
+2021,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Latino/Hispanic,7,33.1,0,0,2,9.4
+2021,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Latino/Hispanic,15,87.2,3,20,6,34.9
+2021,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Other/Unknown,1,39.5,0,0,0,0
+2021,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,White,1,3.3,0,0,0,0
+2021,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,White,6,19.7,2,33.3,5,16.4
+2021,Brooklyn,Bensonhurst - Bay Ridge,Female,Asian/Pacific Islander,1,3.7,0,0,0,0
+2021,Brooklyn,Bensonhurst - Bay Ridge,Male,Asian/Pacific Islander,2,8,0,0,0,0
+2021,Brooklyn,Bensonhurst - Bay Ridge,Female,Black,1,51,0,0,0,0
+2021,Brooklyn,Bensonhurst - Bay Ridge,Male,Latino/Hispanic,1,7.1,0,0,1,7.1
+2021,Brooklyn,Bensonhurst - Bay Ridge,Female,White,2,4.1,1,50,1,2
+2021,Brooklyn,Borough Park,Female,Asian/Pacific Islander,1,3.1,1,100,1,3.1
+2021,Brooklyn,Borough Park,Male,Asian/Pacific Islander,2,6.2,1,50,1,3.1
+2021,Brooklyn,Borough Park,Female,Black,2,29.4,0,0,0,0
+2021,Brooklyn,Borough Park,Male,Black,5,88.5,0,0,2,35.4
+2021,Brooklyn,Borough Park,Male,Latino/Hispanic,1,5.8,0,0,0,0
+2021,Brooklyn,Borough Park,Female,White,1,1.3,0,0,0,0
+2021,Brooklyn,Borough Park,Male,White,3,4.2,0,0,1,1.4
+2021,Brooklyn,Canarsie - Flatlands,Female,Asian/Pacific Islander,1,19.2,0,0,0,0
+2021,Brooklyn,Canarsie - Flatlands,Female,Black,8,12.3,1,12.5,4,6.2
+2021,Brooklyn,Canarsie - Flatlands,Male,Black,16,33.1,3,18.8,7,14.5
+2021,Brooklyn,Canarsie - Flatlands,Female,Latino/Hispanic,1,10.6,1,100,1,10.6
+2021,Brooklyn,Canarsie - Flatlands,Male,Latino/Hispanic,3,41.5,0,0,0,0
+2021,Brooklyn,Canarsie - Flatlands,Male,White,1,6.1,0,0,0,0
+2021,Brooklyn,Coney Island - Sheepshead Bay,Male,Asian/Pacific Islander,5,21.4,1,20,1,4.3
+2021,Brooklyn,Coney Island - Sheepshead Bay,Female,Black,2,20.8,0,0,2,20.8
+2021,Brooklyn,Coney Island - Sheepshead Bay,Male,Black,5,79.3,0,0,4,63.5
+2021,Brooklyn,Coney Island - Sheepshead Bay,Female,Latino/Hispanic,2,13.7,0,0,1,6.8
+2021,Brooklyn,Coney Island - Sheepshead Bay,Male,Latino/Hispanic,2,14.6,0,0,3,21.9
+2021,Brooklyn,Coney Island - Sheepshead Bay,Female,White,1,1.2,0,0,2,2.4
+2021,Brooklyn,Coney Island - Sheepshead Bay,Male,White,8,11.1,3,37.5,5,6.9
+2021,Brooklyn,Downtown - Heights - Park Slope,Male,Asian/Pacific Islander,1,10.2,1,100,1,10.2
+2021,Brooklyn,Downtown - Heights - Park Slope,Female,Black,2,10.8,1,50,4,21.7
+2021,Brooklyn,Downtown - Heights - Park Slope,Male,Black,8,60.2,0,0,4,30.1
+2021,Brooklyn,Downtown - Heights - Park Slope,Female,Latino/Hispanic,1,5.5,0,0,1,5.5
+2021,Brooklyn,Downtown - Heights - Park Slope,Male,Latino/Hispanic,6,37.5,1,16.7,3,18.7
+2021,Brooklyn,Downtown - Heights - Park Slope,Male,White,4,6.2,0,0,1,1.6
+2021,Brooklyn,East Flatbush - Flatbush,Male,Asian/Pacific Islander,2,49.6,1,50,1,24.8
+2021,Brooklyn,East Flatbush - Flatbush,Female,Black,16,16.5,2,12.5,14,14.4
+2021,Brooklyn,East Flatbush - Flatbush,Male,Black,32,42.7,9,28.1,22,29.3
+2021,Brooklyn,East Flatbush - Flatbush,Female,Latino/Hispanic,1,7.2,0,0,2,14.4
+2021,Brooklyn,East Flatbush - Flatbush,Male,Latino/Hispanic,8,65.9,3,37.5,5,41.2
+2021,Brooklyn,East Flatbush - Flatbush,Female,Other/Unknown,1,34.7,0,0,0,0
+2021,Brooklyn,East Flatbush - Flatbush,Male,Other/Unknown,1,46.3,0,0,0,0
+2021,Brooklyn,East Flatbush - Flatbush,Male,White,3,14.5,0,0,1,4.8
+2021,Brooklyn,East New York,Male,Asian/Pacific Islander,1,23,0,0,0,0
+2021,Brooklyn,East New York,Female,Black,6,12.5,3,50,10,20.8
+2021,Brooklyn,East New York,Male,Black,30,80.2,5,16.7,15,40.1
+2021,Brooklyn,East New York,Female,Latino/Hispanic,2,6.5,1,50,3,9.7
+2021,Brooklyn,East New York,Male,Latino/Hispanic,15,54.9,5,33.3,7,25.6
+2021,Brooklyn,East New York,Male,White,3,91.5,1,33.3,2,61
+2021,Brooklyn,Greenpoint,Male,Asian/Pacific Islander,1,27.1,1,100,0,0
+2021,Brooklyn,Greenpoint,Female,Black,1,40.5,0,0,0,0
+2021,Brooklyn,Greenpoint,Male,Black,2,84.9,0,0,1,42.5
+2021,Brooklyn,Greenpoint,Male,Latino/Hispanic,3,23.3,1,33.3,2,15.5
+2021,Brooklyn,Greenpoint,Male,White,3,7.9,0,0,0,0
+2021,Brooklyn,Sunset Park,Male,Asian/Pacific Islander,2,11.5,0,0,0,0
+2021,Brooklyn,Sunset Park,Male,Black,1,51,0,0,0,0
+2021,Brooklyn,Sunset Park,Male,Latino/Hispanic,4,18.2,1,25,4,18.2
+2021,Brooklyn,Sunset Park,Male,White,1,10.8,0,0,0,0
+2021,Brooklyn,Williamsburg - Bushwick,Male,Asian/Pacific Islander,3,56.2,0,0,0,0
+2021,Brooklyn,Williamsburg - Bushwick,Female,Black,2,7.6,0,0,6,22.8
+2021,Brooklyn,Williamsburg - Bushwick,Male,Black,26,120.7,3,11.5,11,51.1
+2021,Brooklyn,Williamsburg - Bushwick,Female,Latino/Hispanic,1,2.6,0,0,2,5.1
+2021,Brooklyn,Williamsburg - Bushwick,Male,Latino/Hispanic,19,52.6,6,31.6,13,36
+2021,Brooklyn,Williamsburg - Bushwick,Male,Other/Unknown,2,139.4,1,50,1,69.7
+2021,Brooklyn,Williamsburg - Bushwick,Male,White,10,40.5,1,10,1,4.1
+2021,Manhattan,Central Harlem - Morningside Heights,Male,Asian/Pacific Islander,1,24.2,1,100,1,24.2
+2021,Manhattan,Central Harlem - Morningside Heights,Female,Black,6,14.5,0,0,7,16.9
+2021,Manhattan,Central Harlem - Morningside Heights,Male,Black,33,95.3,6,18.2,21,60.7
+2021,Manhattan,Central Harlem - Morningside Heights,Female,Latino/Hispanic,1,5,0,0,0,0
+2021,Manhattan,Central Harlem - Morningside Heights,Male,Latino/Hispanic,14,82.2,5,35.7,11,64.6
+2021,Manhattan,Central Harlem - Morningside Heights,Male,Other/Unknown,1,63,1,100,1,63
+2021,Manhattan,Central Harlem - Morningside Heights,Female,White,1,7.5,0,0,0,0
+2021,Manhattan,Central Harlem - Morningside Heights,Male,White,6,45.4,0,0,4,30.2
+2021,Manhattan,Chelsea - Clinton,Female,Asian/Pacific Islander,1,7.6,0,0,0,0
+2021,Manhattan,Chelsea - Clinton,Male,Asian/Pacific Islander,2,18.4,0,0,0,0
+2021,Manhattan,Chelsea - Clinton,Female,Black,1,32.1,0,0,0,0
+2021,Manhattan,Chelsea - Clinton,Male,Black,14,368.1,2,14.3,7,184
+2021,Manhattan,Chelsea - Clinton,Male,Latino/Hispanic,17,146.1,3,17.6,11,94.5
+2021,Manhattan,Chelsea - Clinton,Male,Other/Unknown,1,63.6,0,0,0,0
+2021,Manhattan,Chelsea - Clinton,Female,White,1,2.6,0,0,0,0
+2021,Manhattan,Chelsea - Clinton,Male,White,23,51.6,5,21.7,15,33.6
+2021,Manhattan,East Harlem,Male,Asian/Pacific Islander,1,23.9,0,0,0,0
+2021,Manhattan,East Harlem,Female,Black,4,25.6,1,25,5,31.9
+2021,Manhattan,East Harlem,Male,Black,13,101,3,23.1,4,31.1
+2021,Manhattan,East Harlem,Female,Latino/Hispanic,1,4.6,0,0,3,13.7
+2021,Manhattan,East Harlem,Male,Latino/Hispanic,11,55.3,3,27.3,9,45.2
+2021,Manhattan,East Harlem,Male,White,2,28.9,1,50,1,14.4
+2021,Manhattan,Gramercy Park - Murray Hill,Male,Asian/Pacific Islander,2,23.8,0,0,0,0
+2021,Manhattan,Gramercy Park - Murray Hill,Female,Black,1,39.1,0,0,0,0
+2021,Manhattan,Gramercy Park - Murray Hill,Male,Black,9,287.9,3,33.3,3,96
+2021,Manhattan,Gramercy Park - Murray Hill,Female,Latino/Hispanic,1,15.7,1,100,1,15.7
+2021,Manhattan,Gramercy Park - Murray Hill,Male,Latino/Hispanic,6,99.6,2,33.3,4,66.4
+2021,Manhattan,Gramercy Park - Murray Hill,Male,White,6,16.1,1,16.7,4,10.7
+2021,Manhattan,Greenwich Village - Soho,Female,Black,1,166.2,0,0,0,0
+2021,Manhattan,Greenwich Village - Soho,Male,Latino/Hispanic,1,32.3,0,0,0,0
+2021,Manhattan,Greenwich Village - Soho,Male,White,4,16.2,0,0,1,4
+2021,Manhattan,Lower Manhattan,Male,Black,2,131.2,1,50,2,131.2
+2021,Manhattan,Lower Manhattan,Male,White,2,12.9,0,0,1,6.4
+2021,Manhattan,Union Square - Lower East Side,Male,Asian/Pacific Islander,2,10.2,0,0,0,0
+2021,Manhattan,Union Square - Lower East Side,Male,Black,7,126.2,1,14.3,4,72.1
+2021,Manhattan,Union Square - Lower East Side,Male,Latino/Hispanic,6,40.1,2,33.3,3,20
+2021,Manhattan,Union Square - Lower East Side,Male,Other/Unknown,2,122.5,1,50,1,61.3
+2021,Manhattan,Union Square - Lower East Side,Male,White,4,11.1,1,25,5,13.9
+2021,Manhattan,Upper East Side,Male,Asian/Pacific Islander,2,22.6,1,50,1,11.3
+2021,Manhattan,Upper East Side,Female,Black,1,36,0,0,0,0
+2021,Manhattan,Upper East Side,Male,Black,6,249.1,2,33.3,3,124.6
+2021,Manhattan,Upper East Side,Male,Latino/Hispanic,4,47.5,1,25,1,11.9
+2021,Manhattan,Upper East Side,Female,White,1,1.3,0,0,1,1.3
+2021,Manhattan,Upper East Side,Male,White,6,10.1,1,16.7,3,5
+2021,Manhattan,Upper West Side,Female,Black,1,15.7,1,100,3,47.2
+2021,Manhattan,Upper West Side,Male,Black,9,182.9,1,11.1,6,121.9
+2021,Manhattan,Upper West Side,Female,Latino/Hispanic,1,6.1,0,0,0,0
+2021,Manhattan,Upper West Side,Male,Latino/Hispanic,3,21.8,0,0,2,14.5
+2021,Manhattan,Upper West Side,Male,White,8,13.7,1,12.5,1,1.7
+2021,Manhattan,Washington Heights - Inwood,Male,Asian/Pacific Islander,1,26.2,0,0,0,0
+2021,Manhattan,Washington Heights - Inwood,Female,Black,2,14.3,1,50,2,14.3
+2021,Manhattan,Washington Heights - Inwood,Male,Black,18,143.8,1,5.6,9,71.9
+2021,Manhattan,Washington Heights - Inwood,Female,Latino/Hispanic,5,6.7,1,20,3,4
+2021,Manhattan,Washington Heights - Inwood,Male,Latino/Hispanic,23,33.3,1,4.3,14,20.2
+2021,Manhattan,Washington Heights - Inwood,Male,White,5,21.9,0,0,1,4.4
+2021,Queens,Flushing - Clearview,Female,Asian/Pacific Islander,1,1.6,0,0,0,0
+2021,Queens,Flushing - Clearview,Male,Asian/Pacific Islander,3,5.4,1,33.3,3,5.4
+2021,Queens,Flushing - Clearview,Male,Black,3,161.2,0,0,0,0
+2021,Queens,Flushing - Clearview,Male,Latino/Hispanic,5,25.7,2,40,4,20.6
+2021,Queens,Flushing - Clearview,Male,White,1,3.4,0,0,2,6.9
+2021,Queens,Fresh Meadows,Male,Black,4,153.8,1,25,1,38.5
+2021,Queens,Fresh Meadows,Male,Latino/Hispanic,1,14.5,1,100,1,14.5
+2021,Queens,Jamaica,Male,Asian/Pacific Islander,5,16.9,1,20,1,3.4
+2021,Queens,Jamaica,Female,Black,14,17.6,6,42.9,10,12.6
+2021,Queens,Jamaica,Male,Black,21,32.7,5,23.8,12,18.7
+2021,Queens,Jamaica,Female,Latino/Hispanic,2,9,0,0,1,4.5
+2021,Queens,Jamaica,Male,Latino/Hispanic,12,53.5,3,25,8,35.7
+2021,Queens,Jamaica,Female,Other/Unknown,1,23,0,0,1,23
+2021,Queens,Jamaica,Male,White,3,29.8,1,33.3,1,9.9
+2021,Queens,Long Island City - Astoria,Male,Asian/Pacific Islander,4,25.7,1,25,3,19.3
+2021,Queens,Long Island City - Astoria,Female,Black,3,55,1,33.3,3,55
+2021,Queens,Long Island City - Astoria,Male,Black,6,133.9,1,16.7,5,111.6
+2021,Queens,Long Island City - Astoria,Female,Latino/Hispanic,2,9,1,50,3,13.6
+2021,Queens,Long Island City - Astoria,Male,Latino/Hispanic,20,93.3,3,15,9,42
+2021,Queens,Long Island City - Astoria,Male,White,7,15.1,1,14.3,4,8.6
+2021,Queens,Ridgewood - Forest Hills,Female,Black,1,34.3,0,0,0,0
+2021,Queens,Ridgewood - Forest Hills,Male,Black,3,114.7,1,33.3,1,38.2
+2021,Queens,Ridgewood - Forest Hills,Female,Latino/Hispanic,5,14.8,1,20,2,5.9
+2021,Queens,Ridgewood - Forest Hills,Male,Latino/Hispanic,14,45.5,4,28.6,7,22.8
+2021,Queens,Ridgewood - Forest Hills,Male,Other/Unknown,1,61.5,0,0,2,123.1
+2021,Queens,Ridgewood - Forest Hills,Male,White,7,12.9,1,14.3,3,5.5
+2021,Queens,Rockaway,Male,Asian/Pacific Islander,1,34.1,0,0,1,34.1
+2021,Queens,Rockaway,Female,Black,1,4.5,0,0,0,0
+2021,Queens,Rockaway,Male,Black,8,44.7,1,12.5,4,22.4
+2021,Queens,Rockaway,Female,Latino/Hispanic,1,7.9,0,0,0,0
+2021,Queens,Rockaway,Male,Latino/Hispanic,3,25.2,0,0,2,16.8
+2021,Queens,Southeast Queens,Male,Asian/Pacific Islander,1,6.1,0,0,1,6.1
+2021,Queens,Southeast Queens,Female,Black,3,5.2,0,0,3,5.2
+2021,Queens,Southeast Queens,Male,Black,9,18.7,1,11.1,4,8.3
+2021,Queens,Southeast Queens,Female,Other/Unknown,2,78.9,1,50,1,39.5
+2021,Queens,Southeast Queens,Male,Other/Unknown,1,43.3,0,0,0,0
+2021,Queens,Southeast Queens,Male,White,1,9.9,0,0,0,0
+2021,Queens,Southwest Queens,Male,Asian/Pacific Islander,5,13.3,0,0,2,5.3
+2021,Queens,Southwest Queens,Female,Black,2,16,0,0,1,8
+2021,Queens,Southwest Queens,Male,Black,2,17.2,0,0,2,17.2
+2021,Queens,Southwest Queens,Female,Latino/Hispanic,3,7.4,1,33.3,1,2.5
+2021,Queens,Southwest Queens,Male,Latino/Hispanic,14,35.4,3,21.4,5,12.6
+2021,Queens,Southwest Queens,Male,Other/Unknown,1,20.7,0,0,0,0
+2021,Queens,Southwest Queens,Male,White,1,4.2,0,0,3,12.7
+2021,Queens,West Queens,Female,Asian/Pacific Islander,2,3.7,2,100,2,3.7
+2021,Queens,West Queens,Male,Asian/Pacific Islander,14,27.3,5,35.7,7,13.7
+2021,Queens,West Queens,Female,Black,1,10.6,0,0,1,10.6
+2021,Queens,West Queens,Male,Black,6,51.6,0,0,9,77.4
+2021,Queens,West Queens,Female,Latino/Hispanic,7,7.6,0,0,0,0
+2021,Queens,West Queens,Male,Latino/Hispanic,55,51.9,13,23.6,36,34
+2021,Queens,West Queens,Male,White,1,3.2,0,0,0,0
+2021,Staten Island,Port Richmond,Female,Black,1,12.5,1,100,4,50.2
+2021,Staten Island,Port Richmond,Male,Black,4,58.7,0,0,0,0
+2021,Staten Island,Port Richmond,Male,Latino/Hispanic,2,19.6,1,50,2,19.6
+2021,Staten Island,Port Richmond,Female,White,2,22,1,50,1,11
+2021,Staten Island,South Beach - Tottenville,Female,Black,2,162,1,50,1,81
+2021,Staten Island,South Beach - Tottenville,Female,Latino/Hispanic,1,9.6,0,0,0,0
+2021,Staten Island,South Beach - Tottenville,Male,Latino/Hispanic,2,20.3,1,50,2,20.3
+2021,Staten Island,South Beach - Tottenville,Female,White,1,1.5,1,100,1,1.5
+2021,Staten Island,South Beach - Tottenville,Male,White,4,6.3,1,25,1,1.6
+2021,Staten Island,Stapleton - St. George,Female,Black,4,41.8,1,25,4,41.8
+2021,Staten Island,Stapleton - St. George,Male,Black,7,86,1,14.3,3,36.9
+2021,Staten Island,Stapleton - St. George,Male,Latino/Hispanic,4,38.4,1,25,2,19.2
+2021,Staten Island,Stapleton - St. George,Male,White,2,7.7,0,0,0,0
+2021,Staten Island,Willowbrook,Male,Asian/Pacific Islander,2,24.2,0,0,0,0
+2021,Staten Island,Willowbrook,Male,Latino/Hispanic,1,18.2,0,0,0,0
+2021,Staten Island,Willowbrook,Female,White,1,4,0,0,0,0
+2020,Bronx,Crotona - Tremont,Male,Asian/Pacific Islander,2,107.5,1,50,1,53.7
+2020,Bronx,Crotona - Tremont,Female,Black,6,24.5,2,33.3,7,28.6
+2020,Bronx,Crotona - Tremont,Male,Black,19,87.4,1,5.3,24,110.3
+2020,Bronx,Crotona - Tremont,Female,Latino/Hispanic,6,9.5,1,16.7,10,15.9
+2020,Bronx,Crotona - Tremont,Male,Latino/Hispanic,22,42.1,2,9.1,17,32.5
+2020,Bronx,Crotona - Tremont,Male,White,1,53.3,0,0,2,106.7
+2020,Bronx,Fordham - Bronx Park,Male,Asian/Pacific Islander,1,22.1,0,0,1,22.1
+2020,Bronx,Fordham - Bronx Park,Female,Black,8,31.1,4,50,11,42.7
+2020,Bronx,Fordham - Bronx Park,Male,Black,15,65.1,2,13.3,10,43.4
+2020,Bronx,Fordham - Bronx Park,Female,Latino/Hispanic,3,4.1,0,0,6,8.2
+2020,Bronx,Fordham - Bronx Park,Male,Latino/Hispanic,24,35.4,3,12.5,12,17.7
+2020,Bronx,Fordham - Bronx Park,Male,White,3,35.4,2,66.7,2,23.6
+2020,Bronx,High Bridge - Morrisania,Female,Black,13,44,3,23.1,11,37.3
+2020,Bronx,High Bridge - Morrisania,Male,Black,22,80.4,4,18.2,16,58.5
+2020,Bronx,High Bridge - Morrisania,Female,Latino/Hispanic,4,6.7,0,0,5,8.4
+2020,Bronx,High Bridge - Morrisania,Male,Latino/Hispanic,20,40.7,1,5,9,18.3
+2020,Bronx,High Bridge - Morrisania,Male,White,4,212.7,2,50,3,159.5
+2020,Bronx,Hunts Point - Mott Haven,Female,Black,4,25.6,0,0,3,19.2
+2020,Bronx,Hunts Point - Mott Haven,Male,Black,12,79.8,1,8.3,9,59.8
+2020,Bronx,Hunts Point - Mott Haven,Female,Latino/Hispanic,8,19.3,1,12.5,7,16.9
+2020,Bronx,Hunts Point - Mott Haven,Male,Latino/Hispanic,14,37.7,1,7.1,12,32.3
+2020,Bronx,Hunts Point - Mott Haven,Male,White,2,166.3,0,0,0,0
+2020,Bronx,Kingsbridge - Riverdale,Male,Latino/Hispanic,3,18.7,1,33.3,2,12.4
+2020,Bronx,Kingsbridge - Riverdale,Male,White,1,7.5,0,0,1,7.5
+2020,Bronx,Northeast Bronx,Female,Black,7,11.9,2,28.6,9,15.3
+2020,Bronx,Northeast Bronx,Male,Black,8,17.2,1,12.5,13,27.9
+2020,Bronx,Northeast Bronx,Female,Latino/Hispanic,4,16.6,0,0,1,4.2
+2020,Bronx,Northeast Bronx,Male,Latino/Hispanic,10,47.4,1,10,4,19
+2020,Bronx,Northeast Bronx,Male,White,1,13.4,0,0,0,0
+2020,Bronx,Pelham - Throgs Neck,Male,Asian/Pacific Islander,1,10.2,0,0,0,0
+2020,Bronx,Pelham - Throgs Neck,Female,Black,6,21.1,1,16.7,6,21.1
+2020,Bronx,Pelham - Throgs Neck,Male,Black,19,80.9,4,21.1,8,34.1
+2020,Bronx,Pelham - Throgs Neck,Female,Latino/Hispanic,2,2.9,0,0,10,14.4
+2020,Bronx,Pelham - Throgs Neck,Male,Latino/Hispanic,22,37.1,5,22.7,8,13.5
+2020,Bronx,Pelham - Throgs Neck,Male,White,7,35.5,0,0,1,5.1
+2020,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Black,14,14.8,3,21.4,16,16.9
+2020,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Black,67,93.5,13,19.4,27,37.7
+2020,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Latino/Hispanic,2,9.3,2,100,6,27.8
+2020,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Latino/Hispanic,8,49.5,2,25,10,61.9
+2020,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Other/Unknown,1,27.2,0,0,0,0
+2020,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Other/Unknown,1,44.9,0,0,0,0
+2020,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,White,6,18.5,1,16.7,2,6.2
+2020,Brooklyn,Bensonhurst - Bay Ridge,Male,Latino/Hispanic,2,13.7,1,50,2,13.7
+2020,Brooklyn,Bensonhurst - Bay Ridge,Male,White,3,7.1,0,0,2,4.8
+2020,Brooklyn,Borough Park,Male,Asian/Pacific Islander,3,9.2,0,0,2,6.1
+2020,Brooklyn,Borough Park,Male,Black,1,17.3,0,0,0,0
+2020,Brooklyn,Borough Park,Male,Latino/Hispanic,6,33.6,4,66.7,5,28
+2020,Brooklyn,Borough Park,Male,White,4,5.5,0,0,2,2.7
+2020,Brooklyn,Canarsie - Flatlands,Female,Black,7,10.5,1,14.3,4,6
+2020,Brooklyn,Canarsie - Flatlands,Male,Black,15,30.2,6,40,13,26.2
+2020,Brooklyn,Canarsie - Flatlands,Female,Latino/Hispanic,2,20.8,0,0,0,0
+2020,Brooklyn,Canarsie - Flatlands,Male,Latino/Hispanic,1,14.3,0,0,3,42.8
+2020,Brooklyn,Canarsie - Flatlands,Female,White,1,5.4,0,0,0,0
+2020,Brooklyn,Canarsie - Flatlands,Male,White,1,6,0,0,0,0
+2020,Brooklyn,Coney Island - Sheepshead Bay,Male,Black,4,61.6,2,50,4,61.6
+2020,Brooklyn,Coney Island - Sheepshead Bay,Female,Latino/Hispanic,1,7,0,0,0,0
+2020,Brooklyn,Coney Island - Sheepshead Bay,Male,Latino/Hispanic,4,28.5,1,25,2,14.2
+2020,Brooklyn,Coney Island - Sheepshead Bay,Female,White,1,1.3,1,100,2,2.5
+2020,Brooklyn,Coney Island - Sheepshead Bay,Male,White,7,10.1,2,28.6,4,5.8
+2020,Brooklyn,Downtown - Heights - Park Slope,Male,Asian/Pacific Islander,1,11.3,0,0,0,0
+2020,Brooklyn,Downtown - Heights - Park Slope,Female,Black,5,27,2,40,4,21.6
+2020,Brooklyn,Downtown - Heights - Park Slope,Male,Black,7,51.4,1,14.3,3,22
+2020,Brooklyn,Downtown - Heights - Park Slope,Male,Latino/Hispanic,6,36.7,2,33.3,3,18.4
+2020,Brooklyn,Downtown - Heights - Park Slope,Female,White,2,2.8,0,0,0,0
+2020,Brooklyn,Downtown - Heights - Park Slope,Male,White,10,14.8,1,10,1,1.5
+2020,Brooklyn,East Flatbush - Flatbush,Female,Black,19,20,6,31.6,11,11.6
+2020,Brooklyn,East Flatbush - Flatbush,Male,Black,43,56,10,23.3,25,32.6
+2020,Brooklyn,East Flatbush - Flatbush,Female,Latino/Hispanic,3,23,0,0,2,15.4
+2020,Brooklyn,East Flatbush - Flatbush,Male,Latino/Hispanic,8,64.4,2,25,7,56.3
+2020,Brooklyn,East Flatbush - Flatbush,Female,Other/Unknown,1,44.3,0,0,0,0
+2020,Brooklyn,East Flatbush - Flatbush,Male,White,2,9.2,1,50,1,4.6
+2020,Brooklyn,East New York,Female,Asian/Pacific Islander,1,24.8,0,0,0,0
+2020,Brooklyn,East New York,Female,Black,11,23.8,2,18.2,7,15.2
+2020,Brooklyn,East New York,Male,Black,36,101.9,4,11.1,12,34
+2020,Brooklyn,East New York,Female,Latino/Hispanic,2,6.4,0,0,1,3.2
+2020,Brooklyn,East New York,Male,Latino/Hispanic,13,51.5,1,7.7,8,31.7
+2020,Brooklyn,Greenpoint,Male,Black,4,199.8,1,25,1,49.9
+2020,Brooklyn,Greenpoint,Female,Latino/Hispanic,2,14.3,0,0,0,0
+2020,Brooklyn,Greenpoint,Male,Latino/Hispanic,2,16.2,1,50,1,8.1
+2020,Brooklyn,Greenpoint,Male,White,2,5.1,0,0,0,0
+2020,Brooklyn,Sunset Park,Male,Asian/Pacific Islander,1,5.7,0,0,0,0
+2020,Brooklyn,Sunset Park,Female,Black,1,85.7,0,0,0,0
+2020,Brooklyn,Sunset Park,Male,Black,1,60.5,0,0,0,0
+2020,Brooklyn,Sunset Park,Female,Latino/Hispanic,3,14.8,2,66.7,2,9.9
+2020,Brooklyn,Sunset Park,Male,Latino/Hispanic,3,13.3,0,0,0,0
+2020,Brooklyn,Williamsburg - Bushwick,Male,Asian/Pacific Islander,2,38.7,1,50,2,38.7
+2020,Brooklyn,Williamsburg - Bushwick,Female,Black,8,29.6,4,50,7,25.9
+2020,Brooklyn,Williamsburg - Bushwick,Male,Black,18,81.4,1,5.6,12,54.2
+2020,Brooklyn,Williamsburg - Bushwick,Female,Latino/Hispanic,2,5.3,1,50,2,5.3
+2020,Brooklyn,Williamsburg - Bushwick,Male,Latino/Hispanic,15,43.1,4,26.7,8,23
+2020,Brooklyn,Williamsburg - Bushwick,Male,White,12,45.5,5,41.7,6,22.7
+2020,Manhattan,Central Harlem - Morningside Heights,Male,Asian/Pacific Islander,1,24.6,0,0,0,0
+2020,Manhattan,Central Harlem - Morningside Heights,Female,Black,7,17,1,14.3,7,17
+2020,Manhattan,Central Harlem - Morningside Heights,Male,Black,30,89.4,5,16.7,22,65.6
+2020,Manhattan,Central Harlem - Morningside Heights,Female,Latino/Hispanic,1,4.8,0,0,1,4.8
+2020,Manhattan,Central Harlem - Morningside Heights,Male,Latino/Hispanic,11,62.3,2,18.2,4,22.6
+2020,Manhattan,Central Harlem - Morningside Heights,Female,White,1,6.6,0,0,0,0
+2020,Manhattan,Central Harlem - Morningside Heights,Male,White,3,19.9,0,0,3,19.9
+2020,Manhattan,Chelsea - Clinton,Male,Asian/Pacific Islander,1,8.4,1,100,2,16.7
+2020,Manhattan,Chelsea - Clinton,Female,Black,1,28.2,0,0,1,28.2
+2020,Manhattan,Chelsea - Clinton,Male,Black,15,385.2,4,26.7,8,205.4
+2020,Manhattan,Chelsea - Clinton,Male,Latino/Hispanic,20,170.2,2,10,14,119.2
+2020,Manhattan,Chelsea - Clinton,Male,White,14,28.1,2,14.3,16,32.2
+2020,Manhattan,East Harlem,Female,Black,4,24.9,0,0,5,31.1
+2020,Manhattan,East Harlem,Male,Black,12,90.8,1,8.3,3,22.7
+2020,Manhattan,East Harlem,Female,Latino/Hispanic,4,17.8,2,50,4,17.8
+2020,Manhattan,East Harlem,Male,Latino/Hispanic,13,64.8,3,23.1,4,19.9
+2020,Manhattan,Gramercy Park - Murray Hill,Male,Asian/Pacific Islander,1,10.7,0,0,0,0
+2020,Manhattan,Gramercy Park - Murray Hill,Male,Black,2,62.4,0,0,4,124.9
+2020,Manhattan,Gramercy Park - Murray Hill,Female,Latino/Hispanic,1,15.2,0,0,0,0
+2020,Manhattan,Gramercy Park - Murray Hill,Male,Latino/Hispanic,4,64.1,0,0,2,32.1
+2020,Manhattan,Gramercy Park - Murray Hill,Male,White,7,17.8,0,0,3,7.6
+2020,Manhattan,Greenwich Village - Soho,Female,Black,1,156.5,0,0,0,0
+2020,Manhattan,Greenwich Village - Soho,Male,Black,4,335.7,1,25,2,167.9
+2020,Manhattan,Greenwich Village - Soho,Male,Latino/Hispanic,1,31.1,0,0,0,0
+2020,Manhattan,Greenwich Village - Soho,Male,White,8,31.2,1,12.5,6,23.4
+2020,Manhattan,Lower Manhattan,Male,Asian/Pacific Islander,1,17.5,0,0,0,0
+2020,Manhattan,Lower Manhattan,Male,Black,2,126.6,0,0,1,63.3
+2020,Manhattan,Lower Manhattan,Female,Latino/Hispanic,1,33.3,0,0,0,0
+2020,Manhattan,Lower Manhattan,Male,White,2,11.6,0,0,0,0
+2020,Manhattan,Union Square - Lower East Side,Female,Asian/Pacific Islander,1,4.1,1,100,1,4.1
+2020,Manhattan,Union Square - Lower East Side,Male,Asian/Pacific Islander,2,10.3,0,0,0,0
+2020,Manhattan,Union Square - Lower East Side,Male,Black,6,105.4,0,0,1,17.6
+2020,Manhattan,Union Square - Lower East Side,Female,Latino/Hispanic,2,10.8,1,50,1,5.4
+2020,Manhattan,Union Square - Lower East Side,Male,Latino/Hispanic,5,33.8,3,60,5,33.8
+2020,Manhattan,Union Square - Lower East Side,Male,White,4,9.9,2,50,7,17.3
+2020,Manhattan,Upper East Side,Male,Black,1,46.3,0,0,1,46.3
+2020,Manhattan,Upper East Side,Female,Latino/Hispanic,1,9.8,0,0,0,0
+2020,Manhattan,Upper East Side,Male,Latino/Hispanic,1,12.3,0,0,2,24.6
+2020,Manhattan,Upper East Side,Male,Other/Unknown,1,68.9,1,100,1,68.9
+2020,Manhattan,Upper East Side,Male,White,4,6.5,0,0,1,1.6
+2020,Manhattan,Upper West Side,Male,Asian/Pacific Islander,1,11.8,1,100,2,23.5
+2020,Manhattan,Upper West Side,Male,Black,6,119.6,1,16.7,6,119.6
+2020,Manhattan,Upper West Side,Male,Latino/Hispanic,1,7.2,1,100,8,58
+2020,Manhattan,Upper West Side,Female,Other/Unknown,1,57.1,0,0,0,0
+2020,Manhattan,Upper West Side,Male,White,8,13.9,3,37.5,5,8.7
+2020,Manhattan,Washington Heights - Inwood,Female,Black,2,14.7,1,50,5,36.8
+2020,Manhattan,Washington Heights - Inwood,Male,Black,16,134.4,2,12.5,6,50.4
+2020,Manhattan,Washington Heights - Inwood,Female,Latino/Hispanic,5,6.5,2,40,4,5.2
+2020,Manhattan,Washington Heights - Inwood,Male,Latino/Hispanic,24,35,3,12.5,10,14.6
+2020,Manhattan,Washington Heights - Inwood,Male,Other/Unknown,2,134.9,1,50,1,67.5
+2020,Manhattan,Washington Heights - Inwood,Male,White,7,27.2,2,28.6,4,15.6
+2020,Queens,Flushing - Clearview,Female,Asian/Pacific Islander,1,1.6,0,0,0,0
+2020,Queens,Flushing - Clearview,Male,Asian/Pacific Islander,5,8.8,1,20,2,3.5
+2020,Queens,Flushing - Clearview,Male,Black,2,108.2,1,50,1,54.1
+2020,Queens,Flushing - Clearview,Male,Latino/Hispanic,8,46.7,1,12.5,3,17.5
+2020,Queens,Flushing - Clearview,Male,White,1,3.7,0,0,1,3.7
+2020,Queens,Fresh Meadows,Male,Asian/Pacific Islander,1,6.3,1,100,1,6.3
+2020,Queens,Fresh Meadows,Male,Black,2,79.3,0,0,1,39.7
+2020,Queens,Fresh Meadows,Male,Latino/Hispanic,2,31,1,50,1,15.5
+2020,Queens,Jamaica,Female,Asian/Pacific Islander,2,6.7,0,0,1,3.3
+2020,Queens,Jamaica,Male,Asian/Pacific Islander,5,16.7,1,20,2,6.7
+2020,Queens,Jamaica,Female,Black,5,6.1,0,0,5,6.1
+2020,Queens,Jamaica,Male,Black,21,32.1,4,19,12,18.3
+2020,Queens,Jamaica,Female,Latino/Hispanic,3,13.3,0,0,0,0
+2020,Queens,Jamaica,Male,Latino/Hispanic,8,36.8,3,37.5,6,27.6
+2020,Queens,Jamaica,Male,Other/Unknown,1,31.3,0,0,0,0
+2020,Queens,Jamaica,Female,White,1,10.2,1,100,2,20.4
+2020,Queens,Long Island City - Astoria,Male,Asian/Pacific Islander,6,37.8,2,33.3,2,12.6
+2020,Queens,Long Island City - Astoria,Female,Black,2,35.7,1,50,1,17.8
+2020,Queens,Long Island City - Astoria,Male,Black,2,46.1,0,0,5,115.3
+2020,Queens,Long Island City - Astoria,Female,Latino/Hispanic,1,4.5,0,0,0,0
+2020,Queens,Long Island City - Astoria,Male,Latino/Hispanic,11,54.2,2,18.2,6,29.6
+2020,Queens,Long Island City - Astoria,Female,White,1,2.4,0,0,0,0
+2020,Queens,Long Island City - Astoria,Male,White,11,22.4,3,27.3,3,6.1
+2020,Queens,Ridgewood - Forest Hills,Male,Asian/Pacific Islander,1,5.6,0,0,0,0
+2020,Queens,Ridgewood - Forest Hills,Male,Black,5,187.7,1,20,1,37.5
+2020,Queens,Ridgewood - Forest Hills,Female,Latino/Hispanic,1,3.2,0,0,0,0
+2020,Queens,Ridgewood - Forest Hills,Male,Latino/Hispanic,12,38.2,2,16.7,5,15.9
+2020,Queens,Ridgewood - Forest Hills,Female,White,2,3.3,0,0,0,0
+2020,Queens,Ridgewood - Forest Hills,Male,White,6,11.5,2,33.3,2,3.8
+2020,Queens,Rockaway,Male,Asian/Pacific Islander,1,33.7,1,100,1,33.7
+2020,Queens,Rockaway,Female,Black,3,13.1,0,0,1,4.4
+2020,Queens,Rockaway,Male,Black,9,49.3,2,22.2,6,32.9
+2020,Queens,Rockaway,Male,Latino/Hispanic,4,33.1,1,25,2,16.6
+2020,Queens,Rockaway,Male,White,3,17.9,0,0,0,0
+2020,Queens,Southeast Queens,Female,Black,5,9.2,0,0,0,0
+2020,Queens,Southeast Queens,Male,Black,13,28.8,2,15.4,5,11.1
+2020,Queens,Southeast Queens,Male,Latino/Hispanic,5,43.8,0,0,0,0
+2020,Queens,Southeast Queens,Male,Other/Unknown,1,43.2,0,0,0,0
+2020,Queens,Southwest Queens,Male,Asian/Pacific Islander,7,18.3,0,0,1,2.6
+2020,Queens,Southwest Queens,Female,Black,4,32.4,1,25,1,8.1
+2020,Queens,Southwest Queens,Male,Black,8,67.1,2,25,3,25.2
+2020,Queens,Southwest Queens,Female,Latino/Hispanic,2,5,0,0,0,0
+2020,Queens,Southwest Queens,Male,Latino/Hispanic,7,18.4,2,28.6,4,10.5
+2020,Queens,Southwest Queens,Male,Other/Unknown,1,20.4,0,0,0,0
+2020,Queens,Southwest Queens,Male,White,1,4.4,1,100,2,8.8
+2020,Queens,West Queens,Female,Asian/Pacific Islander,1,1.9,0,0,0,0
+2020,Queens,West Queens,Male,Asian/Pacific Islander,7,13.4,2,28.6,3,5.8
+2020,Queens,West Queens,Female,Black,2,20.8,0,0,3,31.2
+2020,Queens,West Queens,Male,Black,2,16.8,0,0,2,16.8
+2020,Queens,West Queens,Female,Latino/Hispanic,5,5.7,0,0,1,1.1
+2020,Queens,West Queens,Male,Latino/Hispanic,53,48.9,15,28.3,26,24
+2020,Queens,West Queens,Female,White,1,3.4,0,0,0,0
+2020,Queens,West Queens,Male,White,10,30.9,2,20,3,9.3
+2020,Staten Island,Port Richmond,Male,Asian/Pacific Islander,2,83.8,0,0,0,0
+2020,Staten Island,Port Richmond,Female,Black,1,13,0,0,0,0
+2020,Staten Island,Port Richmond,Male,Black,2,31,0,0,1,15.5
+2020,Staten Island,Port Richmond,Female,Latino/Hispanic,1,9.9,0,0,0,0
+2020,Staten Island,Port Richmond,Male,Latino/Hispanic,1,9.9,0,0,0,0
+2020,Staten Island,South Beach - Tottenville,Male,Latino/Hispanic,2,22.2,0,0,2,22.2
+2020,Staten Island,South Beach - Tottenville,Male,Other/Unknown,2,218.7,1,50,1,109.3
+2020,Staten Island,South Beach - Tottenville,Male,White,2,3.2,1,50,2,3.2
+2020,Staten Island,Stapleton - St. George,Male,Black,6,73.1,1,16.7,2,24.4
+2020,Staten Island,Stapleton - St. George,Female,Latino/Hispanic,2,18.9,0,0,0,0
+2020,Staten Island,Stapleton - St. George,Male,Latino/Hispanic,1,9.8,0,0,3,29.3
+2020,Staten Island,Stapleton - St. George,Male,White,2,8.3,2,100,4,16.6
+2020,Staten Island,Willowbrook,Female,Asian/Pacific Islander,1,12.4,0,0,0,0
+2020,Staten Island,Willowbrook,Male,Black,1,82.9,0,0,2,165.8
+2019,Bronx,Crotona - Tremont,Female,Black,13,52.3,0,0,11,44.2
+2019,Bronx,Crotona - Tremont,Male,Black,39,176.8,6,15.4,17,77.1
+2019,Bronx,Crotona - Tremont,Female,Latino/Hispanic,6,9.5,2,33.3,10,15.8
+2019,Bronx,Crotona - Tremont,Male,Latino/Hispanic,35,66.4,3,8.6,22,41.7
+2019,Bronx,Crotona - Tremont,Female,Other/Unknown,1,151.6,1,100,1,151.6
+2019,Bronx,Crotona - Tremont,Female,White,2,140.6,0,0,1,70.3
+2019,Bronx,Fordham - Bronx Park,Female,Black,11,43.5,3,27.3,10,39.5
+2019,Bronx,Fordham - Bronx Park,Male,Black,26,117.8,3,11.5,14,63.4
+2019,Bronx,Fordham - Bronx Park,Female,Latino/Hispanic,5,6.8,2,40,5,6.8
+2019,Bronx,Fordham - Bronx Park,Male,Latino/Hispanic,37,57.7,7,18.9,22,34.3
+2019,Bronx,Fordham - Bronx Park,Male,White,2,24.9,1,50,2,24.9
+2019,Bronx,High Bridge - Morrisania,Female,Black,15,50.1,3,20,16,53.4
+2019,Bronx,High Bridge - Morrisania,Male,Black,34,132.6,5,14.7,25,97.5
+2019,Bronx,High Bridge - Morrisania,Female,Latino/Hispanic,5,8.5,0,0,2,3.4
+2019,Bronx,High Bridge - Morrisania,Male,Latino/Hispanic,56,113.1,10,17.9,23,46.5
+2019,Bronx,High Bridge - Morrisania,Male,White,1,51.2,0,0,3,153.7
+2019,Bronx,Hunts Point - Mott Haven,Female,Black,4,25.1,1,25,5,31.4
+2019,Bronx,Hunts Point - Mott Haven,Male,Black,16,114.6,3,18.8,18,128.9
+2019,Bronx,Hunts Point - Mott Haven,Female,Latino/Hispanic,5,12.3,1,20,3,7.4
+2019,Bronx,Hunts Point - Mott Haven,Male,Latino/Hispanic,23,63.5,7,30.4,17,46.9
+2019,Bronx,Kingsbridge - Riverdale,Male,Asian/Pacific Islander,1,57.6,0,0,0,0
+2019,Bronx,Kingsbridge - Riverdale,Male,Black,4,99.8,1,25,1,24.9
+2019,Bronx,Kingsbridge - Riverdale,Female,Latino/Hispanic,2,10.5,0,0,0,0
+2019,Bronx,Kingsbridge - Riverdale,Male,Latino/Hispanic,6,40.2,1,16.7,2,13.4
+2019,Bronx,Kingsbridge - Riverdale,Male,White,2,14.5,0,0,0,0
+2019,Bronx,Northeast Bronx,Female,Black,7,12.2,2,28.6,10,17.4
+2019,Bronx,Northeast Bronx,Male,Black,23,52,4,17.4,9,20.3
+2019,Bronx,Northeast Bronx,Female,Latino/Hispanic,2,8.3,0,0,1,4.1
+2019,Bronx,Northeast Bronx,Male,Latino/Hispanic,11,55.8,2,18.2,8,40.6
+2019,Bronx,Pelham - Throgs Neck,Male,Asian/Pacific Islander,2,20.4,0,0,1,10.2
+2019,Bronx,Pelham - Throgs Neck,Female,Black,11,38.2,3,27.3,7,24.3
+2019,Bronx,Pelham - Throgs Neck,Male,Black,18,76.2,3,16.7,19,80.5
+2019,Bronx,Pelham - Throgs Neck,Female,Latino/Hispanic,6,8.6,1,16.7,8,11.5
+2019,Bronx,Pelham - Throgs Neck,Male,Latino/Hispanic,29,48.6,8,27.6,19,31.8
+2019,Bronx,Pelham - Throgs Neck,Male,Other/Unknown,1,63.1,0,0,0,0
+2019,Bronx,Pelham - Throgs Neck,Male,White,2,9.8,0,0,1,4.9
+2019,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Asian/Pacific Islander,2,44.4,2,100,2,44.4
+2019,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Black,27,28.1,3,11.1,28,29.1
+2019,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Black,55,75.7,4,7.3,27,37.2
+2019,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Latino/Hispanic,5,24.6,1,20,3,14.7
+2019,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Latino/Hispanic,13,79.7,3,23.1,9,55.2
+2019,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,White,1,3.6,0,0,1,3.6
+2019,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,White,8,29.1,1,12.5,3,10.9
+2019,Brooklyn,Bensonhurst - Bay Ridge,Male,Black,1,61.1,0,0,0,0
+2019,Brooklyn,Bensonhurst - Bay Ridge,Female,Latino/Hispanic,1,7.9,0,0,2,15.7
+2019,Brooklyn,Bensonhurst - Bay Ridge,Male,Latino/Hispanic,6,44.1,1,16.7,2,14.7
+2019,Brooklyn,Bensonhurst - Bay Ridge,Female,White,2,4.2,0,0,2,4.2
+2019,Brooklyn,Bensonhurst - Bay Ridge,Male,White,9,21.3,1,11.1,1,2.4
+2019,Brooklyn,Borough Park,Female,Asian/Pacific Islander,1,3.3,0,0,0,0
+2019,Brooklyn,Borough Park,Male,Asian/Pacific Islander,3,10.1,1,33.3,2,6.8
+2019,Brooklyn,Borough Park,Male,Black,3,59.1,1,33.3,1,19.7
+2019,Brooklyn,Borough Park,Male,Latino/Hispanic,1,5.9,0,0,1,5.9
+2019,Brooklyn,Borough Park,Female,Other/Unknown,1,42.1,1,100,1,42.1
+2019,Brooklyn,Borough Park,Male,White,3,4.4,0,0,1,1.5
+2019,Brooklyn,Canarsie - Flatlands,Female,Black,7,11,2,28.6,8,12.6
+2019,Brooklyn,Canarsie - Flatlands,Male,Black,17,36.4,5,29.4,11,23.6
+2019,Brooklyn,Canarsie - Flatlands,Female,Latino/Hispanic,2,21.4,0,0,0,0
+2019,Brooklyn,Canarsie - Flatlands,Male,Latino/Hispanic,3,42.5,0,0,2,28.3
+2019,Brooklyn,Canarsie - Flatlands,Male,White,1,6,0,0,1,6
+2019,Brooklyn,Coney Island - Sheepshead Bay,Female,Black,3,32.6,2,66.7,5,54.4
+2019,Brooklyn,Coney Island - Sheepshead Bay,Male,Black,5,83.7,1,20,5,83.7
+2019,Brooklyn,Coney Island - Sheepshead Bay,Female,Latino/Hispanic,1,7,0,0,1,7
+2019,Brooklyn,Coney Island - Sheepshead Bay,Male,Latino/Hispanic,5,37.5,1,20,2,15
+2019,Brooklyn,Coney Island - Sheepshead Bay,Female,White,3,3.7,1,33.3,2,2.5
+2019,Brooklyn,Coney Island - Sheepshead Bay,Male,White,5,7.2,0,0,1,1.4
+2019,Brooklyn,Downtown - Heights - Park Slope,Male,Asian/Pacific Islander,1,11.3,0,0,0,0
+2019,Brooklyn,Downtown - Heights - Park Slope,Female,Black,8,42.5,2,25,6,31.9
+2019,Brooklyn,Downtown - Heights - Park Slope,Male,Black,10,74.8,1,10,4,29.9
+2019,Brooklyn,Downtown - Heights - Park Slope,Female,Latino/Hispanic,1,5.7,0,0,1,5.7
+2019,Brooklyn,Downtown - Heights - Park Slope,Male,Latino/Hispanic,3,19.7,0,0,2,13.2
+2019,Brooklyn,Downtown - Heights - Park Slope,Female,Other/Unknown,1,32.1,0,0,0,0
+2019,Brooklyn,Downtown - Heights - Park Slope,Female,White,1,1.5,0,0,1,1.5
+2019,Brooklyn,Downtown - Heights - Park Slope,Male,White,4,6.6,1,25,2,3.3
+2019,Brooklyn,East Flatbush - Flatbush,Female,Black,16,16.6,3,18.8,12,12.4
+2019,Brooklyn,East Flatbush - Flatbush,Male,Black,45,61.4,8,17.8,27,36.9
+2019,Brooklyn,East Flatbush - Flatbush,Female,Latino/Hispanic,1,7.6,1,100,2,15.2
+2019,Brooklyn,East Flatbush - Flatbush,Male,Latino/Hispanic,14,122.8,3,21.4,4,35.1
+2019,Brooklyn,East Flatbush - Flatbush,Male,Other/Unknown,3,190.7,0,0,0,0
+2019,Brooklyn,East Flatbush - Flatbush,Female,White,1,5,0,0,1,5
+2019,Brooklyn,East Flatbush - Flatbush,Male,White,8,40.8,0,0,0,0
+2019,Brooklyn,East New York,Male,Asian/Pacific Islander,1,25,0,0,1,25
+2019,Brooklyn,East New York,Female,Black,8,17,1,12.5,6,12.8
+2019,Brooklyn,East New York,Male,Black,35,97.5,3,8.6,18,50.1
+2019,Brooklyn,East New York,Female,Latino/Hispanic,1,3.4,0,0,2,6.9
+2019,Brooklyn,East New York,Male,Latino/Hispanic,15,58.8,1,6.7,7,27.4
+2019,Brooklyn,East New York,Male,Other/Unknown,2,291.1,0,0,0,0
+2019,Brooklyn,East New York,Male,White,3,97.3,0,0,0,0
+2019,Brooklyn,Greenpoint,Male,Asian/Pacific Islander,1,32,1,100,1,32
+2019,Brooklyn,Greenpoint,Male,Latino/Hispanic,5,40.2,0,0,0,0
+2019,Brooklyn,Greenpoint,Male,Other/Unknown,1,82,0,0,0,0
+2019,Brooklyn,Greenpoint,Male,White,6,15.3,0,0,0,0
+2019,Brooklyn,Sunset Park,Female,Asian/Pacific Islander,1,5.4,0,0,0,0
+2019,Brooklyn,Sunset Park,Male,Asian/Pacific Islander,1,5.7,1,100,2,11.4
+2019,Brooklyn,Sunset Park,Female,Latino/Hispanic,1,5.1,0,0,0,0
+2019,Brooklyn,Sunset Park,Male,Latino/Hispanic,8,37.3,1,12.5,4,18.7
+2019,Brooklyn,Sunset Park,Male,Other/Unknown,1,156.3,0,0,0,0
+2019,Brooklyn,Sunset Park,Male,White,1,11.9,0,0,0,0
+2019,Brooklyn,Williamsburg - Bushwick,Male,Asian/Pacific Islander,1,19.3,0,0,0,0
+2019,Brooklyn,Williamsburg - Bushwick,Female,Black,3,11.4,0,0,3,11.4
+2019,Brooklyn,Williamsburg - Bushwick,Male,Black,21,99.6,2,9.5,12,56.9
+2019,Brooklyn,Williamsburg - Bushwick,Female,Latino/Hispanic,2,5.2,1,50,4,10.5
+2019,Brooklyn,Williamsburg - Bushwick,Male,Latino/Hispanic,17,48.3,3,17.6,8,22.7
+2019,Brooklyn,Williamsburg - Bushwick,Male,White,10,43.6,2,20,3,13.1
+2019,Manhattan,Central Harlem - Morningside Heights,Male,Asian/Pacific Islander,1,24.1,0,0,1,24.1
+2019,Manhattan,Central Harlem - Morningside Heights,Female,Black,9,21.6,3,33.3,12,28.8
+2019,Manhattan,Central Harlem - Morningside Heights,Male,Black,38,112.4,6,15.8,17,50.3
+2019,Manhattan,Central Harlem - Morningside Heights,Female,Latino/Hispanic,1,4.9,0,0,2,9.8
+2019,Manhattan,Central Harlem - Morningside Heights,Male,Latino/Hispanic,19,111.1,3,15.8,11,64.3
+2019,Manhattan,Central Harlem - Morningside Heights,Male,Other/Unknown,1,59.8,0,0,1,59.8
+2019,Manhattan,Central Harlem - Morningside Heights,Male,White,6,42.7,0,0,3,21.4
+2019,Manhattan,Chelsea - Clinton,Male,Asian/Pacific Islander,5,41.5,0,0,2,16.6
+2019,Manhattan,Chelsea - Clinton,Female,Black,1,28,0,0,0,0
+2019,Manhattan,Chelsea - Clinton,Male,Black,8,188.3,0,0,4,94.2
+2019,Manhattan,Chelsea - Clinton,Female,Latino/Hispanic,1,9,0,0,0,0
+2019,Manhattan,Chelsea - Clinton,Male,Latino/Hispanic,21,178.5,4,19,9,76.5
+2019,Manhattan,Chelsea - Clinton,Female,White,1,2.3,0,0,0,0
+2019,Manhattan,Chelsea - Clinton,Male,White,11,22.5,1,9.1,5,10.2
+2019,Manhattan,East Harlem,Male,Asian/Pacific Islander,1,28,0,0,0,0
+2019,Manhattan,East Harlem,Female,Black,2,12.5,0,0,6,37.6
+2019,Manhattan,East Harlem,Male,Black,12,93.8,2,16.7,7,54.7
+2019,Manhattan,East Harlem,Female,Latino/Hispanic,1,4.4,0,0,1,4.4
+2019,Manhattan,East Harlem,Male,Latino/Hispanic,10,49.4,3,30,7,34.6
+2019,Manhattan,East Harlem,Male,Other/Unknown,1,178.7,0,0,0,0
+2019,Manhattan,East Harlem,Female,White,1,13.9,0,0,1,13.9
+2019,Manhattan,East Harlem,Male,White,5,67.9,1,20,2,27.2
+2019,Manhattan,Gramercy Park - Murray Hill,Female,Black,1,40.9,0,0,0,0
+2019,Manhattan,Gramercy Park - Murray Hill,Male,Black,3,103.7,0,0,2,69.2
+2019,Manhattan,Gramercy Park - Murray Hill,Female,Latino/Hispanic,2,37.8,0,0,0,0
+2019,Manhattan,Gramercy Park - Murray Hill,Male,Latino/Hispanic,8,161.2,3,37.5,4,80.6
+2019,Manhattan,Gramercy Park - Murray Hill,Male,White,4,10,0,0,3,7.5
+2019,Manhattan,Greenwich Village - Soho,Male,Asian/Pacific Islander,1,16.4,0,0,0,0
+2019,Manhattan,Greenwich Village - Soho,Male,Black,1,83.3,0,0,0,0
+2019,Manhattan,Greenwich Village - Soho,Male,Latino/Hispanic,5,173.8,0,0,3,104.3
+2019,Manhattan,Greenwich Village - Soho,Male,Other/Unknown,1,128.6,1,100,1,128.6
+2019,Manhattan,Greenwich Village - Soho,Male,White,5,19.1,0,0,0,0
+2019,Manhattan,Lower Manhattan,Male,Black,4,289.4,3,75,2,144.7
+2019,Manhattan,Lower Manhattan,Male,White,3,17.1,1,33.3,2,11.4
+2019,Manhattan,Union Square - Lower East Side,Male,Asian/Pacific Islander,1,5.2,0,0,0,0
+2019,Manhattan,Union Square - Lower East Side,Female,Black,2,33.7,0,0,1,16.8
+2019,Manhattan,Union Square - Lower East Side,Male,Black,16,288.6,0,0,4,72.2
+2019,Manhattan,Union Square - Lower East Side,Male,Latino/Hispanic,8,53.7,1,12.5,4,26.9
+2019,Manhattan,Union Square - Lower East Side,Male,White,2,5.2,0,0,2,5.2
+2019,Manhattan,Upper East Side,Male,Asian/Pacific Islander,2,23.8,1,50,1,11.9
+2019,Manhattan,Upper East Side,Male,Black,1,46.1,0,0,1,46.1
+2019,Manhattan,Upper East Side,Male,Latino/Hispanic,2,24.5,2,100,4,48.9
+2019,Manhattan,Upper East Side,Male,White,3,4.8,1,33.3,6,9.6
+2019,Manhattan,Upper West Side,Male,Asian/Pacific Islander,3,37.6,2,66.7,3,37.6
+2019,Manhattan,Upper West Side,Male,Black,4,76.2,0,0,3,57.2
+2019,Manhattan,Upper West Side,Male,Latino/Hispanic,9,64.9,2,22.2,6,43.3
+2019,Manhattan,Upper West Side,Male,Other/Unknown,1,82.4,1,100,1,82.4
+2019,Manhattan,Upper West Side,Male,White,4,6.8,0,0,1,1.7
+2019,Manhattan,Washington Heights - Inwood,Female,Black,6,43.8,1,16.7,5,36.5
+2019,Manhattan,Washington Heights - Inwood,Male,Black,22,183.7,4,18.2,8,66.8
+2019,Manhattan,Washington Heights - Inwood,Female,Latino/Hispanic,8,10.5,3,37.5,4,5.3
+2019,Manhattan,Washington Heights - Inwood,Male,Latino/Hispanic,26,37.6,2,7.7,17,24.6
+2019,Manhattan,Washington Heights - Inwood,Male,White,12,48.8,0,0,5,20.3
+2019,Queens,Bayside - Little Neck,Female,Latino/Hispanic,1,21.1,0,0,0,0
+2019,Queens,Flushing - Clearview,Male,Asian/Pacific Islander,9,16.7,3,33.3,4,7.4
+2019,Queens,Flushing - Clearview,Female,Black,1,39.4,0,0,0,0
+2019,Queens,Flushing - Clearview,Male,Black,1,53.8,0,0,1,53.8
+2019,Queens,Flushing - Clearview,Male,Latino/Hispanic,6,34.9,1,16.7,3,17.4
+2019,Queens,Flushing - Clearview,Male,White,1,3.7,1,100,2,7.3
+2019,Queens,Fresh Meadows,Female,Asian/Pacific Islander,1,6,0,0,0,0
+2019,Queens,Fresh Meadows,Male,Asian/Pacific Islander,2,13.6,0,0,0,0
+2019,Queens,Fresh Meadows,Female,Black,1,26.9,0,0,0,0
+2019,Queens,Fresh Meadows,Male,Black,1,39.1,0,0,0,0
+2019,Queens,Fresh Meadows,Male,Latino/Hispanic,2,30.9,0,0,0,0
+2019,Queens,Fresh Meadows,Male,White,1,7.1,1,100,1,7.1
+2019,Queens,Jamaica,Female,Asian/Pacific Islander,1,3.3,1,100,1,3.3
+2019,Queens,Jamaica,Female,Black,11,14.2,4,36.4,8,10.3
+2019,Queens,Jamaica,Male,Black,26,42.3,3,11.5,9,14.6
+2019,Queens,Jamaica,Female,Latino/Hispanic,2,9.1,1,50,3,13.7
+2019,Queens,Jamaica,Male,Latino/Hispanic,13,59.3,2,15.4,7,31.9
+2019,Queens,Jamaica,Male,Other/Unknown,1,31.2,0,0,0,0
+2019,Queens,Jamaica,Male,White,1,10.9,0,0,0,0
+2019,Queens,Long Island City - Astoria,Female,Black,1,18.3,1,100,1,18.3
+2019,Queens,Long Island City - Astoria,Male,Black,5,113.4,1,20,1,22.7
+2019,Queens,Long Island City - Astoria,Female,Latino/Hispanic,3,14.1,1,33.3,1,4.7
+2019,Queens,Long Island City - Astoria,Male,Latino/Hispanic,16,78.1,5,31.3,9,43.9
+2019,Queens,Long Island City - Astoria,Male,Other/Unknown,1,60.2,0,0,0,0
+2019,Queens,Long Island City - Astoria,Male,White,3,6.6,0,0,1,2.2
+2019,Queens,Ridgewood - Forest Hills,Male,Asian/Pacific Islander,2,11.1,0,0,0,0
+2019,Queens,Ridgewood - Forest Hills,Female,Black,1,36.5,0,0,1,36.5
+2019,Queens,Ridgewood - Forest Hills,Male,Black,2,81.9,0,0,2,81.9
+2019,Queens,Ridgewood - Forest Hills,Male,Latino/Hispanic,13,46.2,3,23.1,5,17.8
+2019,Queens,Ridgewood - Forest Hills,Male,Other/Unknown,2,109.7,0,0,0,0
+2019,Queens,Ridgewood - Forest Hills,Male,White,3,5.6,0,0,1,1.9
+2019,Queens,Rockaway,Male,Asian/Pacific Islander,1,45.7,0,0,0,0
+2019,Queens,Rockaway,Female,Black,8,36.3,4,50,9,40.8
+2019,Queens,Rockaway,Male,Black,5,28.8,2,40,6,34.5
+2019,Queens,Rockaway,Male,Latino/Hispanic,1,8.8,0,0,1,8.8
+2019,Queens,Rockaway,Male,White,1,5.8,0,0,0,0
+2019,Queens,Southeast Queens,Male,Asian/Pacific Islander,1,6.5,0,0,0,0
+2019,Queens,Southeast Queens,Female,Black,14,25.4,2,14.3,1,1.8
+2019,Queens,Southeast Queens,Male,Black,10,21.9,3,30,9,19.7
+2019,Queens,Southeast Queens,Male,Latino/Hispanic,4,37.8,2,50,4,37.8
+2019,Queens,Southeast Queens,Female,White,1,8.2,1,100,1,8.2
+2019,Queens,Southwest Queens,Male,Asian/Pacific Islander,7,19.2,3,42.9,6,16.5
+2019,Queens,Southwest Queens,Female,Black,1,7.9,0,0,1,7.9
+2019,Queens,Southwest Queens,Male,Black,6,52.3,3,50,5,43.6
+2019,Queens,Southwest Queens,Female,Latino/Hispanic,3,7.5,0,0,3,7.5
+2019,Queens,Southwest Queens,Male,Latino/Hispanic,9,23.5,1,11.1,5,13.1
+2019,Queens,Southwest Queens,Male,Other/Unknown,1,23.7,0,0,0,0
+2019,Queens,Southwest Queens,Male,White,2,8.7,1,50,1,4.3
+2019,Queens,West Queens,Female,Asian/Pacific Islander,1,1.9,1,100,1,1.9
+2019,Queens,West Queens,Male,Asian/Pacific Islander,9,18.7,0,0,1,2.1
+2019,Queens,West Queens,Female,Black,2,20.9,0,0,0,0
+2019,Queens,West Queens,Male,Black,5,43.1,1,20,4,34.5
+2019,Queens,West Queens,Female,Latino/Hispanic,10,11.2,3,30,5,5.6
+2019,Queens,West Queens,Male,Latino/Hispanic,70,68.5,14,20,32,31.3
+2019,Queens,West Queens,Female,White,1,3.3,0,0,0,0
+2019,Queens,West Queens,Male,White,3,10,1,33.3,2,6.6
+2019,Staten Island,Port Richmond,Male,Black,5,77.4,0,0,2,31
+2019,Staten Island,Port Richmond,Female,Latino/Hispanic,1,10.3,1,100,2,20.6
+2019,Staten Island,Port Richmond,Male,Latino/Hispanic,2,20.7,0,0,0,0
+2019,Staten Island,Port Richmond,Female,White,1,11.2,1,100,1,11.2
+2019,Staten Island,Port Richmond,Male,White,1,11.9,0,0,1,11.9
+2019,Staten Island,South Beach - Tottenville,Female,Latino/Hispanic,1,10.5,0,0,0,0
+2019,Staten Island,South Beach - Tottenville,Male,Latino/Hispanic,1,11.3,0,0,0,0
+2019,Staten Island,South Beach - Tottenville,Female,White,1,1.5,0,0,0,0
+2019,Staten Island,South Beach - Tottenville,Male,White,2,3.2,0,0,0,0
+2019,Staten Island,Stapleton - St. George,Female,Black,3,30.9,0,0,0,0
+2019,Staten Island,Stapleton - St. George,Male,Black,5,61.3,0,0,2,24.5
+2019,Staten Island,Stapleton - St. George,Male,Latino/Hispanic,2,19.8,0,0,1,9.9
+2019,Staten Island,Stapleton - St. George,Female,White,1,3.8,0,0,0,0
+2019,Staten Island,Willowbrook,Male,Latino/Hispanic,1,19.3,0,0,0,0
+2019,Staten Island,Willowbrook,Female,White,1,4,1,100,0,0
+2019,Staten Island,Willowbrook,Male,White,2,8.7,0,0,0,0
+2018,Bronx,Crotona - Tremont,Female,Black,12,47.6,2,16.7,18,71.3
+2018,Bronx,Crotona - Tremont,Male,Black,22,98.9,3,13.6,27,121.4
+2018,Bronx,Crotona - Tremont,Female,Latino/Hispanic,14,22,1,7.1,9,14.1
+2018,Bronx,Crotona - Tremont,Male,Latino/Hispanic,35,66.1,4,11.4,19,35.9
+2018,Bronx,Fordham - Bronx Park,Male,Asian/Pacific Islander,1,22.2,0,0,1,22.2
+2018,Bronx,Fordham - Bronx Park,Female,Black,10,39,4,40,9,35.1
+2018,Bronx,Fordham - Bronx Park,Male,Black,31,139.5,8,25.8,22,99
+2018,Bronx,Fordham - Bronx Park,Female,Latino/Hispanic,7,9.5,0,0,5,6.8
+2018,Bronx,Fordham - Bronx Park,Male,Latino/Hispanic,35,54.3,8,22.9,20,31.1
+2018,Bronx,Fordham - Bronx Park,Male,White,3,36.1,0,0,0,0
+2018,Bronx,High Bridge - Morrisania,Female,Black,17,56.1,1,5.9,20,66
+2018,Bronx,High Bridge - Morrisania,Male,Black,42,162.8,8,19,25,96.9
+2018,Bronx,High Bridge - Morrisania,Female,Latino/Hispanic,9,15.3,1,11.1,13,22.1
+2018,Bronx,High Bridge - Morrisania,Male,Latino/Hispanic,32,64.4,10,31.3,21,42.3
+2018,Bronx,High Bridge - Morrisania,Female,White,1,58.7,0,0,2,117.4
+2018,Bronx,High Bridge - Morrisania,Male,White,1,49.4,0,0,0,0
+2018,Bronx,Hunts Point - Mott Haven,Female,Black,2,12.4,0,0,7,43.3
+2018,Bronx,Hunts Point - Mott Haven,Male,Black,13,92.2,3,23.1,16,113.5
+2018,Bronx,Hunts Point - Mott Haven,Female,Latino/Hispanic,5,12.2,0,0,6,14.7
+2018,Bronx,Hunts Point - Mott Haven,Male,Latino/Hispanic,19,52.3,3,15.8,13,35.8
+2018,Bronx,Hunts Point - Mott Haven,Female,White,1,89,1,100,1,89
+2018,Bronx,Kingsbridge - Riverdale,Male,Black,1,24.9,0,0,1,24.9
+2018,Bronx,Kingsbridge - Riverdale,Male,Latino/Hispanic,5,33.4,0,0,2,13.4
+2018,Bronx,Kingsbridge - Riverdale,Male,White,2,14,0,0,0,0
+2018,Bronx,Northeast Bronx,Female,Black,16,27.6,5,31.3,12,20.7
+2018,Bronx,Northeast Bronx,Male,Black,15,33.7,2,13.3,10,22.5
+2018,Bronx,Northeast Bronx,Female,Latino/Hispanic,4,16.6,1,25,6,24.8
+2018,Bronx,Northeast Bronx,Male,Latino/Hispanic,8,40.6,1,12.5,8,40.6
+2018,Bronx,Northeast Bronx,Male,White,1,12.6,1,100,2,25.3
+2018,Bronx,Pelham - Throgs Neck,Male,Asian/Pacific Islander,1,10.3,0,0,1,10.3
+2018,Bronx,Pelham - Throgs Neck,Female,Black,5,17.2,1,20,7,24.1
+2018,Bronx,Pelham - Throgs Neck,Male,Black,15,63.2,3,20,12,50.5
+2018,Bronx,Pelham - Throgs Neck,Female,Latino/Hispanic,8,11.4,0,0,6,8.6
+2018,Bronx,Pelham - Throgs Neck,Male,Latino/Hispanic,28,46.8,6,21.4,14,23.4
+2018,Bronx,Pelham - Throgs Neck,Male,White,3,14.2,1,33.3,3,14.2
+2018,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Black,24,24.6,2,8.3,20,20.5
+2018,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Black,72,98,12,16.7,37,50.4
+2018,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Latino/Hispanic,5,24.4,0,0,1,4.9
+2018,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Latino/Hispanic,17,103.4,4,23.5,13,79
+2018,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Other/Unknown,1,47.3,0,0,0,0
+2018,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,White,2,7.2,0,0,0,0
+2018,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,White,8,28.9,1,12.5,2,7.2
+2018,Brooklyn,Bensonhurst - Bay Ridge,Male,Asian/Pacific Islander,3,12.3,0,0,1,4.1
+2018,Brooklyn,Bensonhurst - Bay Ridge,Female,Latino/Hispanic,1,7.8,0,0,1,7.8
+2018,Brooklyn,Bensonhurst - Bay Ridge,Male,Latino/Hispanic,6,43.5,3,50,6,43.5
+2018,Brooklyn,Bensonhurst - Bay Ridge,Male,Other/Unknown,1,84.5,0,0,0,0
+2018,Brooklyn,Bensonhurst - Bay Ridge,Female,White,1,2.1,0,0,0,0
+2018,Brooklyn,Bensonhurst - Bay Ridge,Male,White,4,9.4,1,25,2,4.7
+2018,Brooklyn,Borough Park,Male,Asian/Pacific Islander,5,16.8,2,40,4,13.5
+2018,Brooklyn,Borough Park,Male,Black,4,78,0,0,0,0
+2018,Brooklyn,Borough Park,Male,Latino/Hispanic,10,58.3,4,40,6,35
+2018,Brooklyn,Borough Park,Female,White,2,2.7,1,50,1,1.4
+2018,Brooklyn,Borough Park,Male,White,3,4.4,1,33.3,1,1.5
+2018,Brooklyn,Canarsie - Flatlands,Male,Asian/Pacific Islander,1,23.6,0,0,0,0
+2018,Brooklyn,Canarsie - Flatlands,Female,Black,16,24.8,3,18.8,5,7.7
+2018,Brooklyn,Canarsie - Flatlands,Male,Black,24,50.8,7,29.2,12,25.4
+2018,Brooklyn,Canarsie - Flatlands,Female,Latino/Hispanic,2,21.3,1,50,3,31.9
+2018,Brooklyn,Canarsie - Flatlands,Male,Latino/Hispanic,4,56.2,3,75,4,56.2
+2018,Brooklyn,Canarsie - Flatlands,Female,Other/Unknown,1,102.1,0,0,0,0
+2018,Brooklyn,Coney Island - Sheepshead Bay,Male,Asian/Pacific Islander,1,4.4,1,100,2,8.9
+2018,Brooklyn,Coney Island - Sheepshead Bay,Female,Black,1,10.7,1,100,2,21.5
+2018,Brooklyn,Coney Island - Sheepshead Bay,Male,Black,4,66,0,0,2,33
+2018,Brooklyn,Coney Island - Sheepshead Bay,Female,Latino/Hispanic,1,6.9,1,100,2,13.8
+2018,Brooklyn,Coney Island - Sheepshead Bay,Male,Latino/Hispanic,4,29.7,0,0,0,0
+2018,Brooklyn,Coney Island - Sheepshead Bay,Female,White,2,2.5,1,50,1,1.2
+2018,Brooklyn,Coney Island - Sheepshead Bay,Male,White,7,10.1,2,28.6,5,7.2
+2018,Brooklyn,Downtown - Heights - Park Slope,Male,Asian/Pacific Islander,2,22.5,0,0,0,0
+2018,Brooklyn,Downtown - Heights - Park Slope,Female,Black,7,36.9,0,0,3,15.8
+2018,Brooklyn,Downtown - Heights - Park Slope,Male,Black,11,81.6,0,0,8,59.3
+2018,Brooklyn,Downtown - Heights - Park Slope,Female,Latino/Hispanic,2,11.4,0,0,2,11.4
+2018,Brooklyn,Downtown - Heights - Park Slope,Male,Latino/Hispanic,6,39.2,1,16.7,4,26.1
+2018,Brooklyn,Downtown - Heights - Park Slope,Female,White,2,3.1,0,0,1,1.5
+2018,Brooklyn,Downtown - Heights - Park Slope,Male,White,7,11.4,1,14.3,2,3.3
+2018,Brooklyn,East Flatbush - Flatbush,Male,Asian/Pacific Islander,3,71.3,1,33.3,1,23.8
+2018,Brooklyn,East Flatbush - Flatbush,Female,Black,23,23.5,3,13,13,13.3
+2018,Brooklyn,East Flatbush - Flatbush,Male,Black,50,67.6,10,20,27,36.5
+2018,Brooklyn,East Flatbush - Flatbush,Female,Latino/Hispanic,2,15.1,0,0,3,22.7
+2018,Brooklyn,East Flatbush - Flatbush,Male,Latino/Hispanic,12,104.4,2,16.7,6,52.2
+2018,Brooklyn,East Flatbush - Flatbush,Male,White,4,20.3,0,0,2,10.2
+2018,Brooklyn,East New York,Female,Black,8,16.8,2,25,7,14.7
+2018,Brooklyn,East New York,Male,Black,30,82.5,7,23.3,16,44
+2018,Brooklyn,East New York,Female,Latino/Hispanic,3,10.2,0,0,0,0
+2018,Brooklyn,East New York,Male,Latino/Hispanic,18,69.9,4,22.2,5,19.4
+2018,Brooklyn,East New York,Male,White,2,64.5,0,0,0,0
+2018,Brooklyn,Greenpoint,Male,Black,1,48.9,0,0,2,97.8
+2018,Brooklyn,Greenpoint,Female,Latino/Hispanic,1,7.1,0,0,0,0
+2018,Brooklyn,Greenpoint,Male,Latino/Hispanic,6,48,2,33.3,7,56
+2018,Brooklyn,Greenpoint,Male,White,3,7.6,1,33.3,1,2.5
+2018,Brooklyn,Sunset Park,Female,Asian/Pacific Islander,1,5.4,0,0,0,0
+2018,Brooklyn,Sunset Park,Male,Asian/Pacific Islander,4,22.6,1,25,4,22.6
+2018,Brooklyn,Sunset Park,Female,Latino/Hispanic,1,5.1,0,0,1,5.1
+2018,Brooklyn,Sunset Park,Male,Latino/Hispanic,9,41.5,4,44.4,5,23.1
+2018,Brooklyn,Sunset Park,Male,White,4,47.5,0,0,2,23.7
+2018,Brooklyn,Williamsburg - Bushwick,Female,Asian/Pacific Islander,1,16.3,1,100,1,16.3
+2018,Brooklyn,Williamsburg - Bushwick,Male,Asian/Pacific Islander,3,57.8,1,33.3,1,19.3
+2018,Brooklyn,Williamsburg - Bushwick,Female,Black,9,33.8,2,22.2,6,22.6
+2018,Brooklyn,Williamsburg - Bushwick,Male,Black,26,121.9,7,26.9,19,89.1
+2018,Brooklyn,Williamsburg - Bushwick,Female,Latino/Hispanic,1,2.6,0,0,1,2.6
+2018,Brooklyn,Williamsburg - Bushwick,Male,Latino/Hispanic,21,59.1,3,14.3,8,22.5
+2018,Brooklyn,Williamsburg - Bushwick,Male,Other/Unknown,1,74.1,0,0,0,0
+2018,Brooklyn,Williamsburg - Bushwick,Male,White,15,64.7,0,0,0,0
+2018,Manhattan,Central Harlem - Morningside Heights,Female,Black,14,33.5,4,28.6,14,33.5
+2018,Manhattan,Central Harlem - Morningside Heights,Male,Black,41,121.1,8,19.5,17,50.2
+2018,Manhattan,Central Harlem - Morningside Heights,Female,Latino/Hispanic,3,14.5,0,0,2,9.7
+2018,Manhattan,Central Harlem - Morningside Heights,Male,Latino/Hispanic,12,69.3,2,16.7,5,28.9
+2018,Manhattan,Central Harlem - Morningside Heights,Male,Other/Unknown,2,123.5,0,0,0,0
+2018,Manhattan,Central Harlem - Morningside Heights,Female,White,1,7,0,0,0,0
+2018,Manhattan,Central Harlem - Morningside Heights,Male,White,4,28.5,0,0,0,0
+2018,Manhattan,Chelsea - Clinton,Male,Asian/Pacific Islander,6,50.3,1,16.7,1,8.4
+2018,Manhattan,Chelsea - Clinton,Female,Black,1,28,1,100,3,84.1
+2018,Manhattan,Chelsea - Clinton,Male,Black,11,260.4,1,9.1,4,94.7
+2018,Manhattan,Chelsea - Clinton,Female,Latino/Hispanic,1,8.9,0,0,0,0
+2018,Manhattan,Chelsea - Clinton,Male,Latino/Hispanic,21,178.1,2,9.5,12,101.8
+2018,Manhattan,Chelsea - Clinton,Male,Other/Unknown,1,71.7,0,0,1,71.7
+2018,Manhattan,Chelsea - Clinton,Male,White,24,49.4,3,12.5,11,22.6
+2018,Manhattan,East Harlem,Male,Asian/Pacific Islander,5,141.1,4,80,4,112.9
+2018,Manhattan,East Harlem,Female,Black,5,31.2,1,20,4,25
+2018,Manhattan,East Harlem,Male,Black,13,101.3,3,23.1,16,124.7
+2018,Manhattan,East Harlem,Female,Latino/Hispanic,1,4.4,0,0,1,4.4
+2018,Manhattan,East Harlem,Male,Latino/Hispanic,9,44,1,11.1,6,29.3
+2018,Manhattan,East Harlem,Female,White,1,13.9,1,100,1,13.9
+2018,Manhattan,East Harlem,Male,White,3,40.9,0,0,0,0
+2018,Manhattan,Gramercy Park - Murray Hill,Male,Black,3,103.7,2,66.7,5,172.9
+2018,Manhattan,Gramercy Park - Murray Hill,Female,White,1,2.2,1,100,1,2.2
+2018,Manhattan,Gramercy Park - Murray Hill,Male,White,3,7.5,0,0,4,10
+2018,Manhattan,Greenwich Village - Soho,Female,Black,1,153.9,0,0,0,0
+2018,Manhattan,Greenwich Village - Soho,Male,Black,2,166.6,1,50,2,166.6
+2018,Manhattan,Greenwich Village - Soho,Male,Latino/Hispanic,4,137.9,0,0,1,34.5
+2018,Manhattan,Greenwich Village - Soho,Male,Other/Unknown,1,133.2,1,100,1,133.2
+2018,Manhattan,Greenwich Village - Soho,Male,White,4,15.3,0,0,1,3.8
+2018,Manhattan,Lower Manhattan,Male,Black,1,72.6,0,0,0,0
+2018,Manhattan,Lower Manhattan,Male,Latino/Hispanic,6,233.2,0,0,0,0
+2018,Manhattan,Lower Manhattan,Male,White,3,17.2,0,0,1,5.7
+2018,Manhattan,Union Square - Lower East Side,Female,Asian/Pacific Islander,1,4.3,0,0,0,0
+2018,Manhattan,Union Square - Lower East Side,Male,Asian/Pacific Islander,4,20.9,0,0,1,5.2
+2018,Manhattan,Union Square - Lower East Side,Female,Black,2,33.5,0,0,0,0
+2018,Manhattan,Union Square - Lower East Side,Male,Black,5,90.1,0,0,0,0
+2018,Manhattan,Union Square - Lower East Side,Female,Latino/Hispanic,1,5.5,0,0,2,10.9
+2018,Manhattan,Union Square - Lower East Side,Male,Latino/Hispanic,4,26.6,2,50,6,40
+2018,Manhattan,Union Square - Lower East Side,Male,White,4,10.4,1,25,4,10.4
+2018,Manhattan,Upper East Side,Male,Black,4,184.6,0,0,3,138.5
+2018,Manhattan,Upper East Side,Female,Latino/Hispanic,1,9.6,0,0,1,9.6
+2018,Manhattan,Upper East Side,Male,Latino/Hispanic,3,36.5,1,33.3,3,36.5
+2018,Manhattan,Upper East Side,Male,Other/Unknown,1,71.8,0,0,0,0
+2018,Manhattan,Upper East Side,Female,White,2,2.5,0,0,0,0
+2018,Manhattan,Upper East Side,Male,White,5,8,1,20,2,3.2
+2018,Manhattan,Upper West Side,Female,Asian/Pacific Islander,1,8.2,1,100,1,8.2
+2018,Manhattan,Upper West Side,Male,Asian/Pacific Islander,1,12.6,1,100,1,12.6
+2018,Manhattan,Upper West Side,Female,Black,3,43.1,0,0,3,43.1
+2018,Manhattan,Upper West Side,Male,Black,5,95.5,1,20,3,57.3
+2018,Manhattan,Upper West Side,Female,Latino/Hispanic,1,6,0,0,0,0
+2018,Manhattan,Upper West Side,Male,Latino/Hispanic,10,71.7,1,10,4,28.7
+2018,Manhattan,Upper West Side,Male,Other/Unknown,1,85,0,0,0,0
+2018,Manhattan,Upper West Side,Male,White,9,15.3,2,22.2,6,10.2
+2018,Manhattan,Washington Heights - Inwood,Male,Asian/Pacific Islander,2,52,0,0,0,0
+2018,Manhattan,Washington Heights - Inwood,Female,Black,1,7.3,0,0,0,0
+2018,Manhattan,Washington Heights - Inwood,Male,Black,21,175.4,5,23.8,13,108.6
+2018,Manhattan,Washington Heights - Inwood,Female,Latino/Hispanic,9,11.8,0,0,5,6.5
+2018,Manhattan,Washington Heights - Inwood,Male,Latino/Hispanic,44,63,5,11.4,15,21.5
+2018,Manhattan,Washington Heights - Inwood,Male,Other/Unknown,1,70.5,0,0,0,0
+2018,Manhattan,Washington Heights - Inwood,Female,White,1,4.2,0,0,0,0
+2018,Manhattan,Washington Heights - Inwood,Male,White,11,44.8,4,36.4,7,28.5
+2018,Queens,Bayside - Little Neck,Male,Latino/Hispanic,1,25.1,0,0,0,0
+2018,Queens,Flushing - Clearview,Female,Asian/Pacific Islander,1,1.6,0,0,0,0
+2018,Queens,Flushing - Clearview,Male,Asian/Pacific Islander,7,13,2,28.6,3,5.6
+2018,Queens,Flushing - Clearview,Male,Black,1,53.7,0,0,0,0
+2018,Queens,Flushing - Clearview,Male,Latino/Hispanic,11,63.7,3,27.3,7,40.5
+2018,Queens,Flushing - Clearview,Male,White,2,7.2,0,0,0,0
+2018,Queens,Fresh Meadows,Female,Black,2,53.1,0,0,0,0
+2018,Queens,Fresh Meadows,Female,Latino/Hispanic,1,12.3,0,0,0,0
+2018,Queens,Fresh Meadows,Male,Latino/Hispanic,3,46.3,0,0,1,15.4
+2018,Queens,Fresh Meadows,Female,White,1,6.8,0,0,0,0
+2018,Queens,Jamaica,Male,Asian/Pacific Islander,3,10.5,1,33.3,2,7
+2018,Queens,Jamaica,Female,Black,10,12.7,4,40,14,17.8
+2018,Queens,Jamaica,Male,Black,27,43.6,7,25.9,17,27.4
+2018,Queens,Jamaica,Female,Latino/Hispanic,4,18.2,1,25,3,13.6
+2018,Queens,Jamaica,Male,Latino/Hispanic,9,40.8,3,33.3,5,22.7
+2018,Queens,Jamaica,Male,White,2,21.4,0,0,1,10.7
+2018,Queens,Long Island City - Astoria,Male,Asian/Pacific Islander,6,38.7,1,16.7,3,19.3
+2018,Queens,Long Island City - Astoria,Female,Black,1,18,1,100,3,54.1
+2018,Queens,Long Island City - Astoria,Male,Black,9,201.9,1,11.1,4,89.7
+2018,Queens,Long Island City - Astoria,Female,Latino/Hispanic,1,4.7,1,100,2,9.4
+2018,Queens,Long Island City - Astoria,Male,Latino/Hispanic,26,126,5,19.2,11,53.3
+2018,Queens,Long Island City - Astoria,Female,White,1,2.3,0,0,1,2.3
+2018,Queens,Long Island City - Astoria,Male,White,3,6.5,1,33.3,1,2.2
+2018,Queens,Ridgewood - Forest Hills,Male,Asian/Pacific Islander,2,11.2,0,0,0,0
+2018,Queens,Ridgewood - Forest Hills,Female,Black,2,72.2,0,0,1,36.1
+2018,Queens,Ridgewood - Forest Hills,Male,Black,3,122.4,0,0,0,0
+2018,Queens,Ridgewood - Forest Hills,Male,Latino/Hispanic,17,60,1,5.9,4,14.1
+2018,Queens,Ridgewood - Forest Hills,Male,Other/Unknown,1,55.1,0,0,0,0
+2018,Queens,Ridgewood - Forest Hills,Female,White,1,1.7,0,0,1,1.7
+2018,Queens,Ridgewood - Forest Hills,Male,White,10,18.4,3,30,7,12.8
+2018,Queens,Rockaway,Female,Black,4,17.9,1,25,3,13.4
+2018,Queens,Rockaway,Male,Black,7,39.9,3,42.9,6,34.2
+2018,Queens,Rockaway,Female,Latino/Hispanic,1,8,0,0,2,16
+2018,Queens,Rockaway,Male,Latino/Hispanic,5,43.7,1,20,1,8.7
+2018,Queens,Rockaway,Male,White,1,5.8,0,0,0,0
+2018,Queens,Southeast Queens,Female,Black,4,7.2,2,50,4,7.2
+2018,Queens,Southeast Queens,Male,Black,13,28.3,2,15.4,8,17.4
+2018,Queens,Southeast Queens,Female,Latino/Hispanic,1,8.4,0,0,0,0
+2018,Queens,Southeast Queens,Male,Latino/Hispanic,4,37.8,0,0,1,9.4
+2018,Queens,Southwest Queens,Female,Asian/Pacific Islander,4,10.8,2,50,2,5.4
+2018,Queens,Southwest Queens,Male,Asian/Pacific Islander,9,24.6,4,44.4,5,13.7
+2018,Queens,Southwest Queens,Male,Black,8,69.1,2,25,3,25.9
+2018,Queens,Southwest Queens,Female,Latino/Hispanic,3,7.5,1,33.3,4,9.9
+2018,Queens,Southwest Queens,Male,Latino/Hispanic,21,54.5,4,19,5,13
+2018,Queens,Southwest Queens,Male,Other/Unknown,1,23.7,0,0,0,0
+2018,Queens,Southwest Queens,Male,White,5,21.3,1,20,1,4.3
+2018,Queens,West Queens,Female,Asian/Pacific Islander,2,3.9,0,0,2,3.9
+2018,Queens,West Queens,Male,Asian/Pacific Islander,13,26.9,9,69.2,12,24.8
+2018,Queens,West Queens,Female,Black,3,31.1,2,66.7,3,31.1
+2018,Queens,West Queens,Male,Black,4,34.2,1,25,6,51.3
+2018,Queens,West Queens,Female,Latino/Hispanic,5,5.6,2,40,4,4.5
+2018,Queens,West Queens,Male,Latino/Hispanic,65,62.9,12,18.5,30,29.1
+2018,Queens,West Queens,Female,White,1,3.2,0,0,0,0
+2018,Staten Island,Port Richmond,Female,Black,3,38.8,0,0,0,0
+2018,Staten Island,Port Richmond,Male,Black,7,108.7,2,28.6,3,46.6
+2018,Staten Island,Port Richmond,Male,Latino/Hispanic,1,10.4,0,0,1,10.4
+2018,Staten Island,Port Richmond,Male,White,1,11.7,0,0,0,0
+2018,Staten Island,South Beach - Tottenville,Male,Black,1,85,0,0,0,0
+2018,Staten Island,South Beach - Tottenville,Male,Latino/Hispanic,2,22.7,1,50,1,11.3
+2018,Staten Island,South Beach - Tottenville,Male,White,4,6.3,1,25,3,4.7
+2018,Staten Island,Stapleton - St. George,Female,Black,3,30.6,0,0,5,51
+2018,Staten Island,Stapleton - St. George,Male,Black,3,37,0,0,2,24.6
+2018,Staten Island,Stapleton - St. George,Male,Latino/Hispanic,2,19.9,0,0,1,9.9
+2018,Staten Island,Willowbrook,Male,Latino/Hispanic,1,19.5,0,0,1,19.5
+2018,Staten Island,Willowbrook,Male,White,1,4.3,0,0,0,0
+2017,Bronx,Crotona - Tremont,Female,Black,11,43,1,9.1,14,54.8
+2017,Bronx,Crotona - Tremont,Male,Black,20,89.4,4,20,16,71.5
+2017,Bronx,Crotona - Tremont,Female,Latino/Hispanic,10,15.7,0,0,5,7.9
+2017,Bronx,Crotona - Tremont,Male,Latino/Hispanic,39,73.7,4,10.3,23,43.4
+2017,Bronx,Crotona - Tremont,Male,Other/Unknown,1,188.3,0,0,0,0
+2017,Bronx,Crotona - Tremont,Female,White,1,66.2,0,0,0,0
+2017,Bronx,Crotona - Tremont,Male,White,1,61.3,0,0,0,0
+2017,Bronx,Fordham - Bronx Park,Male,Asian/Pacific Islander,1,22.3,0,0,1,22.3
+2017,Bronx,Fordham - Bronx Park,Female,Black,14,54,1,7.1,8,30.8
+2017,Bronx,Fordham - Bronx Park,Male,Black,25,112.1,5,20,21,94.1
+2017,Bronx,Fordham - Bronx Park,Female,Latino/Hispanic,3,4.1,0,0,1,1.4
+2017,Bronx,Fordham - Bronx Park,Male,Latino/Hispanic,38,58.9,7,18.4,19,29.5
+2017,Bronx,Fordham - Bronx Park,Male,White,2,23.5,0,0,2,23.5
+2017,Bronx,High Bridge - Morrisania,Male,Asian/Pacific Islander,1,76.6,0,0,1,76.6
+2017,Bronx,High Bridge - Morrisania,Female,Black,17,55.5,4,23.5,14,45.7
+2017,Bronx,High Bridge - Morrisania,Male,Black,19,73.3,5,26.3,26,100.4
+2017,Bronx,High Bridge - Morrisania,Female,Latino/Hispanic,13,22.2,2,15.4,9,15.3
+2017,Bronx,High Bridge - Morrisania,Male,Latino/Hispanic,27,54.3,6,22.2,21,42.3
+2017,Bronx,High Bridge - Morrisania,Male,White,2,96.3,0,0,1,48.2
+2017,Bronx,Hunts Point - Mott Haven,Female,Black,12,73.3,4,33.3,8,48.8
+2017,Bronx,Hunts Point - Mott Haven,Male,Black,17,119.8,0,0,11,77.5
+2017,Bronx,Hunts Point - Mott Haven,Female,Latino/Hispanic,1,2.5,0,0,3,7.4
+2017,Bronx,Hunts Point - Mott Haven,Male,Latino/Hispanic,31,85.4,2,6.5,9,24.8
+2017,Bronx,Hunts Point - Mott Haven,Male,White,1,81.6,0,0,1,81.6
+2017,Bronx,Kingsbridge - Riverdale,Male,Black,3,74.9,0,0,0,0
+2017,Bronx,Kingsbridge - Riverdale,Female,Latino/Hispanic,3,15.7,0,0,0,0
+2017,Bronx,Kingsbridge - Riverdale,Male,Latino/Hispanic,3,20.1,0,0,2,13.4
+2017,Bronx,Kingsbridge - Riverdale,Male,White,4,27.5,2,50,2,13.7
+2017,Bronx,Northeast Bronx,Female,Black,12,20.5,3,25,7,12
+2017,Bronx,Northeast Bronx,Male,Black,27,60.6,5,18.5,15,33.7
+2017,Bronx,Northeast Bronx,Female,Latino/Hispanic,2,8.3,0,0,3,12.5
+2017,Bronx,Northeast Bronx,Male,Latino/Hispanic,10,50.9,3,30,6,30.6
+2017,Bronx,Northeast Bronx,Male,White,2,24.8,0,0,0,0
+2017,Bronx,Pelham - Throgs Neck,Female,Black,9,30.6,4,44.4,5,17
+2017,Bronx,Pelham - Throgs Neck,Male,Black,22,92.4,5,22.7,20,84
+2017,Bronx,Pelham - Throgs Neck,Female,Latino/Hispanic,4,5.7,2,50,6,8.6
+2017,Bronx,Pelham - Throgs Neck,Male,Latino/Hispanic,34,56.9,5,14.7,17,28.5
+2017,Bronx,Pelham - Throgs Neck,Female,White,1,4.4,0,0,0,0
+2017,Bronx,Pelham - Throgs Neck,Male,White,4,18.5,1,25,2,9.3
+2017,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Asian/Pacific Islander,2,44.1,1,50,3,66.2
+2017,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Black,26,26.4,4,15.4,21,21.3
+2017,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Black,62,83.6,15,24.2,42,56.6
+2017,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Latino/Hispanic,2,9.7,0,0,5,24.3
+2017,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Latino/Hispanic,23,138.9,6,26.1,16,96.7
+2017,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Other/Unknown,4,195.2,0,0,0,0
+2017,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,White,1,3.6,0,0,0,0
+2017,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,White,10,36,3,30,5,18
+2017,Brooklyn,Bensonhurst - Bay Ridge,Male,Asian/Pacific Islander,1,4.1,0,0,0,0
+2017,Brooklyn,Bensonhurst - Bay Ridge,Male,Black,2,119.7,1,50,2,119.7
+2017,Brooklyn,Bensonhurst - Bay Ridge,Male,Latino/Hispanic,6,43.1,2,33.3,3,21.5
+2017,Brooklyn,Bensonhurst - Bay Ridge,Male,Other/Unknown,1,87,0,0,0,0
+2017,Brooklyn,Bensonhurst - Bay Ridge,Female,White,2,4.2,1,50,2,4.2
+2017,Brooklyn,Bensonhurst - Bay Ridge,Male,White,7,16.5,0,0,3,7.1
+2017,Brooklyn,Borough Park,Female,Asian/Pacific Islander,1,3.3,0,0,0,0
+2017,Brooklyn,Borough Park,Male,Asian/Pacific Islander,2,6.7,0,0,0,0
+2017,Brooklyn,Borough Park,Male,Black,3,58.1,0,0,0,0
+2017,Brooklyn,Borough Park,Male,Latino/Hispanic,9,52,0,0,1,5.8
+2017,Brooklyn,Borough Park,Female,White,3,4.1,1,33.3,1,1.4
+2017,Brooklyn,Borough Park,Male,White,8,11.8,1,12.5,4,5.9
+2017,Brooklyn,Canarsie - Flatlands,Female,Black,12,18.4,5,41.7,11,16.8
+2017,Brooklyn,Canarsie - Flatlands,Male,Black,24,50.2,6,25,10,20.9
+2017,Brooklyn,Canarsie - Flatlands,Female,Latino/Hispanic,1,10.6,1,100,2,21.2
+2017,Brooklyn,Canarsie - Flatlands,Male,Latino/Hispanic,2,28,1,50,3,42
+2017,Brooklyn,Canarsie - Flatlands,Male,White,1,5.9,0,0,2,11.9
+2017,Brooklyn,Coney Island - Sheepshead Bay,Female,Asian/Pacific Islander,1,4.2,0,0,0,0
+2017,Brooklyn,Coney Island - Sheepshead Bay,Male,Asian/Pacific Islander,3,13.4,0,0,2,8.9
+2017,Brooklyn,Coney Island - Sheepshead Bay,Female,Black,1,10.6,0,0,1,10.6
+2017,Brooklyn,Coney Island - Sheepshead Bay,Male,Black,5,81.3,2,40,2,32.5
+2017,Brooklyn,Coney Island - Sheepshead Bay,Female,Latino/Hispanic,2,13.8,0,0,0,0
+2017,Brooklyn,Coney Island - Sheepshead Bay,Male,Latino/Hispanic,7,51.5,2,28.6,3,22.1
+2017,Brooklyn,Coney Island - Sheepshead Bay,Female,White,6,7.5,3,50,4,5
+2017,Brooklyn,Coney Island - Sheepshead Bay,Male,White,10,14.4,1,10,5,7.2
+2017,Brooklyn,Downtown - Heights - Park Slope,Male,Asian/Pacific Islander,1,11.3,0,0,0,0
+2017,Brooklyn,Downtown - Heights - Park Slope,Female,Black,4,20.9,1,25,2,10.4
+2017,Brooklyn,Downtown - Heights - Park Slope,Male,Black,15,110.4,1,6.7,6,44.2
+2017,Brooklyn,Downtown - Heights - Park Slope,Male,Latino/Hispanic,9,58.6,2,22.2,5,32.5
+2017,Brooklyn,Downtown - Heights - Park Slope,Female,Other/Unknown,1,33.6,0,0,0,0
+2017,Brooklyn,Downtown - Heights - Park Slope,Female,White,1,1.5,0,0,0,0
+2017,Brooklyn,Downtown - Heights - Park Slope,Male,White,11,18,1,9.1,6,9.8
+2017,Brooklyn,East Flatbush - Flatbush,Female,Asian/Pacific Islander,1,20.2,0,0,0,0
+2017,Brooklyn,East Flatbush - Flatbush,Male,Asian/Pacific Islander,2,47.5,0,0,1,23.8
+2017,Brooklyn,East Flatbush - Flatbush,Female,Black,23,23.3,5,21.7,13,13.2
+2017,Brooklyn,East Flatbush - Flatbush,Male,Black,53,71.1,12,22.6,31,41.6
+2017,Brooklyn,East Flatbush - Flatbush,Female,Latino/Hispanic,2,15.1,1,50,1,7.5
+2017,Brooklyn,East Flatbush - Flatbush,Male,Latino/Hispanic,9,77.8,4,44.4,6,51.9
+2017,Brooklyn,East Flatbush - Flatbush,Female,White,1,5,0,0,0,0
+2017,Brooklyn,East Flatbush - Flatbush,Male,White,3,15.2,0,0,5,25.4
+2017,Brooklyn,East New York,Male,Asian/Pacific Islander,2,49.6,1,50,1,24.8
+2017,Brooklyn,East New York,Female,Black,13,26.8,4,30.8,16,33
+2017,Brooklyn,East New York,Male,Black,45,122.2,8,17.8,20,54.3
+2017,Brooklyn,East New York,Female,Latino/Hispanic,7,23.7,0,0,4,13.5
+2017,Brooklyn,East New York,Male,Latino/Hispanic,16,61.7,3,18.8,13,50.1
+2017,Brooklyn,East New York,Male,Other/Unknown,1,153,1,100,1,153
+2017,Brooklyn,East New York,Male,White,1,32.2,0,0,1,32.2
+2017,Brooklyn,Greenpoint,Male,Asian/Pacific Islander,1,32,0,0,1,32
+2017,Brooklyn,Greenpoint,Male,Black,4,194,3,75,4,194
+2017,Brooklyn,Greenpoint,Female,Latino/Hispanic,1,7.1,0,0,2,14.2
+2017,Brooklyn,Greenpoint,Male,Latino/Hispanic,9,71.9,1,11.1,2,16
+2017,Brooklyn,Greenpoint,Male,White,7,17.9,0,0,1,2.6
+2017,Brooklyn,Sunset Park,Male,Asian/Pacific Islander,4,22.6,1,25,1,5.6
+2017,Brooklyn,Sunset Park,Male,Black,2,116.7,1,50,1,58.3
+2017,Brooklyn,Sunset Park,Female,Latino/Hispanic,3,15.2,0,0,0,0
+2017,Brooklyn,Sunset Park,Male,Latino/Hispanic,13,59.4,2,15.4,6,27.4
+2017,Brooklyn,Sunset Park,Female,Other/Unknown,1,175.5,1,100,1,175.5
+2017,Brooklyn,Sunset Park,Male,Other/Unknown,2,329.1,1,50,1,164.5
+2017,Brooklyn,Sunset Park,Male,White,1,11.9,0,0,1,11.9
+2017,Brooklyn,Williamsburg - Bushwick,Male,Asian/Pacific Islander,2,38.5,1,50,1,19.2
+2017,Brooklyn,Williamsburg - Bushwick,Female,Black,7,26,0,0,6,22.3
+2017,Brooklyn,Williamsburg - Bushwick,Male,Black,26,120.6,6,23.1,12,55.7
+2017,Brooklyn,Williamsburg - Bushwick,Female,Latino/Hispanic,3,7.8,1,33.3,3,7.8
+2017,Brooklyn,Williamsburg - Bushwick,Male,Latino/Hispanic,27,75.4,2,7.4,10,27.9
+2017,Brooklyn,Williamsburg - Bushwick,Female,White,1,5.2,0,0,0,0
+2017,Brooklyn,Williamsburg - Bushwick,Male,White,19,81.4,1,5.3,4,17.1
+2017,Manhattan,Central Harlem - Morningside Heights,Male,Asian/Pacific Islander,1,24,0,0,1,24
+2017,Manhattan,Central Harlem - Morningside Heights,Female,Black,5,11.9,3,60,7,16.6
+2017,Manhattan,Central Harlem - Morningside Heights,Male,Black,43,126.3,8,18.6,24,70.5
+2017,Manhattan,Central Harlem - Morningside Heights,Female,Latino/Hispanic,1,4.8,0,0,1,4.8
+2017,Manhattan,Central Harlem - Morningside Heights,Male,Latino/Hispanic,10,57.4,3,30,7,40.2
+2017,Manhattan,Central Harlem - Morningside Heights,Male,Other/Unknown,1,63,0,0,0,0
+2017,Manhattan,Central Harlem - Morningside Heights,Female,White,1,7,1,100,1,7
+2017,Manhattan,Central Harlem - Morningside Heights,Male,White,12,85.5,2,16.7,5,35.6
+2017,Manhattan,Chelsea - Clinton,Male,Asian/Pacific Islander,4,33.7,0,0,0,0
+2017,Manhattan,Chelsea - Clinton,Female,Black,2,55.9,0,0,1,28
+2017,Manhattan,Chelsea - Clinton,Male,Black,12,284.2,2,16.7,6,142.1
+2017,Manhattan,Chelsea - Clinton,Male,Latino/Hispanic,18,153.4,2,11.1,5,42.6
+2017,Manhattan,Chelsea - Clinton,Male,Other/Unknown,1,73,0,0,0,0
+2017,Manhattan,Chelsea - Clinton,Female,White,1,2.4,0,0,1,2.4
+2017,Manhattan,Chelsea - Clinton,Male,White,31,64,5,16.1,18,37.1
+2017,Manhattan,East Harlem,Male,Asian/Pacific Islander,3,84.9,0,0,0,0
+2017,Manhattan,East Harlem,Female,Black,4,24.8,1,25,9,55.9
+2017,Manhattan,East Harlem,Male,Black,13,100.6,1,7.7,7,54.2
+2017,Manhattan,East Harlem,Male,Latino/Hispanic,11,53.6,2,18.2,7,34.1
+2017,Manhattan,East Harlem,Male,Other/Unknown,1,188.6,1,100,1,188.6
+2017,Manhattan,East Harlem,Male,White,4,54.4,2,50,3,40.8
+2017,Manhattan,Gramercy Park - Murray Hill,Male,Asian/Pacific Islander,3,31.6,0,0,0,0
+2017,Manhattan,Gramercy Park - Murray Hill,Male,Black,2,68.8,0,0,1,34.4
+2017,Manhattan,Gramercy Park - Murray Hill,Male,Latino/Hispanic,8,159.7,3,37.5,5,99.8
+2017,Manhattan,Gramercy Park - Murray Hill,Female,White,1,2.2,0,0,0,0
+2017,Manhattan,Gramercy Park - Murray Hill,Male,White,8,20.1,3,37.5,6,15.1
+2017,Manhattan,Greenwich Village - Soho,Female,Black,1,153,0,0,0,0
+2017,Manhattan,Greenwich Village - Soho,Male,Black,3,248.7,0,0,2,165.8
+2017,Manhattan,Greenwich Village - Soho,Male,Latino/Hispanic,3,103.1,0,0,1,34.4
+2017,Manhattan,Greenwich Village - Soho,Male,Other/Unknown,1,135.5,0,0,0,0
+2017,Manhattan,Greenwich Village - Soho,Male,White,6,22.9,1,16.7,1,3.8
+2017,Manhattan,Lower Manhattan,Male,Asian/Pacific Islander,2,36.1,1,50,2,36.1
+2017,Manhattan,Lower Manhattan,Male,Black,3,217.9,0,0,0,0
+2017,Manhattan,Lower Manhattan,Male,Latino/Hispanic,4,155.6,0,0,1,38.9
+2017,Manhattan,Lower Manhattan,Male,Other/Unknown,1,178.6,0,0,0,0
+2017,Manhattan,Lower Manhattan,Female,White,1,6.1,0,0,0,0
+2017,Manhattan,Lower Manhattan,Male,White,1,5.8,0,0,0,0
+2017,Manhattan,Union Square - Lower East Side,Male,Asian/Pacific Islander,2,10.5,0,0,0,0
+2017,Manhattan,Union Square - Lower East Side,Female,Black,1,16.6,0,0,2,33.3
+2017,Manhattan,Union Square - Lower East Side,Male,Black,4,71.6,0,0,0,0
+2017,Manhattan,Union Square - Lower East Side,Male,Latino/Hispanic,11,73.1,2,18.2,6,39.9
+2017,Manhattan,Union Square - Lower East Side,Male,Other/Unknown,1,66.3,0,0,0,0
+2017,Manhattan,Union Square - Lower East Side,Male,White,11,28.7,0,0,6,15.7
+2017,Manhattan,Upper East Side,Male,Asian/Pacific Islander,2,23.9,0,0,0,0
+2017,Manhattan,Upper East Side,Male,Black,2,92,1,50,0,0
+2017,Manhattan,Upper East Side,Male,Latino/Hispanic,3,36.5,1,33.3,1,12.2
+2017,Manhattan,Upper East Side,Male,White,6,9.7,0,0,7,11.3
+2017,Manhattan,Upper West Side,Male,Asian/Pacific Islander,1,12.6,0,0,2,25.1
+2017,Manhattan,Upper West Side,Female,Black,1,14.3,1,100,2,28.6
+2017,Manhattan,Upper West Side,Male,Black,4,76,1,25,8,152
+2017,Manhattan,Upper West Side,Male,Latino/Hispanic,4,28.7,0,0,3,21.5
+2017,Manhattan,Upper West Side,Male,White,11,18.8,1,9.1,2,3.4
+2017,Manhattan,Washington Heights - Inwood,Male,Asian/Pacific Islander,3,77.9,0,0,0,0
+2017,Manhattan,Washington Heights - Inwood,Female,Black,2,14.5,0,0,3,21.8
+2017,Manhattan,Washington Heights - Inwood,Male,Black,15,124.8,2,13.3,8,66.5
+2017,Manhattan,Washington Heights - Inwood,Female,Latino/Hispanic,12,15.6,3,25,6,7.8
+2017,Manhattan,Washington Heights - Inwood,Male,Latino/Hispanic,48,68.5,7,14.6,21,30
+2017,Manhattan,Washington Heights - Inwood,Male,Other/Unknown,2,143.8,0,0,0,0
+2017,Manhattan,Washington Heights - Inwood,Female,White,1,4.2,0,0,0,0
+2017,Manhattan,Washington Heights - Inwood,Male,White,13,52.9,0,0,3,12.2
+2017,Queens,Bayside - Little Neck,Male,Asian/Pacific Islander,1,6.6,0,0,0,0
+2017,Queens,Bayside - Little Neck,Male,Black,1,83.7,0,0,0,0
+2017,Queens,Bayside - Little Neck,Male,Latino/Hispanic,2,50.2,1,50,1,25.1
+2017,Queens,Bayside - Little Neck,Female,White,1,6.1,0,0,0,0
+2017,Queens,Flushing - Clearview,Female,Asian/Pacific Islander,1,1.6,0,0,1,1.6
+2017,Queens,Flushing - Clearview,Male,Asian/Pacific Islander,6,11.2,2,33.3,3,5.6
+2017,Queens,Flushing - Clearview,Female,Black,2,78.2,0,0,0,0
+2017,Queens,Flushing - Clearview,Male,Black,1,53.6,0,0,0,0
+2017,Queens,Flushing - Clearview,Female,Latino/Hispanic,2,10.3,0,0,1,5.2
+2017,Queens,Flushing - Clearview,Male,Latino/Hispanic,7,40.5,1,14.3,1,5.8
+2017,Queens,Fresh Meadows,Male,Asian/Pacific Islander,1,6.8,0,0,0,0
+2017,Queens,Fresh Meadows,Female,Black,1,26.2,0,0,0,0
+2017,Queens,Fresh Meadows,Male,Black,1,38.6,0,0,0,0
+2017,Queens,Fresh Meadows,Female,Latino/Hispanic,2,24.5,0,0,0,0
+2017,Queens,Fresh Meadows,Male,Latino/Hispanic,1,15.4,0,0,0,0
+2017,Queens,Jamaica,Male,Asian/Pacific Islander,5,17.5,0,0,0,0
+2017,Queens,Jamaica,Female,Black,16,20.2,2,12.5,6,7.6
+2017,Queens,Jamaica,Male,Black,34,54.5,3,8.8,8,12.8
+2017,Queens,Jamaica,Female,Latino/Hispanic,3,13.6,0,0,1,4.5
+2017,Queens,Jamaica,Male,Latino/Hispanic,15,67.7,2,13.3,5,22.6
+2017,Queens,Jamaica,Female,Other/Unknown,1,25.9,1,100,1,25.9
+2017,Queens,Jamaica,Female,White,1,10.8,0,0,0,0
+2017,Queens,Jamaica,Male,White,1,10.5,0,0,2,21
+2017,Queens,Long Island City - Astoria,Male,Asian/Pacific Islander,8,51.3,2,25,2,12.8
+2017,Queens,Long Island City - Astoria,Female,Black,1,17.8,0,0,1,17.8
+2017,Queens,Long Island City - Astoria,Male,Black,4,88.8,0,0,2,44.4
+2017,Queens,Long Island City - Astoria,Female,Latino/Hispanic,2,9.3,1,50,1,4.7
+2017,Queens,Long Island City - Astoria,Male,Latino/Hispanic,23,110.9,4,17.4,9,43.4
+2017,Queens,Long Island City - Astoria,Male,Other/Unknown,2,121.1,1,50,2,121.1
+2017,Queens,Long Island City - Astoria,Male,White,7,14.8,0,0,3,6.4
+2017,Queens,Ridgewood - Forest Hills,Female,Asian/Pacific Islander,1,4.7,0,0,0,0
+2017,Queens,Ridgewood - Forest Hills,Male,Asian/Pacific Islander,3,16.8,1,33.3,1,5.6
+2017,Queens,Ridgewood - Forest Hills,Male,Black,1,40.6,0,0,3,121.9
+2017,Queens,Ridgewood - Forest Hills,Female,Latino/Hispanic,1,3.1,0,0,0,0
+2017,Queens,Ridgewood - Forest Hills,Male,Latino/Hispanic,9,31.6,0,0,1,3.5
+2017,Queens,Ridgewood - Forest Hills,Male,White,4,7.2,2,50,4,7.2
+2017,Queens,Rockaway,Female,Asian/Pacific Islander,1,38.5,0,0,0,0
+2017,Queens,Rockaway,Female,Black,3,13.2,0,0,3,13.2
+2017,Queens,Rockaway,Male,Black,9,50.9,1,11.1,3,17
+2017,Queens,Rockaway,Male,Latino/Hispanic,3,26.2,0,0,0,0
+2017,Queens,Rockaway,Male,White,3,17,0,0,1,5.7
+2017,Queens,Southeast Queens,Female,Asian/Pacific Islander,1,6.1,0,0,1,6.1
+2017,Queens,Southeast Queens,Male,Asian/Pacific Islander,1,6.5,0,0,0,0
+2017,Queens,Southeast Queens,Female,Black,5,8.9,1,20,4,7.1
+2017,Queens,Southeast Queens,Male,Black,14,30.3,1,7.1,9,19.5
+2017,Queens,Southeast Queens,Female,Latino/Hispanic,1,8.4,0,0,1,8.4
+2017,Queens,Southeast Queens,Male,Latino/Hispanic,1,9.4,0,0,0,0
+2017,Queens,Southeast Queens,Female,Other/Unknown,1,38.9,0,0,0,0
+2017,Queens,Southeast Queens,Male,White,2,18.2,1,50,2,18.2
+2017,Queens,Southwest Queens,Female,Asian/Pacific Islander,2,5.4,0,0,1,2.7
+2017,Queens,Southwest Queens,Male,Asian/Pacific Islander,9,24.6,6,66.7,10,27.3
+2017,Queens,Southwest Queens,Female,Black,3,23.1,2,66.7,3,23.1
+2017,Queens,Southwest Queens,Male,Black,10,85.7,2,20,5,42.8
+2017,Queens,Southwest Queens,Female,Latino/Hispanic,5,12.4,1,20,1,2.5
+2017,Queens,Southwest Queens,Male,Latino/Hispanic,15,38.8,3,20,8,20.7
+2017,Queens,Southwest Queens,Male,White,3,12.5,1,33.3,2,8.4
+2017,Queens,West Queens,Female,Asian/Pacific Islander,1,1.9,1,100,1,1.9
+2017,Queens,West Queens,Male,Asian/Pacific Islander,22,45.5,9,40.9,12,24.8
+2017,Queens,West Queens,Female,Black,1,10.3,0,0,1,10.3
+2017,Queens,West Queens,Male,Black,6,50.9,1,16.7,5,42.4
+2017,Queens,West Queens,Female,Latino/Hispanic,3,3.3,0,0,1,1.1
+2017,Queens,West Queens,Male,Latino/Hispanic,79,75.9,15,19,32,30.7
+2017,Queens,West Queens,Male,White,8,25.7,1,12.5,3,9.6
+2017,Staten Island,Port Richmond,Female,Black,4,51.4,0,0,1,12.8
+2017,Staten Island,Port Richmond,Male,Black,4,61.6,0,0,2,30.8
+2017,Staten Island,Port Richmond,Male,Latino/Hispanic,5,52.2,1,20,2,20.9
+2017,Staten Island,Port Richmond,Male,White,1,11.6,0,0,0,0
+2017,Staten Island,South Beach - Tottenville,Male,Latino/Hispanic,1,11.4,0,0,1,11.4
+2017,Staten Island,South Beach - Tottenville,Male,White,3,4.6,0,0,0,0
+2017,Staten Island,Stapleton - St. George,Female,Black,5,50.8,1,20,2,20.3
+2017,Staten Island,Stapleton - St. George,Male,Black,5,61.3,4,80,10,122.5
+2017,Staten Island,Stapleton - St. George,Male,Latino/Hispanic,2,20,1,50,2,20
+2017,Staten Island,Stapleton - St. George,Male,Other/Unknown,1,125,1,100,1,125
+2017,Staten Island,Stapleton - St. George,Female,White,1,3.7,0,0,1,3.7
+2017,Staten Island,Stapleton - St. George,Male,White,3,12,1,33.3,4,15.9
+2017,Staten Island,Willowbrook,Male,Black,1,88.5,0,0,0,0
+2017,Staten Island,Willowbrook,Male,Other/Unknown,1,164.5,0,0,0,0
+2017,Staten Island,Willowbrook,Male,White,1,4.2,0,0,0,0
+2016,Bronx,Crotona - Tremont,Female,Black,10,38.7,0,0,10,38.7
+2016,Bronx,Crotona - Tremont,Male,Black,26,115.7,7,26.9,13,57.9
+2016,Bronx,Crotona - Tremont,Female,Latino/Hispanic,14,22,2,14.3,12,18.9
+2016,Bronx,Crotona - Tremont,Male,Latino/Hispanic,34,64.3,7,20.6,26,49.1
+2016,Bronx,Crotona - Tremont,Female,White,2,130.6,0,0,0,0
+2016,Bronx,Crotona - Tremont,Male,White,1,60.9,0,0,2,121.8
+2016,Bronx,Fordham - Bronx Park,Male,Asian/Pacific Islander,2,45.3,0,0,0,0
+2016,Bronx,Fordham - Bronx Park,Female,Black,24,91.7,5,20.8,11,42
+2016,Bronx,Fordham - Bronx Park,Male,Black,27,120.7,6,22.2,17,76
+2016,Bronx,Fordham - Bronx Park,Female,Latino/Hispanic,12,16.3,2,16.7,8,10.8
+2016,Bronx,Fordham - Bronx Park,Male,Latino/Hispanic,37,57.4,7,18.9,23,35.7
+2016,Bronx,Fordham - Bronx Park,Male,White,2,23.4,0,0,1,11.7
+2016,Bronx,High Bridge - Morrisania,Female,Black,17,55,4,23.5,17,55
+2016,Bronx,High Bridge - Morrisania,Male,Black,32,123.2,10,31.3,25,96.3
+2016,Bronx,High Bridge - Morrisania,Female,Latino/Hispanic,8,13.7,0,0,12,20.5
+2016,Bronx,High Bridge - Morrisania,Male,Latino/Hispanic,35,70.5,6,17.1,21,42.3
+2016,Bronx,High Bridge - Morrisania,Male,Other/Unknown,1,122,1,100,1,122
+2016,Bronx,High Bridge - Morrisania,Male,White,1,47.8,0,0,1,47.8
+2016,Bronx,Hunts Point - Mott Haven,Male,Asian/Pacific Islander,2,394.2,0,0,1,197.1
+2016,Bronx,Hunts Point - Mott Haven,Female,Black,2,12.1,1,50,5,30.2
+2016,Bronx,Hunts Point - Mott Haven,Male,Black,22,154.2,4,18.2,19,133.1
+2016,Bronx,Hunts Point - Mott Haven,Female,Latino/Hispanic,9,22.1,1,11.1,9,22.1
+2016,Bronx,Hunts Point - Mott Haven,Male,Latino/Hispanic,32,88.4,3,9.4,11,30.4
+2016,Bronx,Hunts Point - Mott Haven,Male,White,1,80.9,0,0,0,0
+2016,Bronx,Kingsbridge - Riverdale,Male,Asian/Pacific Islander,1,60.2,0,0,0,0
+2016,Bronx,Kingsbridge - Riverdale,Female,Black,2,36.2,1,50,1,18.1
+2016,Bronx,Kingsbridge - Riverdale,Male,Black,2,50.2,0,0,0,0
+2016,Bronx,Kingsbridge - Riverdale,Female,Latino/Hispanic,1,5.3,0,0,0,0
+2016,Bronx,Kingsbridge - Riverdale,Male,Latino/Hispanic,5,33.6,0,0,2,13.5
+2016,Bronx,Kingsbridge - Riverdale,Male,White,3,20.5,0,0,0,0
+2016,Bronx,Northeast Bronx,Female,Black,13,22.1,4,30.8,8,13.6
+2016,Bronx,Northeast Bronx,Male,Black,26,58.4,9,34.6,13,29.2
+2016,Bronx,Northeast Bronx,Female,Latino/Hispanic,2,8.4,0,0,6,25.1
+2016,Bronx,Northeast Bronx,Male,Latino/Hispanic,6,30.7,1,16.7,10,51.2
+2016,Bronx,Northeast Bronx,Male,White,1,12.3,0,0,2,24.6
+2016,Bronx,Pelham - Throgs Neck,Male,Asian/Pacific Islander,3,31.5,1,33.3,1,10.5
+2016,Bronx,Pelham - Throgs Neck,Female,Black,8,27,1,12.5,7,23.7
+2016,Bronx,Pelham - Throgs Neck,Male,Black,23,96.5,4,17.4,16,67.1
+2016,Bronx,Pelham - Throgs Neck,Female,Latino/Hispanic,13,18.7,4,30.8,9,13
+2016,Bronx,Pelham - Throgs Neck,Male,Latino/Hispanic,23,38.6,3,13,11,18.5
+2016,Bronx,Pelham - Throgs Neck,Male,Other/Unknown,2,128.8,0,0,0,0
+2016,Bronx,Pelham - Throgs Neck,Male,White,2,9.2,0,0,0,0
+2016,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Asian/Pacific Islander,5,110.6,0,0,0,0
+2016,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Black,31,31.1,8,25.8,25,25.1
+2016,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Black,97,129.7,22,22.7,58,77.5
+2016,Brooklyn,Bedford Stuyvesant - Crown Heights,Female,Latino/Hispanic,3,14.4,1,33.3,3,14.4
+2016,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Latino/Hispanic,22,131.8,3,13.6,8,47.9
+2016,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,Other/Unknown,4,201,1,25,1,50.2
+2016,Brooklyn,Bedford Stuyvesant - Crown Heights,Male,White,8,28.7,1,12.5,1,3.6
+2016,Brooklyn,Bensonhurst - Bay Ridge,Female,Asian/Pacific Islander,1,3.8,0,0,0,0
+2016,Brooklyn,Bensonhurst - Bay Ridge,Male,Asian/Pacific Islander,4,16.5,2,50,4,16.5
+2016,Brooklyn,Bensonhurst - Bay Ridge,Male,Black,2,118.8,0,0,1,59.4
+2016,Brooklyn,Bensonhurst - Bay Ridge,Male,Latino/Hispanic,1,7.1,0,0,1,7.1
+2016,Brooklyn,Bensonhurst - Bay Ridge,Male,White,5,11.8,0,0,3,7.1
+2016,Brooklyn,Borough Park,Female,Asian/Pacific Islander,1,3.4,1,100,1,3.4
+2016,Brooklyn,Borough Park,Male,Asian/Pacific Islander,3,10.1,1,33.3,2,6.7
+2016,Brooklyn,Borough Park,Male,Black,3,57.7,1,33.3,1,19.2
+2016,Brooklyn,Borough Park,Female,Latino/Hispanic,1,6.3,1,100,1,6.3
+2016,Brooklyn,Borough Park,Male,Latino/Hispanic,3,17.1,1,33.3,4,22.8
+2016,Brooklyn,Borough Park,Male,White,8,11.8,2,25,3,4.4
+2016,Brooklyn,Canarsie - Flatlands,Female,Black,17,25.7,0,0,3,4.5
+2016,Brooklyn,Canarsie - Flatlands,Male,Black,15,31.1,0,0,11,22.8
+2016,Brooklyn,Canarsie - Flatlands,Female,Latino/Hispanic,2,21.1,0,0,0,0
+2016,Brooklyn,Canarsie - Flatlands,Male,Latino/Hispanic,3,41.7,0,0,1,13.9
+2016,Brooklyn,Coney Island - Sheepshead Bay,Female,Asian/Pacific Islander,1,4.3,0,0,0,0
+2016,Brooklyn,Coney Island - Sheepshead Bay,Male,Asian/Pacific Islander,2,9,0,0,0,0
+2016,Brooklyn,Coney Island - Sheepshead Bay,Female,Black,2,20.9,0,0,1,10.5
+2016,Brooklyn,Coney Island - Sheepshead Bay,Male,Black,5,80.3,0,0,1,16.1
+2016,Brooklyn,Coney Island - Sheepshead Bay,Female,Latino/Hispanic,1,6.8,0,0,0,0
+2016,Brooklyn,Coney Island - Sheepshead Bay,Male,Latino/Hispanic,2,14.6,1,50,3,21.8
+2016,Brooklyn,Coney Island - Sheepshead Bay,Female,White,3,3.7,2,66.7,3,3.7
+2016,Brooklyn,Coney Island - Sheepshead Bay,Male,White,12,17.3,6,50,9,12.9
+2016,Brooklyn,Downtown - Heights - Park Slope,Male,Asian/Pacific Islander,1,11.3,0,0,1,11.3
+2016,Brooklyn,Downtown - Heights - Park Slope,Female,Black,8,41.4,0,0,3,15.5
+2016,Brooklyn,Downtown - Heights - Park Slope,Male,Black,9,65.8,0,0,4,29.3
+2016,Brooklyn,Downtown - Heights - Park Slope,Female,Latino/Hispanic,1,5.7,0,0,0,0
+2016,Brooklyn,Downtown - Heights - Park Slope,Male,Latino/Hispanic,5,32.3,0,0,3,19.4
+2016,Brooklyn,Downtown - Heights - Park Slope,Female,White,1,1.5,1,100,1,1.5
+2016,Brooklyn,Downtown - Heights - Park Slope,Male,White,8,13,1,12.5,3,4.9
+2016,Brooklyn,East Flatbush - Flatbush,Female,Black,31,31.1,11,35.5,24,24.1
+2016,Brooklyn,East Flatbush - Flatbush,Male,Black,45,60,7,15.6,24,32
+2016,Brooklyn,East Flatbush - Flatbush,Male,Latino/Hispanic,6,51.4,1,16.7,5,42.9
+2016,Brooklyn,East Flatbush - Flatbush,Female,Other/Unknown,1,48.5,0,0,0,0
+2016,Brooklyn,East Flatbush - Flatbush,Male,Other/Unknown,1,68.8,0,0,0,0
+2016,Brooklyn,East Flatbush - Flatbush,Male,White,4,20.2,1,25,1,5.1
+2016,Brooklyn,East New York,Female,Asian/Pacific Islander,1,25,0,0,0,0
+2016,Brooklyn,East New York,Male,Asian/Pacific Islander,3,74.5,0,0,0,0
+2016,Brooklyn,East New York,Female,Black,16,32.6,2,12.5,10,20.4
+2016,Brooklyn,East New York,Male,Black,29,77.9,3,10.3,18,48.3
+2016,Brooklyn,East New York,Female,Latino/Hispanic,5,16.8,3,60,5,16.8
+2016,Brooklyn,East New York,Male,Latino/Hispanic,13,49.7,3,23.1,11,42
+2016,Brooklyn,East New York,Male,Other/Unknown,1,156.9,0,0,0,0
+2016,Brooklyn,East New York,Female,White,1,30.6,0,0,1,30.6
+2016,Brooklyn,Greenpoint,Male,Asian/Pacific Islander,2,64.4,0,0,0,0
+2016,Brooklyn,Greenpoint,Male,Black,1,48.2,0,0,2,96.4
+2016,Brooklyn,Greenpoint,Male,Latino/Hispanic,3,23.9,2,66.7,3,23.9
+2016,Brooklyn,Greenpoint,Female,White,1,2.6,0,0,0,0
+2016,Brooklyn,Greenpoint,Male,White,3,7.6,1,33.3,4,10.2
+2016,Brooklyn,Sunset Park,Female,Asian/Pacific Islander,1,5.4,0,0,0,0
+2016,Brooklyn,Sunset Park,Male,Asian/Pacific Islander,6,33.9,3,50,3,17
+2016,Brooklyn,Sunset Park,Female,Black,1,80.4,0,0,1,80.4
+2016,Brooklyn,Sunset Park,Male,Black,3,173.7,1,33.3,1,57.9
+2016,Brooklyn,Sunset Park,Female,Latino/Hispanic,2,10.1,0,0,2,10.1
+2016,Brooklyn,Sunset Park,Male,Latino/Hispanic,6,27.1,0,0,2,9
+2016,Brooklyn,Sunset Park,Male,White,4,47.3,1,25,3,35.5
+2016,Brooklyn,Williamsburg - Bushwick,Male,Asian/Pacific Islander,2,38.7,0,0,0,0
+2016,Brooklyn,Williamsburg - Bushwick,Female,Black,7,25.7,2,28.6,8,29.4
+2016,Brooklyn,Williamsburg - Bushwick,Male,Black,26,119.5,1,3.8,11,50.6
+2016,Brooklyn,Williamsburg - Bushwick,Female,Latino/Hispanic,6,15.4,1,16.7,4,10.3
+2016,Brooklyn,Williamsburg - Bushwick,Male,Latino/Hispanic,21,58.1,3,14.3,17,47
+2016,Brooklyn,Williamsburg - Bushwick,Male,White,14,59.5,0,0,1,4.3
+2016,Manhattan,Central Harlem - Morningside Heights,Male,Asian/Pacific Islander,2,48.2,0,0,1,24.1
+2016,Manhattan,Central Harlem - Morningside Heights,Female,Black,7,16.4,1,14.3,10,23.5
+2016,Manhattan,Central Harlem - Morningside Heights,Male,Black,39,113.9,11,28.2,28,81.8
+2016,Manhattan,Central Harlem - Morningside Heights,Male,Latino/Hispanic,21,119.7,3,14.3,5,28.5
+2016,Manhattan,Central Harlem - Morningside Heights,Male,Other/Unknown,2,128.5,0,0,0,0
+2016,Manhattan,Central Harlem - Morningside Heights,Female,White,1,6.9,0,0,0,0
+2016,Manhattan,Central Harlem - Morningside Heights,Male,White,9,63.6,1,11.1,5,35.3
+2016,Manhattan,Chelsea - Clinton,Male,Asian/Pacific Islander,7,59.6,1,14.3,1,8.5
+2016,Manhattan,Chelsea - Clinton,Female,Black,1,27.8,0,0,0,0
+2016,Manhattan,Chelsea - Clinton,Male,Black,9,213.3,1,11.1,11,260.7
+2016,Manhattan,Chelsea - Clinton,Female,Latino/Hispanic,1,9,0,0,0,0
+2016,Manhattan,Chelsea - Clinton,Male,Latino/Hispanic,26,222.5,2,7.7,13,111.2
+2016,Manhattan,Chelsea - Clinton,Male,Other/Unknown,1,74.8,0,0,0,0
+2016,Manhattan,Chelsea - Clinton,Male,White,36,74.2,3,8.3,12,24.7
+2016,Manhattan,East Harlem,Male,Asian/Pacific Islander,2,57.1,1,50,2,57.1
+2016,Manhattan,East Harlem,Female,Black,4,24.5,0,0,1,6.1
+2016,Manhattan,East Harlem,Male,Black,17,130.7,3,17.6,17,130.7
+2016,Manhattan,East Harlem,Female,Latino/Hispanic,3,13.1,1,33.3,2,8.8
+2016,Manhattan,East Harlem,Male,Latino/Hispanic,20,97.1,1,5,12,58.3
+2016,Manhattan,East Harlem,Male,Other/Unknown,1,192.4,1,100,1,192.4
+2016,Manhattan,East Harlem,Male,White,4,54.1,1,25,5,67.7
+2016,Manhattan,Gramercy Park - Murray Hill,Female,Black,3,120,1,33.3,2,80
+2016,Manhattan,Gramercy Park - Murray Hill,Male,Black,3,102.7,1,33.3,2,68.4
+2016,Manhattan,Gramercy Park - Murray Hill,Male,Latino/Hispanic,2,39.9,0,0,1,19.9
+2016,Manhattan,Gramercy Park - Murray Hill,Female,White,2,4.4,0,0,0,0
+2016,Manhattan,Gramercy Park - Murray Hill,Male,White,6,15,0,0,4,10
+2016,Manhattan,Greenwich Village - Soho,Male,Asian/Pacific Islander,3,50.6,0,0,0,0
+2016,Manhattan,Greenwich Village - Soho,Male,Black,4,330.4,1,25,2,165.2
+2016,Manhattan,Greenwich Village - Soho,Female,Latino/Hispanic,1,40.8,0,0,1,40.8
+2016,Manhattan,Greenwich Village - Soho,Male,Latino/Hispanic,6,205.7,1,16.7,2,68.6
+2016,Manhattan,Greenwich Village - Soho,Male,Other/Unknown,1,138.6,0,0,0,0
+2016,Manhattan,Greenwich Village - Soho,Female,White,1,3.9,0,0,0,0
+2016,Manhattan,Greenwich Village - Soho,Male,White,9,34.2,0,0,3,11.4
+2016,Manhattan,Lower Manhattan,Male,Asian/Pacific Islander,2,36.7,0,0,0,0
+2016,Manhattan,Lower Manhattan,Male,Black,2,145.5,0,0,0,0
+2016,Manhattan,Lower Manhattan,Female,Latino/Hispanic,1,34.3,1,100,1,34.3
+2016,Manhattan,Lower Manhattan,Male,Latino/Hispanic,1,39,0,0,1,39
+2016,Manhattan,Lower Manhattan,Male,White,3,17.3,1,33.3,5,28.8
+2016,Manhattan,Union Square - Lower East Side,Male,Asian/Pacific Islander,6,31.9,1,16.7,1,5.3
+2016,Manhattan,Union Square - Lower East Side,Male,Black,5,88.9,3,60,2,35.6
+2016,Manhattan,Union Square - Lower East Side,Female,Latino/Hispanic,7,38.2,2,28.6,3,16.4
+2016,Manhattan,Union Square - Lower East Side,Male,Latino/Hispanic,7,46.4,1,14.3,6,39.8
+2016,Manhattan,Union Square - Lower East Side,Male,Other/Unknown,1,67.6,0,0,0,0
+2016,Manhattan,Union Square - Lower East Side,Male,White,9,23.4,3,33.3,4,10.4
+2016,Manhattan,Upper East Side,Female,Black,1,39.3,0,0,0,0
+2016,Manhattan,Upper East Side,Male,Black,3,137.6,0,0,1,45.9
+2016,Manhattan,Upper East Side,Male,Latino/Hispanic,4,48.6,0,0,1,12.2
+2016,Manhattan,Upper East Side,Male,White,6,9.7,1,16.7,3,4.8
+2016,Manhattan,Upper West Side,Male,Asian/Pacific Islander,2,25.3,0,0,2,25.3
+2016,Manhattan,Upper West Side,Female,Black,2,28.3,1,50,2,28.3
+2016,Manhattan,Upper West Side,Male,Black,1,18.9,0,0,1,18.9
+2016,Manhattan,Upper West Side,Female,Latino/Hispanic,1,6,1,100,2,11.9
+2016,Manhattan,Upper West Side,Male,Latino/Hispanic,6,43,1,16.7,6,43
+2016,Manhattan,Upper West Side,Male,White,15,25.6,2,13.3,7,11.9
+2016,Manhattan,Washington Heights - Inwood,Male,Asian/Pacific Islander,1,26.2,0,0,0,0
+2016,Manhattan,Washington Heights - Inwood,Female,Black,2,14.4,0,0,1,7.2
+2016,Manhattan,Washington Heights - Inwood,Male,Black,13,107.7,3,23.1,10,82.9
+2016,Manhattan,Washington Heights - Inwood,Female,Latino/Hispanic,7,9.1,2,28.6,3,3.9
+2016,Manhattan,Washington Heights - Inwood,Male,Latino/Hispanic,41,58.3,2,4.9,15,21.3
+2016,Manhattan,Washington Heights - Inwood,Male,White,17,68.8,1,5.9,7,28.3
+2016,Queens,Bayside - Little Neck,Female,Asian/Pacific Islander,1,5.8,1,100,1,5.8
+2016,Queens,Bayside - Little Neck,Male,White,3,19.7,1,33.3,2,13.1
+2016,Queens,Flushing - Clearview,Female,Asian/Pacific Islander,2,3.3,2,100,2,3.3
+2016,Queens,Flushing - Clearview,Male,Asian/Pacific Islander,9,16.9,2,22.2,2,3.7
+2016,Queens,Flushing - Clearview,Male,Black,2,107.5,0,0,0,0
+2016,Queens,Flushing - Clearview,Male,Latino/Hispanic,4,23.1,1,25,1,5.8
+2016,Queens,Flushing - Clearview,Male,Other/Unknown,1,66.1,1,100,1,66.1
+2016,Queens,Flushing - Clearview,Male,White,3,10.5,0,0,0,0
+2016,Queens,Fresh Meadows,Male,Asian/Pacific Islander,2,13.7,1,50,1,6.9
+2016,Queens,Fresh Meadows,Male,Latino/Hispanic,4,61.7,0,0,1,15.4
+2016,Queens,Jamaica,Male,Asian/Pacific Islander,3,10.5,0,0,0,0
+2016,Queens,Jamaica,Female,Black,8,10,2,25,8,10
+2016,Queens,Jamaica,Male,Black,24,38.4,5,20.8,20,32
+2016,Queens,Jamaica,Female,Latino/Hispanic,3,13.5,0,0,2,9
+2016,Queens,Jamaica,Male,Latino/Hispanic,8,36,0,0,7,31.5
+2016,Queens,Jamaica,Male,White,3,31,0,0,0,0
+2016,Queens,Long Island City - Astoria,Male,Asian/Pacific Islander,5,32.2,2,40,3,19.3
+2016,Queens,Long Island City - Astoria,Female,Black,1,17.7,0,0,0,0
+2016,Queens,Long Island City - Astoria,Male,Black,4,88.3,0,0,0,0
+2016,Queens,Long Island City - Astoria,Female,Latino/Hispanic,2,9.3,1,50,2,9.3
+2016,Queens,Long Island City - Astoria,Male,Latino/Hispanic,21,100.9,5,23.8,10,48.1
+2016,Queens,Long Island City - Astoria,Female,White,1,2.1,0,0,0,0
+2016,Queens,Long Island City - Astoria,Male,White,20,41.6,1,5,4,8.3
+2016,Queens,Ridgewood - Forest Hills,Male,Asian/Pacific Islander,5,28.2,1,20,1,5.6
+2016,Queens,Ridgewood - Forest Hills,Female,Black,2,71.2,0,0,0,0
+2016,Queens,Ridgewood - Forest Hills,Male,Black,5,203,0,0,2,81.2
+2016,Queens,Ridgewood - Forest Hills,Female,Latino/Hispanic,4,12.5,2,50,2,6.3
+2016,Queens,Ridgewood - Forest Hills,Male,Latino/Hispanic,22,76.9,2,9.1,8,28
+2016,Queens,Ridgewood - Forest Hills,Male,White,2,3.5,1,50,6,10.6
+2016,Queens,Rockaway,Female,Black,3,13.1,1,33.3,3,13.1
+2016,Queens,Rockaway,Male,Black,6,33.8,0,0,3,16.9
+2016,Queens,Rockaway,Female,Latino/Hispanic,3,23.9,0,0,1,8
+2016,Queens,Rockaway,Male,Latino/Hispanic,4,34.9,2,50,4,34.9
+2016,Queens,Southeast Queens,Male,Asian/Pacific Islander,3,19.6,0,0,0,0
+2016,Queens,Southeast Queens,Female,Black,6,10.6,3,50,5,8.8
+2016,Queens,Southeast Queens,Male,Black,17,36.7,1,5.9,5,10.8
+2016,Queens,Southeast Queens,Female,Latino/Hispanic,1,8.4,1,100,1,8.4
+2016,Queens,Southeast Queens,Male,Latino/Hispanic,3,28.4,0,0,2,18.9
+2016,Queens,Southeast Queens,Female,Other/Unknown,1,39,1,100,1,39
+2016,Queens,Southwest Queens,Female,Asian/Pacific Islander,5,13.5,2,40,2,5.4
+2016,Queens,Southwest Queens,Male,Asian/Pacific Islander,12,32.8,4,33.3,6,16.4
+2016,Queens,Southwest Queens,Female,Black,2,15.3,0,0,4,30.6
+2016,Queens,Southwest Queens,Male,Black,5,42.6,2,40,5,42.6
+2016,Queens,Southwest Queens,Female,Latino/Hispanic,5,12.3,1,20,2,4.9
+2016,Queens,Southwest Queens,Male,Latino/Hispanic,13,33.5,4,30.8,9,23.2
+2016,Queens,Southwest Queens,Male,White,3,12.4,1,33.3,1,4.1
+2016,Queens,West Queens,Female,Asian/Pacific Islander,2,3.9,0,0,0,0
+2016,Queens,West Queens,Male,Asian/Pacific Islander,18,37.4,5,27.8,7,14.5
+2016,Queens,West Queens,Female,Black,2,20.5,0,0,1,10.3
+2016,Queens,West Queens,Male,Black,9,75.9,2,22.2,14,118.1
+2016,Queens,West Queens,Female,Latino/Hispanic,6,6.6,2,33.3,3,3.3
+2016,Queens,West Queens,Male,Latino/Hispanic,87,83,10,11.5,32,30.5
+2016,Queens,West Queens,Male,White,8,25.3,3,37.5,4,12.6
+2016,Staten Island,Port Richmond,Female,Black,3,38.4,0,0,1,12.8
+2016,Staten Island,Port Richmond,Male,Black,5,76.7,1,20,3,46
+2016,Staten Island,Port Richmond,Male,Latino/Hispanic,4,42.3,2,50,3,31.7
+2016,Staten Island,Port Richmond,Female,White,1,10.8,0,0,0,0
+2016,Staten Island,Port Richmond,Male,White,3,34.5,1,33.3,1,11.5
+2016,Staten Island,South Beach - Tottenville,Female,Black,1,84.7,0,0,0,0
+2016,Staten Island,South Beach - Tottenville,Male,Black,5,421.9,1,20,0,0
+2016,Staten Island,South Beach - Tottenville,Female,Latino/Hispanic,2,21.8,1,50,1,10.9
+2016,Staten Island,South Beach - Tottenville,Male,Latino/Hispanic,8,93,0,0,2,23.3
+2016,Staten Island,South Beach - Tottenville,Male,Other/Unknown,1,128.6,0,0,0,0
+2016,Staten Island,South Beach - Tottenville,Female,White,1,1.4,0,0,0,0
+2016,Staten Island,South Beach - Tottenville,Male,White,6,9.2,1,16.7,1,1.5
+2016,Staten Island,Stapleton - St. George,Male,Asian/Pacific Islander,1,19.5,0,0,0,0
+2016,Staten Island,Stapleton - St. George,Female,Black,7,71,2,28.6,4,40.6
+2016,Staten Island,Stapleton - St. George,Male,Black,7,85.6,2,28.6,10,122.3
+2016,Staten Island,Stapleton - St. George,Male,Latino/Hispanic,1,10.2,0,0,0,0
+2016,Staten Island,Stapleton - St. George,Female,White,2,7.3,0,0,0,0
+2016,Staten Island,Stapleton - St. George,Male,White,7,27.7,1,14.3,3,11.9
+2016,Staten Island,Willowbrook,Female,Black,2,145.3,1,50,1,72.6
+2016,Staten Island,Willowbrook,Male,Black,3,265.3,0,0,1,88.4
+2016,Staten Island,Willowbrook,Female,Latino/Hispanic,2,35.2,2,100,2,35.2
+2016,Staten Island,Willowbrook,Male,Latino/Hispanic,4,80,0,0,1,20

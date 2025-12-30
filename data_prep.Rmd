@@ -1,0 +1,137 @@
+---
+title: "HIV NYC Trend Analysis"
+author: "Fahim Ahamed"
+date: "2025-11-04"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+
+```
+
+```{r}
+df <- read_csv('data/HIV_AIDS_Diagnoses_by_Neighborhood,_Sex,_and_Race_Ethnicity_20251026.csv')
+
+head(df, 10)
+```
+
+```{r}
+cat('Shape:', dim(df), '\nColumns:\n')
+names(df)
+```
+
+```{r}
+summary(df)
+```
+
+```{r}
+cols_to_num <- c(
+  'TOTAL NUMBER OF HIV DIAGNOSES',
+  'HIV DIAGNOSES PER 100,000 POPULATION'
+)
+
+df <- df %>%
+  mutate(across(all_of(cols_to_num), as.numeric))
+
+```
+
+```{r}
+summary(df)
+```
+
+```{r}
+df <- df %>%
+  filter(YEAR >= 2016)
+
+tail(df, 5)
+```
+```{r}
+unique(df$Borough)
+```
+
+```{r}
+df$Borough[df$Borough == 'Staten\r\nIsland'] <- 'Staten Island'
+```
+
+```{r}
+print('Unique Neighborhood values:')
+unique(df$`Neighborhood (U.H.F)`)
+print('\nUnique Sex values:')
+unique(df$SEX)
+print('\nUnique Race values:')
+unique(df$`RACE/ETHNICITY`)
+```
+
+```{r}
+df$`Neighborhood (U.H.F)` <- gsub('\\s+', ' ', df$`Neighborhood (U.H.F)`)
+df$`Neighborhood (U.H.F)` <- trimws(df$`Neighborhood (U.H.F)`)
+unique(df$`Neighborhood (U.H.F)`)
+```
+
+```{r}
+df$`RACE/ETHNICITY` <- gsub('\\s+', ' ', df$`RACE/ETHNICITY`)
+df$`RACE/ETHNICITY` <- trimws(df$`RACE/ETHNICITY`)
+unique(df$`RACE/ETHNICITY`)
+```
+
+```{r}
+names(df)[names(df) == "Neighborhood (U.H.F)"] <- "Neighborhood"
+```
+
+```{r}
+duplicates <- df[duplicated(df), ]
+
+cat('Number of duplicate rows:', nrow(duplicates), '\n')
+```
+
+```{r}
+df <- df[!duplicated(df), ]
+dim(df)
+```
+
+```{r}
+df[!complete.cases(df), ]
+```
+
+```{r}
+df <- df[complete.cases(df), ]
+dim(df)
+```
+
+We have two instances of the year 2020.
+
+Based on the [source](https://www.nyc.gov/assets/doh/downloads/pdf/ah/surveillance2020-tables-all.pdf), I’ll keep the one with the closest number.
+
+```{r}
+df <- df %>%
+  filter(!duplicated(select(., YEAR, Borough, Neighborhood, SEX, `RACE/ETHNICITY`), fromLast = TRUE))
+```
+
+
+```{r}
+df_bkp <- df
+write_csv(df, 'data/cleaned_hiv_data.csv')
+dim(df_bkp)
+```
+
+```{r}
+aggs <- df %>%
+  filter(Borough == 'All' | `Neighborhood` == 'All' | SEX == 'All' | `RACE/ETHNICITY` == 'All')
+
+df <- df %>%
+  filter(Borough != 'All', `Neighborhood` != 'All', SEX != 'All', `RACE/ETHNICITY` != 'All')
+
+cat('Aggregates shape:', dim(aggs))
+cat('\nDataframe shape:', dim(df))
+```
+
+```{r}
+write_csv(aggs, 'data/aggregated_hiv_data.csv')
+
+write_csv(df, 'data/no_aggs_data.csv')
+```

@@ -1,0 +1,2458 @@
+---
+title: "HIV and AIDS Diagnoses in New York City (2016-2021)"
+author: "Fahim Ahamed, Anthony Sinopoli, Fatima Nasyr"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, # hides code when knit
+  message = FALSE,
+  warning = FALSE
+) 
+```
+
+## Summary
+
+The project examines how HIV and AIDS diagnoses have changed in New York City from 2010
+to 2021. Using data from NYC Open Data, it explores patterns across time, geography, and
+demographic groups to identify disparities in diagnosis rates and disease progression. The
+analysis focuses on variations among the five boroughs and across gender and racial or ethnic
+groups.
+
+By highlighting which populations or areas experience higher rates, the study aims to provide
+insights that can guide public health strategies such as awareness programs, prevention efforts,
+and improved access to care and testing.
+
+The exploratory data analysis (EDA) focuses on identifying key trends, distributions, and
+patterns in the data. Using descriptive statistics and visualizations, it highlights how HIV and
+AIDS diagnoses have shifted across New York City over time and across populations. The goal
+was to develop a clear, data-driven understanding of the overall landscape before moving into
+more detailed analyses.
+
+### About the Data
+
+The dataset used in this project was obtained from NYC Open Data, which provides publicly
+available health statistics compiled by the New York City Department of Health and Mental
+Hygiene (DOHMH). It contains yearly records of HIV and AIDS diagnoses among New York City
+residents from 2010 to 2021, excluding 2014 and 2015, for which data were not reported.
+
+Each record represents a specific combination of year, borough, neighborhood, sex, and
+race/ethnicity, along with multiple indicators describing both counts and rates. These include:
+
+● Total number of HIV diagnoses and corresponding rates per 100,000 population
+
+● Number and proportion of concurrent HIV/AIDS diagnoses (individuals diagnosed with
+both at the same time)
+
+● Total number of AIDS diagnoses and corresponding rates per 100,000 population
+
+More details about the dataset’s features and definitions are available on the official NYC Open
+Data page.
+
+### Data Preparation
+
+The raw dataset from NYC Open Data required several cleaning and transformation steps
+before exploratory analysis. First, the data were imported and inspected for duplicate entries,
+missing values, and inconsistent formatting across variables. All numeric columns originally
+stored as text were converted to numeric types for accurate computation.
+
+To make the data consistent and analysis-ready:
+
+●Duplicated rows were identified and removed, keeping only unique combinations of
+year, borough, neighborhood, sex, and race/ethnicity.
+
+● Line breaks and special characters were removed from categorical fields such as
+RACE/ETHNICITY and Neighborhood (U.H.F).
+
+● Rows with missing or suppressed values (shown as “NA”) were removed to ensure the
+accuracy of summaries and visualizations.
+
+● Data were filtered to include relevant combinations of attributes, such as cases where
+borough, neighborhood, sex, and race/ethnicity were reported as “All,” depending on
+the analysis focus.
+
+## Exploratory Data Analysis
+
+At the start of the analysis, we asked ourselves a key question: “What do we want to learn
+from the data?”
+
+The goal of the EDA was to explore how HIV and AIDS diagnoses vary across New York City by
+examining the data from three different angles: yearly trends, geographic patterns (borough and
+neighborhood), and demographic factors (sex and race/ethnicity).
+
+Although the dataset spans 2010-2021, most visual analyses focus on 2016-2021 due to
+missing or incomplete data in earlier years. This ensures consistent comparisons across
+boroughs and demographic groups.
+
+We wanted to see how these three views of the data relate to each other and whether changes
+over the years also appear across different areas or groups. Looking at the data this way helped
+us notice both the overall trends and the differences among specific populations.
+
+```{r}
+library(tidyverse)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(forcats)
+library(patchwork)
+library(broom)
+library(sf)
+library(tigris)
+options(tigris_use_cache = TRUE)
+library(rpart)
+library(rpart.plot)
+library(randomForest)
+library(caret)
+library(flextable)
+```
+
+```{r}
+df <- read_csv('data/cleaned_hiv_data.csv')
+df_no_agg <- read_csv("data/no_aggs_data.csv")
+```
+
+```{r}
+hiv_summary <- df %>%
+  filter(
+    Borough == "All",
+    Neighborhood == "All",
+    SEX == "All",
+    `RACE/ETHNICITY` != "All"
+  ) %>% 
+  group_by(`RACE/ETHNICITY`, YEAR) %>%
+  summarise(
+    avg_hiv_rate  = mean(`HIV DIAGNOSES PER 100,000 POPULATION`,  na.rm = TRUE),
+    avg_aids_rate = mean(`AIDS DIAGNOSES PER 100,000 POPULATION`, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(hiv_summary,
+       aes(x = YEAR, y = avg_hiv_rate, color = `RACE/ETHNICITY`)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = 2016:2021) +
+  labs(
+    title = "HIV Diagnosis Rates per 100,000 Population by Race/Ethnicity (2016-2021)",
+    x = "Year",
+    y = "Average HIV Diagnosis Rate",
+    color = "Race/Ethnicity"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title   = element_text(
+      face = "bold",
+      size = 11,
+      color = "black"
+    ),
+    axis.title.x = element_text(face = "bold", color = "black"),
+    axis.title.y = element_text(face = "bold", color = "black"),
+    axis.text    = element_text(color = "black"),
+    legend.title = element_text(face = "bold", color = "black")
+  )
+```
+
+Across 2016-2021, the lines show clear differences in HIV rates by race/ethnicity. Groups at the
+top of the plot maintain higher burdens throughout the period, while lower lines indicate
+consistently smaller rates. Year-to-year changes are visible as small rises/dips; the relative
+ordering between groups remains the main pattern to note.
+
+```{r}
+# Map setup
+nyc_boroughs_sf =
+  counties(state = 'NY', year = 2020, class = 'sf') %>%
+  filter(NAME %in% c('Bronx', 'Kings', 'New York', 'Queens', 'Richmond'))
+
+nyc_boroughs_sf$Borough = recode(
+  nyc_boroughs_sf$NAME,
+  'Bronx' = 'Bronx',
+  'Kings' = 'Brooklyn',
+  'New York' = 'Manhattan',
+  'Queens' = 'Queens',
+  'Richmond' = 'Staten Island'
+)
+```
+
+```{r fig.width=10, fig.height=8}
+df_race =
+  df %>%
+  filter(
+    Borough != 'All',
+    Neighborhood == 'All',
+    SEX == 'All',
+    `RACE/ETHNICITY` %in% c('Asian/Pacific Islander','Black','Latino/Hispanic','Other/Unknown','White')
+  ) %>%
+  group_by(Borough, `RACE/ETHNICITY`) %>%
+  summarise(avg_rate = mean(`HIV DIAGNOSES PER 100,000 POPULATION`, na.rm = TRUE), .groups = 'drop')
+
+race_map = nyc_boroughs_sf %>% left_join(df_race, by = 'Borough')
+
+ggplot(race_map) +
+  geom_sf(aes(fill = avg_rate), color = 'white', size = 0.6) +
+  geom_sf_text(aes(label = Borough), color = 'black', size = 3.5, fontface = 'bold') +
+  scale_fill_distiller(palette = 'OrRd', direction = 1, name = 'Avg Rate') +
+  facet_wrap(~ `RACE/ETHNICITY`, ncol = 3) +
+  theme_minimal() +
+  labs(title = 'Average HIV Diagnosis Rates (Per 100K) by Race Across NYC Boroughs', x = NULL, y = NULL) +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(),
+        strip.text = element_text(size = 12, face = 'bold'),
+        plot.title = element_text(hjust = 0.5, vjust = 5, size = 16, face = 'bold'))
+```
+
+The map plot shows strong racial differences in HIV diagnosis rates across NYC. Black
+residents have the highest rates in every borough, especially in the Bronx, Manhattan, and
+Brooklyn. Latino/Hispanic residents show moderately elevated rates, also highest in the Bronx
+and Manhattan. Asian/Pacific Islander and White groups consistently have the lowest rates, with
+minimal variation across boroughs. Overall, the visualization highlights a clear disparity, with
+Black and Latino/Hispanic populations experiencing a disproportionately higher HIV burden
+across the city.
+
+```{r}
+hiv_clean_sex <- df %>%
+  mutate(YEAR = suppressWarnings(as.integer(YEAR))) %>%
+  filter(
+    !is.na(YEAR),
+    YEAR >= 2016 & YEAR <= 2021,
+    Borough == "All",
+    Neighborhood == "All",
+    `RACE/ETHNICITY` == "All"
+  ) %>%
+  mutate(SEX = str_to_title(SEX)) %>%
+  filter(SEX %in% c("Female", "Male")) %>%
+  filter(
+    !is.na(`HIV DIAGNOSES PER 100,000 POPULATION`) |
+      !is.na(`AIDS DIAGNOSES PER 100,000 POPULATION`)
+  )
+
+sex_year_summary <- hiv_clean_sex %>%
+  group_by(SEX, YEAR) %>%
+  summarise(
+    avg_hiv_rate  = mean(`HIV DIAGNOSES PER 100,000 POPULATION`, na.rm = TRUE),
+    avg_aids_rate = mean(`AIDS DIAGNOSES PER 100,000 POPULATION`, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(sex_year_summary, aes(x = YEAR, y = avg_hiv_rate, color = SEX)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2) +
+  labs(
+    title = "HIV Diagnosis Rates per 100,000 by Sex (2016-2021)",
+    x = "Year",
+    y = "Average HIV Diagnosis Rate",
+    color = "Sex"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold", size = 14),
+        legend.position = "right")
+```
+
+The sex-based lines reveal how HIV rates change year by year for Females and Males. The
+higher line indicates which sex carries more burden in a given year; the gap shows the size of
+difference. Parallel movement suggests similar trends; diverging lines indicate changing
+differences over time.
+
+```{r}
+ggplot(sex_year_summary, aes(x = YEAR, y = avg_aids_rate, color = SEX)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2) +
+  labs(
+    title = "AIDS Diagnosis Rates per 100,000 by Sex (2016-2021)",
+    x = "Year",
+    y = "Average AIDS Diagnosis Rate",
+    color = "Sex"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(plot.title = element_text(face = "bold", size = 14),
+        legend.position = "right")
+```
+
+AIDS rates by sex follow their own paths across the period. Compare the distance between the
+lines to assess the sex gap and whether it widens or narrows. Differences from the HIV trend
+can suggest variation in progression from HIV to AIDS.
+
+```{r}
+boro_race_avg <- df %>%
+  mutate(YEAR = suppressWarnings(as.integer(YEAR))) %>%
+  filter(
+    !is.na(YEAR),
+    YEAR >= 2016 & YEAR <= 2021,
+    Borough != "All",
+    Neighborhood == "All",
+    SEX == "All",
+    `RACE/ETHNICITY` != "All"
+  ) %>%
+  group_by(Borough, `RACE/ETHNICITY`) %>%
+  summarise(
+    mean_hiv_rate  = mean(`HIV DIAGNOSES PER 100,000 POPULATION`, na.rm = TRUE),
+    mean_aids_rate = mean(`AIDS DIAGNOSES PER 100,000 POPULATION`, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+top_race_by_borough_hiv <- boro_race_avg %>%
+  group_by(Borough) %>%
+  slice_max(order_by = mean_hiv_rate,
+            n = 1,
+            with_ties = FALSE) %>%
+  ungroup() %>% arrange(Borough)
+
+top_race_by_borough_hiv %>%
+  mutate(`RACE/ETHNICITY` = fct_reorder(`RACE/ETHNICITY`, mean_hiv_rate)) %>%
+  ggplot(aes(
+    x = mean_hiv_rate,
+    y = fct_reorder(Borough, mean_hiv_rate),
+    fill = `RACE/ETHNICITY`
+  )) +
+  geom_col() +
+  labs(title = "Highest Race/Ethnicity by Borough (HIV Avg 2016-2021)",
+       x = "Average HIV Diagnosis Rate per 100,000",
+       y = "Borough",
+       fill = "Race/Ethnicity") +
+  theme_minimal(base_size = 10) +
+  theme(plot.title = element_text(face = "bold"))
+```
+
+From 2016 to 2021, Black residents had the highest average HIV diagnosis rates in Manhattan,
+the Bronx, Staten Island, and Brooklyn, while Latino/Hispanic residents had the highest rate in
+Queens. The chart highlights clear borough-level differences, showing that the highest HIV rates
+are concentrated within specific demographic groups in each borough.
+
+```{r fig.width=10}
+df_gender = df %>% 
+  filter(Neighborhood == 'All', `RACE/ETHNICITY` == 'All', SEX %in% c('Male','Female')) %>%
+  group_by(Borough, SEX) %>%
+  summarise(avg_rate = mean(`HIV DIAGNOSES PER 100,000 POPULATION`, na.rm = TRUE), .groups = 'drop')
+
+gender_map = nyc_boroughs_sf %>% left_join(df_gender, by = 'Borough')
+
+p_male =
+  ggplot(subset(gender_map, SEX == 'Male')) +
+  geom_sf(aes(fill = avg_rate), color = 'white', size = 0.6) +
+  geom_sf_text(aes(label = Borough), color = 'black', size = 3, fontface = 'bold') +
+  scale_fill_distiller(palette = 'Blues', direction = 1, name = 'Avg HIV Rate') +
+  theme_minimal() +
+  labs(title = 'Male Average HIV Rate (2016-2021)', x = NULL, y = NULL) +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(),
+        plot.title = element_text(hjust = 0.5, face = 'bold', size = 12))
+
+p_female =
+  ggplot(subset(gender_map, SEX == 'Female')) +
+  geom_sf(aes(fill = avg_rate), color = 'white', size = 0.6) +
+  geom_sf_text(aes(label = Borough), color = 'black', size = 3.5, fontface = 'bold') +
+  scale_fill_distiller(palette = 'PuRd', direction = 1, name = 'Avg HIV Rate') +
+  theme_minimal() +
+  labs(title = 'Female Average HIV Rate (2016-2021)', x = NULL, y = NULL) +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(),
+        plot.title = element_text(hjust = 0.5, face = 'bold', size = 12))
+
+p_male + p_female +
+  plot_annotation(title = 'Average HIV Rates by Gender Across NYC Boroughs (2016-2021)',
+  theme = theme(plot.title = element_text(hjust = 0.5, vjust = 5, size = 16, face = 'bold')))
+```
+
+Male HIV rates are consistently higher than female rates across all NYC boroughs. The Bronx
+shows the highest rates for both men and women, followed by Manhattan and Brooklyn, indicating
+these areas carry the greatest HIV burden. Queens and Staten Island have the lowest average
+rates for both genders. This shows a clear gender disparity, with men experiencing substantially
+higher HIV rates while geographic differences across boroughs remain similar for both groups.
+
+```{r fig.width=12, fig.height=5}
+dist_race <- df %>%
+  mutate(YEAR = suppressWarnings(as.integer(YEAR)),
+         `RACE/ETHNICITY` = as.character(`RACE/ETHNICITY`)) %>%
+  filter(
+    !is.na(YEAR),
+    YEAR >= 2016 & YEAR <= 2021,
+    Borough != "All",
+    Neighborhood == "All",
+    SEX == "All",
+    `RACE/ETHNICITY` != "All",
+    !is.na(`HIV DIAGNOSES PER 100,000 POPULATION`) |
+      !is.na(`AIDS DIAGNOSES PER 100,000 POPULATION`)
+  ) %>%
+  mutate(
+    `RACE/ETHNICITY` = forcats::fct_reorder(
+      `RACE/ETHNICITY`,
+      `HIV DIAGNOSES PER 100,000 POPULATION`,
+      .fun = median,
+      .desc = TRUE,
+      na.rm = TRUE
+    )
+  )
+
+p_dist_race_hiv <- ggplot(
+  dist_race,
+  aes(x = `RACE/ETHNICITY`, y = `HIV DIAGNOSES PER 100,000 POPULATION`, fill = `RACE/ETHNICITY`)
+) +
+  geom_boxplot(outlier.shape = NA,
+               width = 0.7,
+               alpha = 0.9) +
+  geom_jitter(width = 0.15,
+              alpha = 0.25,
+              size = 1) +
+  coord_flip() +
+  labs(title = "Distribution of HIV Diagnosis Rates by Race/Ethnicity\n(Borough-Level, 2016-2021)", x = "Race/Ethnicity", y = "HIV Diagnosis Rate per 100,000") +
+  theme_minimal(base_size = 10) +
+  theme(
+    plot.title = element_text(
+      face = "bold",
+      size = 10,
+      color = "black",
+      hjust = 0.5
+    ),
+    axis.title.x = element_text(face = "bold", color = "black"),
+    axis.title.y = element_text(face = "bold", color = "black"),
+    axis.text.x  = element_text(color = "black"),
+    axis.text.y  = element_text(color = "black"),
+    legend.position = "none"
+  )
+
+p_dist_race_aids <- ggplot(
+  dist_race,
+  aes(x = `RACE/ETHNICITY`, y = `AIDS DIAGNOSES PER 100,000 POPULATION`, fill = `RACE/ETHNICITY`)
+) +
+  geom_boxplot(outlier.shape = NA,
+               width = 0.7,
+               alpha = 0.9) +
+  geom_jitter(width = 0.15,
+              alpha = 0.25,
+              size = 1) +
+  coord_flip() +
+  labs(title = "Distribution of AIDS Diagnosis Rates by Race/Ethnicity\n(Borough-Level, 2016-2021)", x = "Race/Ethnicity", y = "AIDS Diagnosis Rate per 100,000") +
+  theme_minimal(base_size = 10) +
+  theme(
+    plot.title = element_text(
+      face = "bold",
+      size = 10,
+      color = "black",
+      hjust = 0.5
+    ),
+    axis.title.x = element_text(face = "bold", color = "black"),
+    axis.title.y = element_text(face = "bold", color = "black"),
+    axis.text.x  = element_text(color = "black"),
+    axis.text.y  = element_text(color = "black"),
+    legend.position = "none"
+  )
+
+p_dist_race_hiv | p_dist_race_aids
+```
+
+The boxplots reveal clear disparities across race/ethnicity groups. Groups with higher medians
+and wider IQRs show both greater overall burden and more variability across boroughs.
+Comparing HIV vs AIDS panels shows whether the same groups lead on both measures or if
+progression patterns differ.
+
+```{r fig.width=10, fig.height=5}
+dist_sex <- df %>%
+  mutate(
+    YEAR = suppressWarnings(as.integer(YEAR)),
+    SEX = as.character(SEX)
+  ) %>%
+  filter(
+    !is.na(YEAR), YEAR >= 2016 & YEAR <= 2021,
+    Borough != "All", Neighborhood == "All",
+    SEX != "All", `RACE/ETHNICITY` == "All",
+    !is.na(`HIV DIAGNOSES PER 100,000 POPULATION`) | !is.na(`AIDS DIAGNOSES PER 100,000 POPULATION`)
+  ) %>%
+  mutate(
+    SEX = forcats::fct_reorder(
+      SEX, `HIV DIAGNOSES PER 100,000 POPULATION`, .fun = median, .desc = TRUE, na.rm = TRUE
+    )
+  )
+
+p_dist_sex_hiv <- ggplot(
+  dist_sex,
+  aes(x = SEX, y = `HIV DIAGNOSES PER 100,000 POPULATION`, fill = SEX)
+) +
+  geom_boxplot(outlier.shape = NA, width = 0.6, alpha = 0.9) +
+  geom_jitter(width = 0.12, alpha = 0.25, size = 1) +
+  labs(
+    title = "Distribution of HIV Diagnosis Rates by Sex\n(Borough-Level, 2016-2021)",
+    x = "Sex",
+    y = "HIV Diagnosis Rate per 100,000"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "black", hjust = 0.5),
+    axis.title.x = element_text(face = "bold", color = "black"),
+    axis.title.y = element_text(face = "bold", color = "black"),
+    axis.text.x  = element_text(color = "black"),
+    axis.text.y  = element_text(color = "black"),
+    legend.position = "none"
+  )
+
+p_dist_sex_aids <- ggplot(
+  dist_sex,
+  aes(x = SEX, y = `AIDS DIAGNOSES PER 100,000 POPULATION`, fill = SEX)
+) +
+  geom_boxplot(outlier.shape = NA, width = 0.6, alpha = 0.9) +
+  geom_jitter(width = 0.12, alpha = 0.25, size = 1) +
+  labs(
+    title = "Distribution of AIDS Diagnosis Rates by Sex\n(Borough-Level, 2016-2021)",
+    x = "Sex",
+    y = "AIDS Diagnosis Rate per 100,000"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "black", hjust = 0.5),
+    axis.title.x = element_text(face = "bold", color = "black"),
+    axis.title.y = element_text(face = "bold", color = "black"),
+    axis.text.x  = element_text(color = "black"),
+    axis.text.y  = element_text(color = "black"),
+    legend.position = "none"
+  )
+
+p_dist_sex_hiv | p_dist_sex_aids
+```
+
+Distributions by sex show median differences and spread across boroughs. Wider boxes/longer
+whiskers signal greater variability across borough-year observations. Side-by-side HIV vs AIDS
+panels help assess whether the sex gap is consistent at diagnosis and at AIDS stage.
+
+```{r fig.width=9}
+df_borough <- df %>%
+  filter(Borough %in% c('Bronx', 'Brooklyn', 'Manhattan', 'Queens', 'Staten Island'),
+         Neighborhood == 'All',
+         SEX == 'All',
+         `RACE/ETHNICITY` == 'All') %>%
+  select(Borough, YEAR,
+         `HIV DIAGNOSES PER 100,000 POPULATION`,
+         `AIDS DIAGNOSES PER 100,000 POPULATION`) %>%
+  pivot_longer(
+    cols = c(`HIV DIAGNOSES PER 100,000 POPULATION`,
+             `AIDS DIAGNOSES PER 100,000 POPULATION`),
+    names_to = 'Measure',
+    values_to = 'Rate'
+  )
+
+ggplot(df_borough, aes(x = YEAR, y = Rate, color = Measure)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 2) +
+  scale_color_manual(values = c('HIV DIAGNOSES PER 100,000 POPULATION' = 'firebrick',
+                                'AIDS DIAGNOSES PER 100,000 POPULATION' = 'steelblue'),
+                     labels = c('AIDS Rate', 'HIV Rate')) +
+  facet_wrap(~Borough, ncol = 3) +
+  labs(
+    title = 'HIV and AIDS Diagnosis Rates by Borough (2016-2021)',
+    x = 'Year',
+    y = 'Rate per 100,000 Population',
+    color = ''
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = 'bold', hjust = 0.5),
+    legend.position = 'top',
+    strip.text = element_text(face = 'bold')
+  )
+```
+
+Overall, a general decline in HIV diagnoses until 2020, where a spike can be seen from 2020-2021
+(except in Brooklyn). The Bronx is the borough with the highest diagnoses, and Staten Island with the
+lowest. Again, the Bronx has the highest AIDS diagnoses with a spike from 2020-2021. Manhattan
+has been relatively stable, and Brooklyn has even seen a slight decline. Queens and Staten Island
+have the lowest diagnoses, but have seen an increase from 2020-2021.
+
+```{r}
+neighborhood_summary <- df %>% 
+  filter(
+    Borough != "All",
+    Neighborhood != "All",
+    SEX == "All",
+    `RACE/ETHNICITY` == "All"
+  ) %>% 
+  group_by(YEAR, Borough, Neighborhood)
+
+ggplot(data = neighborhood_summary, aes(`HIV DIAGNOSES PER 100,000 POPULATION`, `AIDS DIAGNOSES PER 100,000 POPULATION`)) +
+  geom_point(aes(color = Borough, shape = Borough),
+             alpha = 0.8,
+             size = 2) +
+  facet_wrap(~ Borough) +
+  labs(
+    title = 'HIV and AIDS Diagnoses by Borough',
+    x = 'HIV Diagnoses (per 100,000)',
+    y = 'AIDS Diagnoses (per 100,000)'
+  ) +
+  scale_color_brewer(palette = 'Dark2') +
+  theme_minimal()
+```
+
+The plot shows a clear positive relationship between HIV and AIDS diagnosis rates across all five
+boroughs, meaning that areas with higher HIV rates also tend to have higher AIDS rates. The Bronx
+stands out with the highest overall rates, while Queens and Staten Island have noticeably lower
+values. This suggests that the disease burden is not evenly distributed across the city.
+
+```{r}
+concurrent_borough <- df %>% 
+  filter(
+    Borough != "All",
+    Neighborhood == "All",
+    SEX == "All",
+    `RACE/ETHNICITY` == "All"
+  ) %>% 
+  group_by(YEAR, Borough)
+
+ggplot(data = concurrent_borough, aes(YEAR,
+                                      `PROPORTION OF CONCURRENT HIV/AIDS DIAGNOSES AMONG ALL HIV DIAGNOSES`,
+                                      color = Borough)) +
+  geom_point() +
+  geom_line() +
+  labs(
+    title = "Proportion of Concurrent HIV/AIDS Diagnoses by Borough", 
+    x = "",
+    y = "Proportion of Diagnoses"
+  ) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal()
+```
+
+The proportion of concurrent HIV/Aids diagnoses is a measure of late diagnoses of HIV, where the
+patient is diagnosed for HIV, then AIDS at the same time or shortly after. Manhattan has seen an
+increase in late diagnoses.
+
+```{r fig.width=8}
+bronx_all <- df %>% 
+  filter(
+    Borough == "Bronx",
+    Neighborhood == "All",
+    SEX != "All",
+    `RACE/ETHNICITY` != "All"
+  ) %>% 
+  group_by(YEAR)
+
+ggplot(data = bronx_all, aes(x = YEAR,
+                             y = `HIV DIAGNOSES PER 100,000 POPULATION`,
+                             group = SEX,
+                             shape = SEX,
+                             color = SEX)) +
+  geom_line(size = 0.8) +
+  geom_point(size = 2.5) +
+  facet_wrap(~ `RACE/ETHNICITY`) +
+  labs(
+    title = 'Bronx HIV Diagnoses by Race/Ethnicity and Sex',
+    x = '',
+    y = 'HIV Diagnoses (per 100,000)'
+  ) +
+  scale_shape_manual(
+    values = c(
+      'Female' = 16,  # circle
+      'Male' = 15     # square
+    )
+  ) +
+  scale_color_manual(
+    values = c(
+      'Female' = '#e75480',  # pink/red tone
+      'Male' = '#0072B2'     # blue
+    )
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.85, 0.20),
+    legend.background = element_rect(fill = alpha('white', 0.8), color = NA),
+    legend.box.background = element_blank()
+  )
+```
+
+Taking a more in-depth look at the Bronx, males have a higher rate of HIV diagnoses than females,
+when there is data (missing some female data). Black males have the highest overall HIV diagnoses,
+with Latino/Hispanic males having the second most. Males in the other races have similar diagnoses
+to one another.
+
+Note: Some female data points (Asian and Other) are missing because their reported values were
+either zero or marked as NA in the dataset. The Other/Unknown race female has one data point,
+which is for 2019.
+
+```{r fig.width=8}
+df_long <- df %>%
+  filter(Neighborhood != 'All',
+         `RACE/ETHNICITY` == 'All',
+         SEX == 'All') %>%
+  select(Borough,
+         `HIV DIAGNOSES PER 100,000 POPULATION`,
+         `AIDS DIAGNOSES PER 100,000 POPULATION`) %>%
+  pivot_longer(
+    cols = c(`HIV DIAGNOSES PER 100,000 POPULATION`,
+             `AIDS DIAGNOSES PER 100,000 POPULATION`),
+    names_to = 'Type',
+    values_to = 'Rate'
+  )
+
+df_long$Type <- recode(df_long$Type,
+                       'HIV DIAGNOSES PER 100,000 POPULATION' = 'HIV Diagnoses',
+                       'AIDS DIAGNOSES PER 100,000 POPULATION' = 'AIDS Diagnoses')
+
+ggplot(df_long, aes(x = Borough, y = Rate, fill = Borough)) +
+  geom_boxplot() +
+  facet_wrap(~ Type, ncol = 2) +
+  labs(x = 'Borough', y = 'Rate per 100,000',
+       title = 'Distribution of HIV and AIDS Diagnosis Rates by Borough') +
+  theme_minimal() +
+  theme(plot.title = element_text(face = 'bold', hjust = 0.5),
+        legend.position = 'none')
+```
+
+This boxplot compares the distribution of HIV and AIDS diagnosis rates across New York City’s five
+boroughs. In both panels, the Bronx stands out with the highest median rates and widest spread,
+indicating higher and more variable neighborhood-level burden. Brooklyn and Manhattan follow with
+moderately high and overlapping ranges, while Queens and Staten Island consistently show lower
+rates and narrower distributions.
+
+The pattern suggests that HIV and AIDS diagnoses are not evenly distributed across the city. The
+Bronx remains the most affected borough, while outer boroughs like Queens and Staten Island
+experience relatively lower and more stable rates.
+
+```{r}
+ggplot(df[df$Neighborhood != 'All' &
+          df$`RACE/ETHNICITY` == 'All' &
+          df$SEX == 'All', ],
+       aes(x = `HIV DIAGNOSES PER 100,000 POPULATION`)) +
+  geom_histogram(bins = 30, fill = 'steelblue', color = 'white') +
+  geom_vline(aes(xintercept = mean(`HIV DIAGNOSES PER 100,000 POPULATION`, na.rm = TRUE)),
+             color = 'red', linewidth = 1.1, linetype = 'dashed') +
+  labs(x = 'HIV Diagnoses per 100,000', y = 'Count',
+       title = 'Distribution of HIV Rates Across NYC Neighborhoods') +
+  theme_minimal() +
+  theme(plot.title = element_text(face = 'bold', hjust = 0.5))
+```
+
+This histogram shows how HIV diagnosis rates are distributed across New York City neighborhoods.
+Most neighborhoods have relatively low rates, clustered below the citywide average. The distribution
+is right-skewed, meaning only a few neighborhoods experience much higher rates, which raises the
+overall mean.
+
+This pattern further confirms that the HIV burden in NYC is unevenly distributed, concentrated in a
+limited number of high-incidence neighborhoods while the majority of areas maintain lower rates. It
+highlights persistent geographic disparities, where targeted prevention and testing efforts may be
+most needed in those higher-rate communities.
+
+```{r fig.height=6, fig.width=10}
+df_years <- df %>%
+  filter(
+    Borough == 'All' &
+    Neighborhood == 'All' &
+    SEX == 'All' &
+    `RACE/ETHNICITY` == 'All'
+  )
+
+df_burden <- df_years %>%
+  mutate(
+    YEAR = as.factor(YEAR),
+    Total_Diagnoses = `TOTAL NUMBER OF HIV DIAGNOSES` + `TOTAL NUMBER OF AIDS DIAGNOSES`
+  )
+
+ggplot(df_burden, aes(x = YEAR, y = Total_Diagnoses)) +
+  geom_col(fill = 'steelblue', alpha = 0.8) +
+  geom_text(aes(label = Total_Diagnoses), vjust = -0.8, size = 3.5) +
+  labs(
+    title = 'Total HIV and AIDS Diagnoses in NYC (2016-2021)',
+    x = 'Year',
+    y = 'Total New Diagnoses'
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = 'bold', hjust = 0.5)
+  )
+```
+
+This chart shows the total burden of HIV and AIDS in New York City from 2016 to 2021, measured by
+the number of new diagnoses each year. The overall downward trend indicates that fewer people are
+entering the HIV care system, reflecting progress in prevention, early detection, and long-term
+treatment efforts. The dip in 2020 suggests a temporary decline in testing or reporting during the
+pandemic, while the slight increase in 2021 points to a return to normal healthcare activity. Overall,
+the data highlights a steady reduction in the city’s HIV/AIDS burden over time.
+
+```{r}
+df_change <- df_years %>%
+  arrange(YEAR) %>%
+  mutate(
+    HIV_change = (`HIV DIAGNOSES PER 100,000 POPULATION` - lag(`HIV DIAGNOSES PER 100,000 POPULATION`)) /
+                 lag(`HIV DIAGNOSES PER 100,000 POPULATION`) * 100,
+    AIDS_change = (`AIDS DIAGNOSES PER 100,000 POPULATION` - lag(`AIDS DIAGNOSES PER 100,000 POPULATION`)) /
+                  lag(`AIDS DIAGNOSES PER 100,000 POPULATION`) * 100
+  )
+
+df_change <- df_change %>% filter(YEAR > 2016)
+
+ggplot(df_change, aes(x = YEAR)) +
+  geom_line(aes(y = HIV_change, color = 'HIV Rate Change'), size = 1.2) +
+  geom_point(aes(y = HIV_change, color = 'HIV Rate Change'), size = 2) +
+  geom_line(aes(y = AIDS_change, color = 'AIDS Rate Change'), size = 1.2) +
+  geom_point(aes(y = AIDS_change, color = 'AIDS Rate Change'), size = 2) +
+  geom_hline(yintercept = 0, linetype = 'dashed', color = 'gray50') +
+  scale_color_manual(values = c('HIV Rate Change' = 'steelblue', 'AIDS Rate Change' = 'firebrick')) +
+  labs(
+    title = 'Year-over-Year Change in HIV and AIDS Rates (2017-2021)',
+    x = 'Year',
+    y = 'Percent Change from Previous Year (%)',
+    color = ''
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = 'bold', hjust = 0.5),
+    legend.position = 'top'
+  )
+```
+
+This chart shows the year-over-year percentage change in HIV and AIDS diagnosis rates in New York
+City from 2017 to 2021. Both rates declined consistently through 2019, reflecting steady progress in
+reducing new infections. A sharp drop in 2020 suggests significant disruptions in testing and care
+access during the pandemic. The strong rebound in 2021 likely represents resumed testing and
+diagnosis rather than a true increase in new cases. Overall, the pattern shows long-term improvement
+with short-term fluctuations linked to external healthcare disruptions.
+
+```{r fig.width=12, fig.height=6}
+df_faceted <- df_years %>%
+  select(YEAR,
+         `TOTAL NUMBER OF CONCURRENT HIV/AIDS DIAGNOSES`,
+         `PROPORTION OF CONCURRENT HIV/AIDS DIAGNOSES AMONG ALL HIV DIAGNOSES`) %>%
+  pivot_longer(
+    cols = c(`TOTAL NUMBER OF CONCURRENT HIV/AIDS DIAGNOSES`,
+             `PROPORTION OF CONCURRENT HIV/AIDS DIAGNOSES AMONG ALL HIV DIAGNOSES`),
+    names_to = 'Measure',
+    values_to = 'Value'
+  )
+
+df_faceted$Measure[df_faceted$Measure == 'TOTAL NUMBER OF CONCURRENT HIV/AIDS DIAGNOSES'] <- 'Total Concurrent HIV/AIDS Diagnoses'
+df_faceted$Measure[df_faceted$Measure == 'PROPORTION OF CONCURRENT HIV/AIDS DIAGNOSES AMONG ALL HIV DIAGNOSES'] <- 'Proportion of Concurrent HIV/AIDS Diagnoses (%)'
+
+ggplot(df_faceted, aes(x = YEAR, y = Value)) +
+  geom_line(color = 'firebrick', size = 1.2) +
+  geom_point(color = 'firebrick', size = 2) +
+  geom_text(aes(label = round(Value, 1)), vjust = -0.8, size = 3.5) +
+  facet_wrap(~Measure, scales = 'free_y', ncol = 2) +
+  labs(
+    title = 'Concurrent HIV/AIDS Diagnoses in NYC (2016-2021)',
+    x = 'Year',
+    y = ''
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = 'bold', hjust = 0.5),
+    strip.text = element_text(face = 'bold')
+  )
+```
+
+This figure shows how often people in New York City were diagnosed with HIV and AIDS at the same
+time between 2016 and 2021. The left chart shows the share of new HIV cases that were already
+AIDS at diagnosis, while the right chart shows the total number of such cases each year. Together,
+these trends suggest that while the number of concurrent cases dropped, the share of HIV diagnoses
+that were already AIDS at detection grew slightly. This means fewer people were diagnosed overall,
+but a larger portion of them had advanced infection, indicating slower or delayed testing in recent
+years. The small rise in both metrics in 2021 likely reflects the rebound of HIV testing and diagnosis
+after the pandemic’s disruptions.
+
+```{r fig.height=6, fig.width=10}
+df_gap <- df_years %>%
+  mutate(Gap = `HIV DIAGNOSES PER 100,000 POPULATION` - `AIDS DIAGNOSES PER 100,000 POPULATION`)
+
+ggplot(df_gap, aes(x = YEAR, y = Gap)) +
+  geom_line(color = 'steelblue', size = 1.2) +
+  geom_point(color = 'steelblue', size = 2) +
+  geom_text(aes(label = round(Gap, 1)), vjust = -0.8, size = 3.5) +
+  labs(
+    title = 'Gap Between HIV and AIDS Diagnosis Rates in NYC (2016-2021)',
+    x = 'Year',
+    y = 'Rate Difference (per 100,000 people)'
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = 'bold', hjust = 0.5)
+  )
+```
+
+This chart shows the difference between HIV and AIDS diagnosis rates in New York City from 2016 to
+2021. The gap between the two rates narrows over time. The shrinking gap aligns with the earlier
+finding that a larger share of new HIV diagnoses were already at an advanced stage, suggesting the
+two measures are moving closer together over time.
+
+```{r fig.width=10}
+df_most_affected <- do.call(rbind, by(df, df$YEAR, function(x) {
+  x <- x[x$Neighborhood != 'All' &
+         x$`RACE/ETHNICITY` == 'All' &
+         x$SEX == 'All' &
+         x$Borough != 'All', ]
+  hiv_top <- x[which.max(x$`HIV DIAGNOSES PER 100,000 POPULATION`), ]
+  aids_top <- x[which.max(x$`AIDS DIAGNOSES PER 100,000 POPULATION`), ]
+  hiv_top$Type <- 'HIV Diagnoses'
+  aids_top$Type <- 'AIDS Diagnoses'
+  rbind(hiv_top, aids_top)
+}))
+
+df_most_affected$Type <- factor(df_most_affected$Type,
+                                levels = c('HIV Diagnoses', 'AIDS Diagnoses'))
+
+ggplot(df_most_affected,
+       aes(x = factor(YEAR),
+           y = ifelse(Type == 'HIV Diagnoses',
+                      `HIV DIAGNOSES PER 100,000 POPULATION`,
+                      `AIDS DIAGNOSES PER 100,000 POPULATION`),
+           fill = Borough)) +
+  geom_col() +
+  geom_text(aes(y = ifelse(Type == 'HIV Diagnoses',
+                           `HIV DIAGNOSES PER 100,000 POPULATION` / 2,
+                           `AIDS DIAGNOSES PER 100,000 POPULATION` / 2),
+                label = Neighborhood),
+            angle = 90, vjust = 0.5, hjust = 0.5, size = 4, color = 'black') +
+  facet_wrap(~ Type, ncol = 2, scales = 'free_y') +
+  labs(x = 'Year', y = 'Rate per 100,000',
+       fill = 'Borough',
+       title = 'Most Affected Neighborhood Each Year by HIV and AIDS Diagnosis Rates') +
+  theme_minimal() +
+  theme(plot.title = element_text(face = 'bold', hjust = 0.5))
+```
+
+Across the years, the Bronx dominates as the borough with the most affected neighborhoods for both
+HIV and AIDS diagnoses. High Bridge-Morrisania and Crotona-Tremont appear repeatedly, showing
+that certain Bronx neighborhoods continue to carry the highest burden. Brooklyn’s East New York is
+the only neighborhood outside the Bronx that stands out, appearing once in 2020 for HIV diagnoses.
+This pattern suggests that while rates vary slightly by year, the Bronx consistently faces the highest
+concentration of new and advanced HIV cases citywide.
+
+### Summary of Key Findings
+
+Overall, the analysis shows that HIV and AIDS diagnoses in New York City have declined over time,
+reflecting progress in prevention and care, though disparities remain across groups and locations. The
+Bronx continues to show the highest rates, while Queens and Staten Island report the lowest. Black
+and Latino/Hispanic residents experience the greatest overall burden, and males consistently have
+higher diagnosis rates than females. The temporary dip in 2020 and rebound in 2021 likely reflect
+testing disruptions during the pandemic. Together, these findings highlight steady citywide
+improvement but persistent demographic and geographic gaps that remain important for public health
+planning.
+
+## Hypothesis Testing
+
+### 1. Was the 2020 HIV Diagnosis Total Significantly Lower Than Expected?
+
+To assess whether the drop in HIV diagnoses observed in 2020 was unusually large compared to pre-
+pandemic levels, a one-sample t-test was performed. The goal is to compare the 2020 total number of
+HIV diagnoses to the average annual total from the four pre-COVID years (2016 to 2019).
+
+#### Hypotheses
+
+Let μ represent the true average annual number of HIV diagnoses in the pre-COVID period.
+
+• H₀: μ = HIV_2020
+The 2020 total is consistent with the pre-COVID average.
+
+• H₁: μ > HIV_2020
+The pre-COVID average is higher than the 2020 value, indicating a meaningful decline in
+2020.
+
+#### Assumptions
+
+• The yearly totals from 2016 to 2019 are independent.
+
+• The sample size is small (n = 4), so the t-distribution is appropriate.
+
+• No extreme outliers are present among the pre-COVID yearly totals.
+
+```{r}
+df_years <- df %>%
+  filter(
+    Borough == 'All',
+    Neighborhood == 'All',
+    SEX == 'All',
+    `RACE/ETHNICITY` == 'All'
+  ) %>%
+  select(-Borough, -Neighborhood, -SEX, -`RACE/ETHNICITY`)
+
+pre_2020 <- df_years$`TOTAL NUMBER OF HIV DIAGNOSES`[df_years$YEAR %in% 2016:2019]
+
+rate_2020 <- df_years$`TOTAL NUMBER OF HIV DIAGNOSES`[df_years$YEAR == 2020]
+
+t.test(pre_2020, mu = rate_2020, alternative = 'greater')
+```
+
+The one-sample t-test indicates that HIV diagnoses in 2020 were much lower than what we typically
+saw before the pandemic. The average number of cases from 2016-2019 was clearly higher than the
+2020 value of 1,394, and the p-value (0.005) shows that this drop is unlikely to be due to normal year-
+to-year variation.
+
+Based on this result, we conclude that the decline in 2020 was statistically significant and likely
+reflects the impact of COVID-19 on HIV testing and reporting.
+
+```{r}
+ggplot(df_years, aes(x = YEAR, y = `TOTAL NUMBER OF HIV DIAGNOSES`)) +
+  
+  geom_point(size = 3, color = 'black') +
+  geom_line(linewidth = 1.1, color = 'steelblue') +
+  
+  geom_point(
+    data = subset(df_years, YEAR == 2020),
+    aes(x = YEAR, y = `TOTAL NUMBER OF HIV DIAGNOSES`),
+    color = 'red', size = 4
+  ) +
+  
+  scale_y_continuous(
+    limits = c(1000, 2500),
+    breaks = seq(1000, 2500, 250),
+    expand = c(0, 0)
+  ) +
+  
+  labs(
+    title = 'Yearly HIV Diagnoses in NYC (2016-2021)',
+    x = 'Year',
+    y = 'Total HIV Diagnoses'
+  ) +
+  theme_minimal()
+```
+
+### 2. Are Bronx HIV Rates Consistently Higher Than the NYC Average?
+
+To examine whether the Bronx consistently reports higher HIV diagnosis rates than the overall New
+York City average, a paired t-test was conducted. For each year from 2016 to 2021, the Bronx HIV
+rate was matched with the corresponding citywide rate, creating yearly paired observations.
+
+#### Hypotheses
+
+Let 𝑑 represent the difference between the Bronx HIV rate and the NYC-wide rate for each year.
+
+• H₀: mean(d) = 0
+On average, Bronx HIV rates are equal to the citywide rates.
+
+• H₁: mean(d) > 0
+Bronx HIV rates are higher on average, indicating a consistent elevation relative to the NYC
+average.
+
+#### Assumptions
+
+• Each year’s Bronx-NYC rate difference is independent.
+
+• The distribution of the differences is approximately normal.
+
+• Each year forms a valid matched pair for comparison.
+
+```{r, include=FALSE}
+bronx <- df %>%
+  filter(
+    Borough == 'Bronx',
+    Neighborhood == 'All',
+    SEX == 'All',
+    `RACE/ETHNICITY` == 'All'
+  )
+
+nyc <- df %>%
+  filter(
+    Borough == 'All',
+    Neighborhood == 'All',
+    SEX == 'All',
+    `RACE/ETHNICITY` == 'All'
+  )
+
+bronx_rates <- bronx$`HIV DIAGNOSES PER 100,000 POPULATION`
+nyc_rates <- nyc$`HIV DIAGNOSES PER 100,000 POPULATION`
+diff_rates <- bronx_rates - nyc_rates
+
+data.frame(
+  YEAR = bronx$YEAR,
+  Bronx_Rate = bronx_rates,
+  NYC_Rate = nyc_rates,
+  Difference = diff_rates
+)
+```
+
+```{r}
+t.test(bronx_rates, nyc_rates,
+       paired = TRUE,
+       alternative = 'greater')
+```
+
+
+The paired t-test shows that HIV diagnosis rates in the Bronx were consistently higher than the NYC-
+wide rate from 2016 to 2021. On average, the Bronx rate was about 9.7 cases per 100,000 above the
+citywide level. The test result (t = 7.81, p = 0.00028) and the one-sided 95% confidence interval (7.22,
+∞) both indicate a clear and statistically significant difference. Overall, the evidence strongly supports
+that the Bronx remains a higher-burden area compared to the rest of New York City.
+
+```{r}
+ggplot() +
+  geom_line(data = bronx, aes(x = YEAR, y = `HIV DIAGNOSES PER 100,000 POPULATION`, 
+                              color = 'Bronx'), linewidth = 1.2) +
+  geom_point(data = bronx, aes(x = YEAR, y = `HIV DIAGNOSES PER 100,000 POPULATION`, 
+                               color = 'Bronx'), size = 3) +
+  
+  geom_line(data = nyc, aes(x = YEAR, y = `HIV DIAGNOSES PER 100,000 POPULATION`, 
+                            color = 'NYC Average'), linewidth = 1.2) +
+  geom_point(data = nyc, aes(x = YEAR, y = `HIV DIAGNOSES PER 100,000 POPULATION`, 
+                             color = 'NYC Average'), size = 3) +
+  
+  scale_color_manual(values = c('Bronx' = 'red', 'NYC Average' = 'blue')) +
+  
+  labs(
+    title = 'HIV Diagnosis Rates: Bronx vs NYC Average (2016-2021)',
+    x = 'Year',
+    y = 'HIV Diagnoses per 100,000 Population',
+    color = ''
+  ) +
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(hjust = 1)
+  )
+```
+
+### 3. Does Queens have a higher proportion of concurrent HIV/AIDS diagnoses than the high-burden boroughs, even though it has fewer total HIV cases?
+
+To examine whether Queens experiences higher late-stage HIV diagnoses despite having fewer total
+HIV cases, a two-sample t-test was conducted. Each year from 2016 to 2021, the concurrent
+diagnosis proportion for Queens was compared to the combined concurrent proportions of the high-
+burden boroughs (Bronx, Brooklyn, and Manhattan). This produced six yearly observations for
+Queens and eighteen for the high-burden group.
+
+#### Hypotheses
+
+Let 𝜇𝑄 represent the mean concurrent HIV/AIDS diagnosis proportion in Queens, and 𝜇𝐻 represent
+the mean concurrent diagnosis proportion in the high-burden boroughs.
+
+• H₀: μ_Q ≤ μ_H
+On average, Queens has concurrent proportions that are the same or lower than the high-
+burden boroughs.
+
+• H₁: μ_Q > μ_H
+Queens has a higher concurrent proportion, indicating more frequent late-stage diagnoses
+despite being a low-burden borough.
+
+#### Assumptions
+
+• Borough-year observations are independent.
+
+• The yearly concurrent proportions for Queens (n = 6) and the high-burden boroughs (n = 18)
+are approximately normally distributed.
+
+• Unequal sample sizes and variances are acceptable under Welch’s t-test.
+
+```{r}
+df_years <- df %>%
+  filter(
+    Borough != 'All',
+    Neighborhood == 'All',
+    SEX == 'All',
+    `RACE/ETHNICITY` == 'All'
+  ) %>%
+  select(-Neighborhood, -SEX, -`RACE/ETHNICITY`)
+
+high_burden <- c('Bronx', 'Brooklyn', 'Manhattan')
+
+high_vals <- df_years$`PROPORTION OF CONCURRENT HIV/AIDS DIAGNOSES AMONG ALL HIV DIAGNOSES`[
+  df_years$Borough %in% high_burden
+]
+
+queens_vals <- df_years$`PROPORTION OF CONCURRENT HIV/AIDS DIAGNOSES AMONG ALL HIV DIAGNOSES`[
+  df_years$Borough == 'Queens'
+]
+  
+t.test(queens_vals, high_vals, alternative = 'greater')
+```
+
+The one-sided t-test shows strong evidence that Queens has a higher proportion of concurrent
+HIV/AIDS diagnoses than the high-burden boroughs (p = 0.0074). Since the p-value is well below
+0.05, we reject the null hypothesis and conclude that Queens experiences significantly more late-
+stage diagnoses. This suggests that, despite having fewer overall HIV cases, Queens faces greater
+challenges with early detection and timely testing compared to the high-burden boroughs.
+
+```{r}
+df_years <- df_years %>%
+  mutate(
+    group_label = case_when(
+      Borough == 'Queens' ~ 'Queens (Low-burden)',
+      Borough == 'Staten Island' ~ 'Staten Island (Low-burden)',
+      TRUE ~ 'High-burden Boroughs'
+    )
+  )
+
+ggplot(df_years, aes(
+  x = YEAR,
+  y = `PROPORTION OF CONCURRENT HIV/AIDS DIAGNOSES AMONG ALL HIV DIAGNOSES`,
+  group = Borough,
+  color = group_label,
+  alpha = group_label
+)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+
+  # Custom colors
+  scale_color_manual(
+    values = c(
+      'Queens (Low-burden)' = 'red',
+      'Staten Island (Low-burden)' = '#3CB371',   # green-ish
+      'High-burden Boroughs' = 'grey70'
+    )
+  ) + 
+  # Custom alpha levels
+  scale_alpha_manual(
+    values = c(
+      'Queens (Low-burden)' = 1,
+      'Staten Island (Low-burden)' = 0.4,       
+      'High-burden Boroughs' = 0.9
+    )
+  ) +
+
+  labs(
+    title = 'Concurrent HIV/AIDS Diagnosis Proportion by Borough (2016-2021)',
+    x = 'Year',
+    y = 'Concurrent Diagnosis Proportion',
+    color = 'Borough Category',
+    alpha = 'Borough Category'
+  ) +
+
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.35)
+  )
+```
+
+## Modeling
+
+Yearly Trends: We fit a linear model to examine how total HIV diagnoses changed from 2016 to 2021
+and to quantify whether the downward trend seen in the data is statistically meaningful.
+
+```{r}
+df_years <- df %>%
+  filter(
+    Borough == 'All',
+    Neighborhood == 'All',
+    SEX == 'All',
+    `RACE/ETHNICITY` == 'All'
+  ) %>%
+  select(-Borough, -Neighborhood, -SEX, -`RACE/ETHNICITY`)
+
+model1 <- lm(`TOTAL NUMBER OF HIV DIAGNOSES` ~ YEAR, data = df_years)
+
+summary(model1)
+```
+
+The linear model shows a clear and statistically significant downward trend in total HIV diagnoses
+from 2016 to 2021. The estimated slope is −154.06, indicating that diagnoses decreased by roughly
+154 cases per year on average. This decline is statistically significant (p ≈ 0.007), meaning it is
+unlikely to be due to chance. The model explains a large portion of the year-to-year variation (R² =
+0.866), suggesting that the overall decline is strong and consistent across the observed period.
+
+```{r}
+df_years$pred <- predict(model1)
+
+ggplot(df_years, aes(YEAR, `TOTAL NUMBER OF HIV DIAGNOSES`)) +
+  geom_point(size = 3) +
+  geom_line(aes(y = pred), color = "red", linewidth = 1.2) +
+  theme_minimal()
+```
+
+To check whether the trend in HIV diagnoses followed a curved pattern rather than a straight-line
+decline, we fit a quadratic model that includes a YEAR² term. This helps us test whether a nonlinear
+pattern provides a better explanation of the data.
+
+```{r}
+model_poly <- lm(`TOTAL NUMBER OF HIV DIAGNOSES` ~ YEAR + I(YEAR^2), data = df_years)
+summary(model_poly)
+```
+
+The quadratic model does not provide evidence of a curved trend. Neither the YEAR term nor the
+YEAR² term is significant (p ≈ 0.46), meaning the data do not support any meaningful nonlinear
+pattern. Even though the R² is high, the added quadratic term does not improve the model. Overall,
+the trend remains essentially linear.
+
+```{r}
+df_years$pred_poly <- predict(model_poly)
+
+ggplot(df_years, aes(YEAR, `TOTAL NUMBER OF HIV DIAGNOSES`)) +
+  geom_point(size = 3) +
+  geom_line(aes(y = pred_poly), color = "blue", linewidth = 1.2) +
+  theme_minimal()
+```
+
+The fitted curve from the quadratic model looks nearly identical to a straight line, reflecting the fact
+that the quadratic term is not significant. The predicted values follow the same steady downward
+pattern seen in the data, with no noticeable curvature. This visual pattern reinforces the model result:
+the trend in HIV diagnoses is effectively linear over this period.
+
+```{r}
+df_hiv_pred <- df_years %>% 
+  select(YEAR, `TOTAL NUMBER OF HIV DIAGNOSES`, pred, pred_poly)
+
+ggplot(df_hiv_pred, aes(x = YEAR)) +
+  geom_point(aes(y = `TOTAL NUMBER OF HIV DIAGNOSES`, color = "Actual"),
+             size = 3) +
+  
+  geom_line(aes(y = pred, color = "Linear Model"),
+            linewidth = 1.2) +
+  
+  geom_line(aes(y = pred_poly, color = "Polynomial Model"),
+            linewidth = 1.2) +
+  
+  scale_color_manual(
+    values = c(
+      "Actual" = "black",
+      "Linear Model" = "red",
+      "Polynomial Model" = "blue"
+    ),
+    name = "Legend"
+  ) +
+  
+  labs(
+    title = "Actual Data vs Linear and Polynomial Model Predictions",
+    x = "Year",
+    y = "Total Number of HIV Diagnoses"
+  ) +
+  
+  theme_minimal()
+```
+
+The plot compares the actual HIV diagnoses with predictions from the linear and quadratic models.
+When viewed side by side, the polynomial curve shows a slight curvature, but it does not meaningfully
+change the overall trend. Both fitted lines closely follow the steady downward pattern in the data,
+reinforcing that the decline is essentially linear.
+
+### Testing Extrapolation for 2022-2024
+
+To explore how well our model extends beyond the observed data, we checked the most recent NYC
+HIV Surveillance Annual Reports for 2022 and 2023 and compared their published totals with our
+model’s extrapolated predictions. The 2024 report is not yet available.
+
+It is important to note that the annual reports do not perfectly match the values in our dataset. For
+example, the reports list 1,594 cases for 2021 (our dataset: 1,592), 1,396 cases for 2020 (dataset:
+1,394), and 1,772 cases for 2019 (dataset: 1,762). These small discrepancies likely reflect data
+revisions or reporting differences between sources.
+
+Nonetheless, we were curious to see whether the overall trend observed from 2016 to 2021 continued
+in recent years, and whether our fitted model could reasonably approximate the direction of that trend.
+
+```{r}
+future_years <- data.frame(
+  YEAR = c(2022, 2023),
+  'TOTAL NUMBER OF HIV DIAGNOSES' = c(1624, 1686)
+)
+
+future_years$pred_linear <- predict(model1, future_years)
+future_years$pred_poly   <- predict(model_poly, future_years)
+
+names(future_years)[names(future_years) == 'TOTAL.NUMBER.OF.HIV.DIAGNOSES'] <- 
+  'TOTAL NUMBER OF HIV DIAGNOSES'
+
+names(df_hiv_pred)[names(df_hiv_pred) == 'pred'] <- 'pred_linear'
+
+df_hiv_pred <- rbind(df_hiv_pred, future_years)
+
+ggplot(df_hiv_pred, aes(x = YEAR)) +
+  geom_point(aes(y = `TOTAL NUMBER OF HIV DIAGNOSES`, color = 'Actual'), size = 2) +
+  
+  geom_line(aes(y = pred_linear, color = 'Linear Model'), linewidth = 1.5, alpha=0.35) +
+  geom_point(aes(y = pred_linear, color = 'Linear Model'), size = 2, alpha=0.5) +
+  
+  geom_line(aes(y = pred_poly, color = 'Polynomial Model'), linewidth = 1.5, alpha=0.35) +
+  geom_point(aes(y = pred_poly, color = 'Polynomial Model'), size = 2, alpha=0.5) +
+  
+  scale_x_continuous(breaks = df_hiv_pred$YEAR) +
+  scale_color_manual(values = c('Actual' = 'black',
+                                'Linear Model' = 'blue',
+                                'Polynomial Model' = 'red')) +
+  labs(
+    title = 'Actual vs Predicted HIV Diagnoses (Linear vs Polynomial)',
+    x = 'Year',
+    y = 'HIV Diagnoses',
+    color = ''
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.95))
+```
+
+This plot compares actual HIV diagnoses with the linear and polynomial model predictions extended
+through 2023. While both models stay close to the observed data from 2016 to 2021, their
+extrapolated predictions diverge afterward. The linear model continues a sharp downward decline,
+whereas the polynomial model flattens out and predicts a slower decrease. The actual values for 2022
+and 2023 fall above both prediction lines, which is somewhat expected given the small sample size
+and the disruptions caused by COVID-19 during the recent years.
+
+### Geographic Exploration
+
+We also explored the trends geographically, examining how HIV diagnoses varied across New York
+City’s boroughs to understand whether the overall pattern differed by location.
+
+#### Borough-level Model
+
+We also fit a regression model using borough and year to examine how HIV diagnosis rates differ
+across locations and how those borough-level trends have changed over time.
+
+```{r}
+borough_df_agg <- df %>% 
+  filter(
+    Borough != "All",
+    Neighborhood == "All",
+   SEX == "All",
+   `RACE/ETHNICITY` == "All"
+  )
+
+# make a model
+borough_agg_model = lm(formula =`HIV DIAGNOSES PER 100,000 POPULATION` ~ YEAR + Borough,
+                           data = borough_df_agg)
+
+# add predicted values to df
+borough_df_agg$gen_pred_hiv_100 <- predict(borough_agg_model,
+                                          newdata = borough_df_agg)
+
+summary(borough_agg_model)
+```
+
+The model fits the borough-level data very well. The low residual standard error (2.755) indicates
+strong accuracy, and the high R-squared (0.9301) and adjusted R-squared confirm that year and
+borough together explain most of the variation in HIV diagnosis rates. The small p-value for the overall
+F-statistic shows that these predictors jointly contribute significantly to the model. Each borough also
+has a very low p-value, meaning their average rates differ significantly from one another. Combined
+with the negative year coefficient, the results show two clear patterns: HIV diagnoses are declining
+over time, and each borough follows its own distinct rate level.
+
+```{r}
+ggplot(data = borough_df_agg,
+       aes(YEAR,`HIV DIAGNOSES PER 100,000 POPULATION`,
+           color = Borough)) +
+  geom_point() + 
+  geom_line(aes(y = gen_pred_hiv_100)) +
+  labs(
+    title = "HIV Diagnoses by Borough",
+    x = "",
+    y = "HIV Diagnoses (per 100,000)"
+  ) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal()
+```
+
+```{r}
+borough_df_agg$residuals <- residuals(borough_agg_model)
+
+ggplot(borough_df_agg, aes(x = gen_pred_hiv_100, y = residuals,
+                           color = Borough)) +
+  geom_point(alpha = 0.8) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    title = "Residuals vs Predicted Values (Borough Model)",
+    x = "Predicted HIV Diagnoses (per 100,000)",
+    y = "Residuals"
+  ) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal()
+```
+
+The residual plot shows no strong pattern, indicating that the borough model generally meets linearity
+assumptions. Most residuals are close to zero, though Staten Island and the Bronx show larger
+positive or negative values, indicating the model tends to underpredict or overpredict in those
+boroughs. This suggests that while the model captures the overall trend, it struggles more with
+boroughs that have unusually low or high HIV rates.
+
+#### Neighborhood-level Model
+
+We also fit a neighborhood-level model within the Bronx to examine how HIV diagnosis rates vary
+across different areas of the borough and how those rates have changed over time.
+
+```{r}
+bronx_neighborhood_simple <- df %>% 
+  filter(
+    Borough == "Bronx",
+    Neighborhood != "All",
+   SEX == "All",
+   `RACE/ETHNICITY` == "All")
+
+bronx_neighborhood_model = lm(formula =`HIV DIAGNOSES PER 100,000 POPULATION` ~YEAR + Neighborhood, 
+                   data = bronx_neighborhood_simple)
+
+# add predicted values to df
+bronx_neighborhood_simple$predicted_hiv_100 <- predict(bronx_neighborhood_model,
+                                          newdata = bronx_neighborhood_simple)
+
+summary(bronx_neighborhood_model)
+```
+
+The model indicates a clear downward trend in HIV diagnosis rates within the Bronx, with the year
+coefficient showing a significant decline over time (p < 0.001). The overall model also fits well,
+reflected by a high R-squared value (0.8212), meaning year and neighborhood together explain a
+substantial share of the variation. The small p-value for the F-statistic confirms that the predictors
+collectively contribute significantly to the model. Several neighborhoods have very low p-values,
+indicating their average rates are statistically different from the reference neighborhood.
+Overall, Bronx neighborhoods do not follow a single uniform pattern. Some areas have consistently
+lower rates than others, even after accounting for the overall citywide decline.
+
+```{r}
+ggplot(data = bronx_neighborhood_simple,
+       aes(YEAR,`HIV DIAGNOSES PER 100,000 POPULATION`,
+           color = Neighborhood)) +
+  geom_point(alpha = 0.8) +
+  geom_line(aes(y = predicted_hiv_100)) +
+  labs(
+    title = "Yearly HIV Diagnoses by Bronx Neighborhood",
+    x = "",
+    y = "HIV Diagnoses (per 100,000)"
+  ) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal()
+```
+
+```{r}
+bronx_neighborhood_simple$residuals <- residuals(bronx_neighborhood_model)
+
+ggplot(bronx_neighborhood_simple, aes(x = predicted_hiv_100, y = residuals,
+                                      color = Neighborhood)) +
+  geom_point(alpha = 0.8) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    title = "Residuals vs Fitted Values",
+    x = "Predicted HIV Diagnoses (per 100,000)",
+    y = "Residuals"
+  ) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal()
+```
+
+The neighborhood-level residual plot shows a wider spread than the borough model, which means the
+linear model has more difficulty capturing variation across individual neighborhoods. While most
+points hover around zero, several neighborhoods show large positive or negative residuals, indicating
+noticeable underprediction or overprediction. This suggests that the relationship between predictors
+and HIV rates is more complex at the neighborhood level than a simple linear model can capture.
+
+### Why We Moved Beyond Linear Models
+
+After running these models, we realized that this dataset is not a great fit for standard linear modeling.
+The dataset contains too few time points for a linear trend to be dependable. Borough and
+neighborhood data also follow patterns driven more by population differences and reporting rules than
+by smooth numerical trends. Because of this, the linear models did not capture the data’s structure
+very well. So, we decided to treat the data differently and try a different type of regression that better
+fits how this dataset behaves.
+
+### A Different Approach - Tree-based Regression
+
+Because linear models were not giving us meaningful results, we moved to tree-based methods,
+starting with decision tree regression and then random forest regression. These models work
+differently: instead of trying to fit one line to all the data, they split the data into smaller, more similar
+groups and make predictions within those groups. This makes them more flexible and better suited for
+patterns that are not linear. Random forests in particular average many trees together, which usually
+gives more stable and accurate predictions. These methods allowed us to explore borough, race, and
+demographic factors in a way that better matched the structure of the dataset.
+
+To prepare the data for tree-based regression, we first created a modeling dataset containing the HIV
+diagnosis rate along with key predictors such as year, borough, neighborhood, sex, race/ethnicity, and
+the total number of diagnoses. All categorical variables were converted into factors so that the tree
+model could correctly treat them as groups rather than numeric values. We then split the data into
+training and testing sets using an 80–20 split to allow for model evaluation on unseen data. After
+setting a random seed for reproducibility, we fit a decision tree regression model using the rpart
+package.
+
+### Decision Tree Regressor
+
+We fit a decision tree regression model using the rpart function, with the HIV diagnosis rate as the
+outcome and year, borough, neighborhood, sex, and race/ethnicity as predictors. The model uses the
+"anova" method, which is designed for continuous outcomes. This approach lets the tree
+automatically find splits in the data that best explain differences in HIV rates across groups and
+locations. By doing so, it identifies which factors and combinations of factors contribute most to
+variations in diagnosis rates.
+
+```{r}
+target = 'HIV DIAGNOSES PER 100,000 POPULATION'
+
+model_df = df_no_agg[, c('HIV DIAGNOSES PER 100,000 POPULATION',
+                  'YEAR',
+                  'Borough',
+                  'Neighborhood',
+                  'SEX',
+                  'RACE/ETHNICITY',
+                  'TOTAL NUMBER OF HIV DIAGNOSES')]
+
+model_df$Borough = factor(model_df$Borough)
+model_df$Neighborhood = factor(model_df$Neighborhood)
+model_df$SEX = factor(model_df$SEX)
+model_df$`RACE/ETHNICITY` = factor(model_df$`RACE/ETHNICITY`)
+```
+
+```{r}
+set.seed(65)
+index = sample(1:nrow(model_df), 0.8 * nrow(model_df))
+
+train = model_df[index, ]
+test  = model_df[-index, ]
+```
+
+```{r}
+set.seed(65)
+tree_model = rpart(
+  formula = `HIV DIAGNOSES PER 100,000 POPULATION` ~ YEAR + Borough + Neighborhood + SEX + `RACE/ETHNICITY`,
+  data = train,
+  method = 'anova'
+)
+```
+
+```{r}
+compact_split <- function(x, labs, digits, varlen, faclen) {
+  sapply(labs, function(l) {
+    
+    feature <- sub("(.*?)(<|>|=).*", "\\1\\2", l)   # keeps "Neighborhood =" or "TOTAL <"
+    feature <- trimws(feature)
+    
+    values <- sub(".*?(<|>|=)", "", l)  # remove feature+operator
+    values <- trimws(values)
+    
+    parts <- unlist(strsplit(values, ",")) 
+    parts <- trimws(parts)
+    
+    keep_n <- 3
+    
+    keep <- parts[1:min(keep_n, length(parts))]
+    leftover <- length(parts) - keep_n
+    
+    if (leftover > 0) {
+      keep <- c(keep, paste0("(", leftover, " more)"))
+    }
+    
+    paste(
+      feature,
+      paste(keep, collapse = "\n"),
+      sep = "\n"
+    )
+  })
+}
+```
+
+```{r fig.width=16}
+rpart.plot(
+  tree_model,
+  type = 1,
+  extra = 1,
+  faclen = 0,
+  cex = 0.6,
+  split.fun = compact_split
+)
+```
+
+The decision tree begins with race and ethnicity because this variable creates the strongest
+separation in the data. As the tree moves downward, neighborhood and sex appear often because
+they help refine the groups even further. Each final leaf represents a subgroup with its own average
+predicted HIV rate, showing how combinations of demographic and geographic factors shape the
+overall pattern. The structure of the tree makes it clear that the differences in HIV rates are not driven
+by any single factor but by how these characteristics interact with one another.
+
+```{r}
+imp <- as.data.frame(tree_model$variable.importance)
+imp$Feature <- rownames(imp)
+colnames(imp)[1] <- 'Importance'
+
+ggplot(imp, aes(x = reorder(Feature, Importance), y = Importance)) +
+  geom_col(fill = 'steelblue') +
+  coord_flip() +
+  labs(
+    title = 'Feature Importance - Decision Tree',
+    x = 'Feature',
+    y = 'Importance Score'
+  ) +
+  theme_minimal() +
+  theme(
+      plot.title = element_text(size = 14, face = 'bold'),
+      axis.text  = element_text(size = 11)
+    )
+```
+
+The feature importance results show that Neighborhood contributes the most to predicting HIV
+diagnosis rates in the decision tree. Race/ethnicity is the next most important factor, followed by sex.
+Borough has the smallest impact, likely because neighborhood information already captures most of
+the geographic variation. Overall, this tells us that local neighborhood differences explain more of the
+variation in HIV rates than broader borough-level or demographic factors alone.
+
+```{r fig.width=8, fig.height=4}
+plotcp(tree_model)
+```
+
+This plot shows how the tree’s cross-validated error changes as the model becomes more complex.
+When the tree is very small, the error is high because the model cannot capture much of the variation.
+As the tree grows, the error drops steadily, meaning additional splits help improve prediction
+accuracy. After a certain point, the curve levels off, which tells us that making the tree larger provides
+only small improvements. This pattern helps identify a reasonable tree size that improves accuracy
+without becoming unnecessarily complex.
+
+```{r}
+best_cp <- 0.017
+
+#best_cp <- hiv_tree$cptable[
+#  which.min(hiv_tree$cptable[, "xerror"]),
+#  "CP"
+#]
+
+pruned_tree = prune(tree_model, cp = best_cp)
+```
+
+
+```{r}
+eval_metrics <- function(m, test) {
+  pred   <- predict(m, test)
+  actual <- test$`HIV DIAGNOSES PER 100,000 POPULATION`
+  MAE  <- round(mean(abs(pred - actual)), 2)
+  MSE  <- round(mean((pred - actual)^2), 2)
+  RMSE <- round(sqrt(MSE), 2)
+  R2   <- round(1 - sum((pred - actual)^2) / sum((actual - mean(actual))^2), 2)
+  c(MAE, MSE, RMSE, R2)
+}
+
+metrics_df <- data.frame(
+  Metric      = c('MAE','MSE','RMSE','R²'),
+  Decision_Tree = eval_metrics(tree_model, test),
+  Pruned_Tree = eval_metrics(pruned_tree, test)
+)
+
+flextable(metrics_df) |>
+  set_caption("Decision Tree Vs Pruned Tree (Cp = 0.017)")
+```
+
+The full decision tree and the pruned tree perform very similarly. The pruned tree shows a small increase 
+in MAE but achieves slightly lower MSE and RMSE, indicating marginally better average error overall. 
+Its R² increases from 0.46 to 0.48, meaning the pruned model explains a little more variance in HIV 
+diagnosis rates. In this case, pruning produces a simpler model without hurting performance and may even 
+offer a modest improvement.
+
+### Random Forest Regressor
+
+We trained a random forest model to improve prediction accuracy. Unlike a single decision tree, a
+random forest builds many trees using random subsets of the data and then averages their
+predictions, which helps reduce overfitting and produce more stable results. We used 500 trees and
+set mtry to 3, allowing the model to consider three predictors at each split. This approach lets us
+capture more complex patterns in HIV rates across neighborhoods and demographic groups.
+
+```{r}
+model_df <- subset(model_df, select = -c(`TOTAL NUMBER OF HIV DIAGNOSES`))
+```
+
+```{r}
+set.seed(65)
+train_idx <- sample(seq_len(nrow(model_df)), size = 0.8 * nrow(model_df))
+
+train <- model_df[train_idx, ]
+test  <- model_df[-train_idx, ]
+
+y_train <- train$`HIV DIAGNOSES PER 100,000 POPULATION`
+x_train <- train[, setdiff(names(train), "HIV DIAGNOSES PER 100,000 POPULATION")]
+
+y_test  <- test$`HIV DIAGNOSES PER 100,000 POPULATION`
+x_test  <- test[, setdiff(names(test), "HIV DIAGNOSES PER 100,000 POPULATION")]
+
+rf_model <- randomForest(
+  x = x_train,
+  y = y_train,
+  ntree = 500,
+  mtry = 3,
+  importance = TRUE
+)
+
+rf_vals <- eval_metrics(rf_model, test)
+
+metrics_df$Random_Forest <- rf_vals
+
+flextable(metrics_df) |>
+  set_caption("Decision Tree Vs Pruned Tree Vs Random Forest")
+```
+
+The random forest model performs noticeably better than both the full and pruned decision trees. It
+has the lowest MAE, MSE, and RMSE values, meaning its predictions are closer to the actual HIV
+rates. Its R² value is also much higher at 0.65, indicating that it explains a larger share of the variation
+in the data. These results show that combining many trees produces a more accurate and stable
+model than relying on a single tree, which is expected given the complexity and variability of HIV rates
+across neighborhoods and demographic groups.
+
+```{r fig.width=8, fig.height=3}
+imp <- importance(rf_model)
+
+imp_df <- data.frame(
+  Feature = rownames(imp),
+  Importance = imp[ , 1]
+)
+rownames(imp_df) <- NULL
+
+ggplot(imp_df, aes(x = reorder(Feature, Importance), y = Importance)) +
+  geom_col(fill = '#2c7fb8') +
+  coord_flip() +
+  labs(
+    title = 'Feature Importance - Random Forest (%IncMSE)',
+    x = 'Feature',
+    y = 'Importance'
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(size = 14, face = 'bold'),
+    axis.text  = element_text(size = 10)
+  )
+```
+
+The random forest feature importance results show that race and ethnicity is the strongest predictor of
+HIV diagnosis rates, followed closely by sex. Neighborhood still plays an important role but
+contributes less than the first two variables. Borough and year have much smaller impacts once the
+other predictors are included. This pattern highlights demographic characteristics as the main drivers
+of HIV rate variation in the random forest model. In the decision tree, neighborhood appeared as the
+most important factor, which reflects how a single tree often relies on large geographic splits. The
+random forest spreads its importance across many trees, which brings demographic variables like
+race and sex to the forefront.
+
+### RF Cross-Validation
+
+To tune the random forest model, we used 10-fold cross-validation and tested different combinations
+of the number of trees (ntree) and the number of predictors considered at each split (mtry). For each
+ntree value, the model evaluated five possible mtry settings and selected the one that produced the
+lowest RMSE. This process allows the model to choose the tuning parameters that give the best
+predictive performance rather than relying on defaults. After collecting the results across all ntree
+values, we compared them and identified the combinations with the highest R² and lowest errors. This
+cross-validation step helps ensure that the final random forest model is well-optimized and
+generalizes better to unseen data.
+
+```{r}
+control <- trainControl(
+  method = 'cv',
+  number = 10
+)
+
+set.seed(65)
+
+results_list <- list()
+
+for (m in c(200, 500, 800, 1000, 1500, 2000)){
+
+  rf_cv <- train(
+    `HIV DIAGNOSES PER 100,000 POPULATION` ~ .,
+    data = train,
+    method = 'rf',
+    trControl = control,
+    tuneGrid = data.frame(mtry = c(1,2,3,4)),
+    ntree = m
+  )
+
+  best <- rf_cv$results[which.min(rf_cv$results$RMSE), ]
+
+  results_list[[length(results_list) + 1]] <- data.frame(
+    ntree    = m,
+    mtry     = best$mtry,
+    RMSE     = round(best$RMSE, 2),
+    Rsquared = round(best$Rsquared, 2),
+    MAE      = round(best$MAE, 2)
+  )
+}
+
+results_df <- do.call(rbind, results_list)
+results_sorted_desc <- results_df[order(-results_df$Rsquared), ]
+flextable(head(results_sorted_desc, 5)) |>
+  set_caption("Top 5 Cross-Validated Scores - Random Forest")
+```
+
+The cross-validation results show that the random forest performs consistently well across different numbers of trees, with RMSE values around 29 and R² values in the range of 0.59 to 0.61. This suggests that, on average, the model can explain a little more than half of the variation in HIV diagnosis rates when evaluated on different subsets of the training data. 
+
+The initial random forest model trained with 500 trees and mtry = 3 achieved a higher R² of about 0.65 on the test set, which reflects the performance on that specific data split. This difference can occur when the test data happen to follow patterns that the model learned especially well, making that particular split slightly easier to predict than the folds used during cross-validation.
+
+### Can a Random Forest Trained on Past Data Predict the Future?
+
+To explore this question, we trained the model using data from 2016-2020 and evaluated its
+performance on the unseen year 2021. Although Random Forests are not traditional forecasting
+models and YEAR itself was not a strong predictor, this temporal split allows us to assess whether the
+demographic and geographic patterns learned in earlier years remain stable when applied to a new
+period.
+
+The goal is not to forecast future values in the strict time-series sense, but to test the model’s ability to generalize across years.
+
+```{r}
+df2 <- model_df
+```
+
+```{r}
+# cutoff year
+cutoff_year <- 2021
+
+# split data based on the year column
+time_train <- df2[df2$YEAR < cutoff_year, ]
+time_test <- df2[df2$YEAR == cutoff_year, ]
+```
+
+```{r}
+# separate features and target
+y_time_train <- time_train$`HIV DIAGNOSES PER 100,000 POPULATION`
+x_time_train <- time_train[, setdiff(names(time_train), "HIV DIAGNOSES PER 100,000 POPULATION")]
+
+y_time_test <- time_test$`HIV DIAGNOSES PER 100,000 POPULATION`
+x_time_test <- time_test[, setdiff(names(time_test), "HIV DIAGNOSES PER 100,000 POPULATION")]
+```
+
+```{r}
+set.seed(65)
+
+# retrain random forest model
+rf_time_model <- randomForest(
+  x = x_time_train,
+  y = y_time_train,
+  ntree = 500,
+  mtry = 2,
+  importance = TRUE
+)
+
+# generate predictions for 2021
+rf_time_pred <- predict(rf_time_model, newdata = x_time_test)
+```
+
+```{r}
+# calculating errors
+residuals_time <- rf_time_pred - y_time_test
+MAE_time <- mean(abs(residuals_time))
+MSE_time <- mean(residuals_time^2)
+RMSE_time <- sqrt(MSE_time)
+SST_time <- sum((y_time_test - mean(y_time_test))^2)
+SSE_time <- sum(residuals_time^2)                   
+R2_time <- 1 - (SSE_time / SST_time)
+
+metrics_time_df <- data.frame(
+  mtry = 2,
+  ntree = 500,
+  MAE  = MAE_time,
+  MSE  = MSE_time,
+  RMSE = RMSE_time,
+  R2   = R2_time
+)
+
+metrics_time_df <- round(metrics_time_df, 3)
+
+flextable(metrics_time_df) |>
+  set_caption("RF Model Evaluation on Unseen Year (2021)")
+```
+
+The model performs well on the held-out data. With its chosen parameters, it reaches an MAE of about 11 and an RMSE of about 24, meaning the forecasts for 2021 are generally close to the true HIV rates. The R² value of 0.612 shows that the model captures over 60 percent of the variation, which indicates strong year-to-year generalization.
+
+### Random Forest Hyperparameter Search
+
+We ran a grid-search experiment by tuning four random forest parameters: mtry (1 to 4), ntree (200 to 1000), nodesize (3 to 15), and maxnodes (15 to 50). For each combination we trained a model and recorded the out-of-bag RMSE and R² to assess performance. Sorting the results by R² helped identify the strongest parameter settings.
+
+```{r, include=FALSE}
+mtry_values    <- c(1, 2, 3, 4)
+ntree_values   <- c(200, 500, 800, 1000)
+nodesize_values <- c(3, 5, 10, 15)
+maxnodes_values <- c(15, 25, 35, 50)
+
+results3 <- data.frame(
+  mtry = integer(),
+  ntree = integer(),
+  nodesize = integer(),
+  maxnodes = integer(),
+  RMSE = numeric(),
+  R2 = numeric()
+)
+
+set.seed(65)
+
+for (m in mtry_values) {
+  for (n in ntree_values) {
+    for (ns in nodesize_values) {
+      for (mn in maxnodes_values) {
+
+        model <- randomForest(
+          x = x_time_train,
+          y = y_time_train,
+          mtry = m,
+          ntree = n,
+          nodesize = ns,
+          maxnodes = mn,
+          importance = FALSE
+        )
+
+        # Out-of-bag predictions
+        oob_pred <- model$predicted
+        actual   <- y_time_train
+
+        valid <- !is.na(oob_pred)
+        oob_pred <- oob_pred[valid]
+        actual   <- actual[valid]
+
+        # Compute RMSE and R²
+        rmse <- sqrt(mean((oob_pred - actual)^2))
+        r2   <- 1 - sum((oob_pred - actual)^2) / sum((actual - mean(actual))^2)
+
+        # Save results
+        results3 <- rbind(
+          results3,
+          data.frame(
+            mtry = m,
+            ntree = n,
+            nodesize = ns,
+            maxnodes = mn,
+            RMSE = rmse,
+            R2 = r2
+          )
+        )
+      }
+    }
+  }
+}
+
+results3[order(-results3$R2), ]
+```
+
+```{r}
+# sort the results by OOB R-squared in descending order and select the top 3 rows
+top_3_params <- results3[order(-results3$R2), ][1:3, ]
+
+flextable(top_3_params)
+```
+
+We then trained a final random forest model using the best parameter combination identified in the grid search. The selected settings were mtry = 3, ntree = 800, nodesize = 10, and maxnodes = 50. After fitting this model on the training years, we used it to generate predictions for the 2021 test data to assess how well the tuned model performs on unseen observations.
+
+```{r}
+# parameters for the best model
+best_params <- top_3_params[1, ]
+
+set.seed(65)
+
+# train model
+rf_best_model <- randomForest(
+  x = x_time_train,
+  y = y_time_train,
+  mtry = best_params$mtry,
+  ntree = best_params$ntree,
+  nodesize = best_params$nodesize,
+  maxnodes = best_params$maxnodes,
+  importance = FALSE 
+)
+
+# predict the 2021 test data
+pred_best <- predict(rf_best_model, newdata = x_time_test)
+```
+
+```{r}
+residual_data <- data.frame(
+  Actual = y_time_test,
+  Predicted = pred_best,
+  Residuals = y_time_test - pred_best # Actual - Predicted
+)
+
+# residuals vs predicted values
+ggplot(residual_data, aes(x = Predicted, y = Residuals)) +
+  geom_point(alpha = 0.6, color = 'darkblue') +
+  geom_hline(yintercept = 0, linetype = 'dashed', color = 'red', linewidth = 1) +
+  labs(
+    title = paste("Residual Plot for Random Forest (Best RF Model)"),
+    subtitle = "HIV Diagnoses Per 100,000 Population (Year 2021)",
+    x = "Predicted HIV Rate",
+    y = "Residuals (Actual - Predicted)"
+  ) +
+  theme_minimal()
+```
+
+The residual plot shows that the model predicts lower HIV diagnosis rates fairly accurately, with most points near zero for predicted values under 50. This happens because most observations fall in this range, giving the model more training examples. At higher predicted rates, the residuals spread out and become more extreme, meaning the model is less reliable for neighborhoods or groups with very high HIV diagnosis rates, which are much less common in the data.
+
+
+```{r}
+ggplot(residual_data, aes(x = Actual, y = Predicted)) +
+  geom_point(alpha = 0.6, color = 'forestgreen') +
+  geom_abline(intercept = 0, slope = 1, linetype = 'dashed', color = 'red', linewidth = 1) +
+  labs(
+    title = "Actual vs. Predicted Rates",
+    subtitle = "Forecasted 2021 HIV Rates (Per 100,000 Population)",
+    x = "Actual HIV Rate (2021)",
+    y = "Predicted HIV Rate (2021)"
+  ) +
+  theme_minimal()
+```
+
+The plot shows that as the actual HIV rate increases, the model’s predicted rate also increases, so it is capturing the overall relationship in the data. For most observations under about 50 cases per 100,000, the predictions stay close to the diagonal reference line. At higher actual rates, many points fall below the line, indicating that the model underpredicts these extreme cases. This aligns with what we observed in the residual plot, where larger positive residuals appeared mostly at higher predicted values, confirming that the model struggles with the rare high-rate observations and tends to shrink them toward the center of the distribution.
+
+```{r}
+set.seed(65)
+k <- 10
+folds <- sample(rep(1:k, length.out = nrow(x_time_train)))
+
+cv_MAE  <- c()
+cv_MSE  <- c()
+cv_RMSE <- c()
+cv_R2   <- c()
+
+for(i in 1:k){
+  
+  train_idx <- folds != i
+  test_idx  <- folds == i
+  
+  rf_cv <- randomForest(
+    x = x_time_train[train_idx, ],
+    y = y_time_train[train_idx],
+    mtry     = best_params$mtry,
+    ntree    = best_params$ntree,
+    nodesize = best_params$nodesize,
+    maxnodes = best_params$maxnodes
+  )
+  
+  pred <- predict(rf_cv, x_time_train[test_idx, ])
+  actual <- y_time_train[test_idx]
+  
+  residuals <- pred - actual
+  
+  cv_MAE[i]  <- mean(abs(residuals))
+  cv_MSE[i]  <- mean(residuals^2)
+  cv_RMSE[i] <- sqrt(cv_MSE[i])
+  cv_R2[i]   <- 1 - sum(residuals^2) / sum((actual - mean(actual))^2)
+}
+
+cv_results <- data.frame(
+  mtry     = best_params$mtry,
+  ntree    = best_params$ntree,
+  nodesize = best_params$nodesize,
+  maxnodes = best_params$maxnodes,
+  MAE      = mean(cv_MAE),
+  MSE      = mean(cv_MSE),
+  RMSE     = mean(cv_RMSE),
+  R2       = mean(cv_R2)
+)
+
+flextable(round(cv_results, 3)) |>
+  set_caption("Cross-Validation - RF Model with Best Parameters")
+```
+
+The cross-validation result for the model with mtry = 3, ntree = 800, nodesize = 10, and maxnodes = 50 gives an R² of about 0.615. This is very close to the training R² of about 0.612 from the initial model with mtry = 2 and ntree = 500, which we used to predict on unseen 2021 data. The similarity between these values suggests that the model stays stable during tuning and does not show clear signs of overfitting.
+
+### AIDS Rate Modeling
+
+We also extended our analysis by trying to predict AIDS diagnoses per 100,000 population using both
+decision trees and random forests. The models followed the same setup as our HIV rate experiments.
+
+```{r}
+hiv <- df_no_agg
+
+hiv <- hiv %>%
+  mutate(
+    year = factor(YEAR),
+    borough = factor(Borough),
+    neighborhood = factor(Neighborhood),
+    sex = factor(SEX),
+    race_ethnicity = factor(`RACE/ETHNICITY`)
+  ) %>%
+  rename(
+    aids_diagnoses_per_100_000_population =
+      `AIDS DIAGNOSES PER 100,000 POPULATION`
+  )
+
+rmse <- function(obs, pred) {
+  sqrt(mean((obs - pred)^2))
+}
+```
+
+```{r}
+set.seed(65)
+
+train_index <- createDataPartition(
+  hiv$aids_diagnoses_per_100_000_population,
+  p = 0.8,
+  list = FALSE
+)
+
+hiv_train <- hiv[train_index, ]
+hiv_test  <- hiv[-train_index, ]
+
+aids_formula <- aids_diagnoses_per_100_000_population ~
+  year + borough + neighborhood + sex + race_ethnicity
+```
+
+```{r}
+hiv_tree <- rpart(
+  formula = aids_formula,
+  data = hiv_train,
+  method = "anova",
+  control = rpart.control(cp = 0.01)
+)
+
+imp <- as.data.frame(hiv_tree$variable.importance)
+imp$Feature <- rownames(imp)
+colnames(imp)[1] <- 'Importance'
+
+ggplot(imp, aes(x = reorder(Feature, Importance), y = Importance)) +
+  geom_col(fill = 'steelblue') +
+  coord_flip() +
+  labs(
+    title = 'Feature Importance - Decision Tree',
+    x = 'Feature',
+    y = 'Importance Score'
+  ) +
+  theme_minimal() +
+  theme(
+      plot.title = element_text(size = 14, face = 'bold'),
+      axis.text  = element_text(size = 11)
+    )
+```
+
+The decision tree importance plot shows that neighborhood is the strongest predictor of AIDS
+diagnoses, followed by race/ethnicity and sex. Borough contributes less, and year has very little
+influence. This means the model relies most on local neighborhood-level differences when making
+predictions.
+
+```{r}
+plotcp(hiv_tree)
+```
+
+The cross-validation curve shows a steady reduction in relative error as cp decreases, and the
+minimum point occurs around cp ≈ 0.012. This is where the tree achieves its lowest cross-validated
+error, indicating the best balance between model complexity and predictive performance for this
+dataset.
+
+```{r}
+best_cp <- 0.023
+
+hiv_tree_pruned <- prune(hiv_tree, cp = best_cp)
+
+eval_metrics <- function(m, test) {
+  pred   <- predict(m, test)
+  actual <- test$aids_diagnoses_per_100_000_population
+  MAE  <- round(mean(abs(pred - actual)), 2)
+  MSE  <- round(mean((pred - actual)^2), 2)
+  RMSE <- round(sqrt(MSE), 2)
+  R2   <- round(1 - sum((pred - actual)^2) / sum((actual - mean(actual))^2), 2)
+  c(MAE, MSE, RMSE, R2)
+}
+
+metrics_df <- data.frame(
+  Metric      = c('MAE','MSE','RMSE','R²'),
+  Decision_Tree = eval_metrics(hiv_tree, hiv_test),
+  Pruned_Tree = eval_metrics(hiv_tree_pruned, hiv_test)
+)
+
+flextable(metrics_df) |>
+  set_caption("Decision Tree Vs Pruned Tree (Cp = 0.025)")
+```
+
+Even though the cross-validation curve identifies cp ≈ 0.012 as the best value, the tree pruned at cp =
+0.025 achieved slightly better RMSE, and R² on our evaluation set. This happens because rpart
+optimizes cross-validated relative error, which does not always align perfectly with external
+performance metrics, especially in smaller or noisier datasets. A slightly simpler tree can generalize
+better in practice.
+
+```{r plot-tree, fig.width=10, fig.height=6}
+par(xpd = NA, mar = c(1, 1, 3, 1))
+
+rpart.plot(
+  hiv_tree_pruned,
+  type = 2,
+  extra = 101,
+  fallen.leaves = TRUE,
+  tweak = 1.2,
+  cex = 0.6,
+  faclen = 6,
+  main = "Pruned Decision Tree",
+  split.fun = compact_split
+)
+```
+
+The pruned tree shows that neighborhood is the dominant factor separating HIV diagnosis rates, with
+race and ethnicity and sex providing additional refinements within each group. The simplified structure
+still captures the same hierarchy seen earlier, and it further reinforces the feature importance results,
+where neighborhood and demographic variables were the strongest predictors.
+
+```{r}
+set.seed(65)
+
+cv_ctrl <- trainControl(
+  method = "cv",
+  number = 10
+)
+
+tree_cv <- train(
+  aids_formula,        # formula as first argument (no "formula =")
+  data = hiv_train,
+  method = "rpart",
+  trControl = cv_ctrl,
+  tuneLength = 5
+)
+
+tree_results <- tree_cv$results[ , c('cp', 'RMSE', 'MAE', 'Rsquared')]
+
+tree_results <- round(tree_results, 3)
+
+flextable(tree_results) |>
+  set_caption('Cross-Validated Scores - Decision Tree')
+```
+
+The cross-validation results show that the decision tree performs best at cp = 0.020, where RMSE
+and MAE are lowest and R² is highest at about 0.223. As cp increases, the model becomes more
+aggressively pruned and performance worsens, with R² dropping and errors rising. This indicates that
+lightly pruned trees capture the AIDS-rate patterns better than more simplified versions, though
+overall predictive power remains modest.
+
+### Random Forest
+
+We also fit a random forest model to predict AIDS diagnoses per 100,000, using 500 trees and mtry =
+3. This model provides more stable predictions than a single tree and again highlights neighborhood
+and demographic variables as the strongest predictors.
+
+```{r}
+set.seed(65)
+hiv_rf <- randomForest(
+  formula = aids_formula,
+  data = hiv_train,
+  ntree = 500,
+  mtry = 3,
+  importance = TRUE,
+  na.action = na.omit
+)
+
+importance_df <- importance(hiv_rf)
+importance_df <- as.data.frame(importance_df)
+
+importance_df$variable <- rownames(importance_df)
+
+importance_df %>%
+  arrange(desc(`%IncMSE`)) %>%
+  ggplot(aes(x = reorder(variable, `%IncMSE`), y = `%IncMSE`)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Feature Importance - Random Forest (AIDS rate)",
+    x = "Predictor",
+    y = "% increase in MSE"
+  ) +
+  theme_minimal()
+```
+
+The random forest feature importance results show that race and ethnicity is the strongest predictor of
+AIDS rates, followed closely by sex. Neighborhood also has a meaningful impact but contributes less
+than the demographic variables. Borough and year add very little once the model accounts for race,
+sex, and neighborhood.
+
+```{r}
+metrics_df <- data.frame(
+  Metric      = c('MAE','MSE','RMSE','R²'),
+  Decision_Tree = eval_metrics(hiv_tree, hiv_test),
+  Pruned_Tree = eval_metrics(hiv_tree_pruned, hiv_test),
+  Random_Forest = eval_metrics(hiv_rf, hiv_test)
+)
+
+flextable(metrics_df) |>
+  set_caption("Decision Tree Vs Pruned Tree Vs Random Forest")
+```
+
+The results show that predicting AIDS diagnoses is more challenging than predicting HIV rates. All
+three models have relatively low R² values, meaning they explain only a small portion of the variation
+in AIDS rates. The random forest performs the best, with the lowest MAE and RMSE and the highest
+R² at 0.30, but the improvement over the decision tree models is modest. Overall, the models capture
+some structure in the data, but AIDS rates appear more difficult to model accurately.
+
+```{r}
+set.seed(65)
+rf_cv <- train(
+  aids_formula,
+  data = hiv_train,
+  method = "rf",
+  trControl = cv_ctrl,
+  tuneLength = 5,
+  importance = TRUE
+)
+
+rf_results <- rf_cv$results[ , c('mtry', 'RMSE', 'MAE', 'Rsquared')]
+
+rf_results <- round(rf_results, 3)
+
+rf_results_sorted <- rf_results[order(-rf_results$Rsquared), ]
+
+flextable(rf_results_sorted) |>
+  set_caption('Cross-Validated Scores - Random Forest')
+```
+
+The cross-validation results for the random forest model show that performance improves noticeably
+as mtry increases. The best scores appear around mtry = 15-28, where RMSE is roughly 26 and R²
+reaches about 0.40. This means the model explains around 40 percent of the variation during cross-
+validation, which is stronger than the decision tree results.
+
+```{r}
+tree_train_pred <- predict(hiv_tree_pruned, newdata = hiv_train)
+tree_test_pred  <- predict(hiv_tree_pruned, newdata = hiv_test)
+
+rf_train_pred <- predict(hiv_rf, newdata = hiv_train)
+rf_test_pred  <- predict(hiv_rf, newdata = hiv_test)
+
+performance_df <- tibble(
+  model = c("Decision tree (pruned)", "Random forest"),
+  rmse_train = c(
+    rmse(hiv_train$aids_diagnoses_per_100_000_population, tree_train_pred),
+    rmse(hiv_train$aids_diagnoses_per_100_000_population, rf_train_pred)
+  ),
+  rmse_test = c(
+    rmse(hiv_test$aids_diagnoses_per_100_000_population, tree_test_pred),
+    rmse(hiv_test$aids_diagnoses_per_100_000_population, rf_test_pred)
+  )
+)
+
+rf_resid <- hiv_test$aids_diagnoses_per_100_000_population - rf_test_pred
+
+resid_df <- tibble(
+  fitted = rf_test_pred,
+  residual = rf_resid
+)
+
+ggplot(resid_df, aes(x = fitted, y = residual)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_point(alpha = 0.6) +
+  labs(
+    title = "Residuals vs Fitted Values - Random Forest (AIDS Rate)",
+    x = "Predicted AIDS diagnoses per 100,000",
+    y = "Residual"
+  ) +
+  theme_minimal()
+```
+
+The residual plot shows that the random forest predicts lower AIDS rates fairly well, but the errors get
+larger as the predicted values increase. Most points near 0-30 diagnoses per 100,000 cluster close to
+the horizontal line, meaning good accuracy in the common range. At higher predicted values, the
+residuals spread out more and often fall below zero, which indicates underprediction for the highest-
+rate neighborhoods. This matches what we saw earlier with HIV rates: the model performs best where
+the data is dense and struggles with rare, extreme cases.
+
+```{r}
+rf_results <- tibble(
+  actual    = hiv_test$aids_diagnoses_per_100_000_population,
+  predicted = rf_test_pred
+)
+
+ggplot(rf_results, aes(x = actual, y = predicted)) +
+  geom_point(alpha = 0.7) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  labs(
+    title = "Random Forest - Predicted vs Actual AIDS Diagnosis Rates",
+    x = "Actual AIDS Rate per 100,000",
+    y = "Predicted AIDS Rate per 100,000"
+  ) +
+  theme_minimal()
+```
+
+The predicted vs actual plot shows that the random forest model captures the general increase in
+AIDS rates but consistently underestimates the highest values. Most low-rate observations (near zero)
+are predicted reasonably well, but as the actual AIDS rate rises, the predicted values fall below the
+diagonal reference line. This underprediction at the upper end matches what we saw in the residual
+plot, where large positive residuals appeared for high-rate neighborhoods.
+
+## Limitations
+
+Our analysis has several limitations that should be considered when interpreting the results. First, the
+dataset contains only six years of consistently reported values for many of the variables, which limits
+the reliability of trend modeling and reduces the statistical power of time-based comparisons. Many
+neighborhood and demographic categories also have sparse data, particularly for smaller populations,
+which restricts model performance and contributes to the underprediction of extreme values. In
+addition, the structure of the surveillance dataset reflects reporting practices rather than a randomly
+sampled process, meaning some patterns arise from data availability rather than underlying
+epidemiology. Finally, tree-based models capture group differences well but are less effective for
+forecasting rare, high-burden observations, since the data are highly imbalanced and dominated by
+low-rate neighborhoods.
+
+## Future Works
+
+• Incorporate additional years of data and bring in external variables such as socioeconomic
+indicators, access-to-care metrics, or viral suppression rates to improve explanatory power.
+
+• Explore more advanced models such as gradient boosting or spatial models that account for
+geographic relationships between neighborhoods.
+
+• Expand and refine the feature set to reduce missing information and improve model robustness.
+
+• Build a more formal forecasting framework using rolling or expanding training windows to better
+assess how models generalize to future years.
+
+• Evaluate model stability across different boroughs and demographic groups to understand where
+errors are highest and why.
+
+## Wrap Up
+
+Overall, the project provides a detailed view of how HIV and AIDS diagnoses vary across time,
+boroughs, neighborhoods, and demographic groups in New York City. The EDA confirms persistent
+geographic and demographic disparities, with the Bronx, Black and Latino/Hispanic populations, and
+males showing consistently higher burdens.
+
+Linear models captured broad trends but were not well suited for the structure of the dataset, leading
+us to adopt tree-based methods. Decision trees offered interpretable groupings, while random forests
+delivered stronger predictive performance and more stable generalization across years.
+
+Even with their limitations, these models highlight the key factors shaping HIV and AIDS rates and
+help identify which communities carry the greatest burden. Together, these findings reinforce the need
+for targeted public health interventions and continued monitoring of neighborhood-level disparities.
